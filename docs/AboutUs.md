@@ -20,16 +20,6 @@ You can reach us at the email `pang.yy@u.nus.edu`, `nicholasyapcheeang[at]u.nus.
 * Role: Project Advisor
 * Responsibilities: UI
 
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
 ### Chan Ruenn Kai, Melvan
 
 <img src="images/melvan-chan.png" width="200px">
@@ -44,7 +34,6 @@ You can reach us at the email `pang.yy@u.nus.edu`, `nicholasyapcheeang[at]u.nus.
 <img src="images/pang-yy.png" width="200px">
 
 [[github](http://github.com/pang-yy)]
-[[portfolio](team/pangyy.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
