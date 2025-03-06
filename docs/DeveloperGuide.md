@@ -302,62 +302,133 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+---
+
 **Use case: Delete a person**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list persons (e.g., using the `list` command).
 
-    Use case ends.
+2.  AddressBook shows a list of persons with their **Name, Phone, Email and Address** in an indexed format.
+
+3.  User requests to delete a specific person in the list by index (e.g., `delete 3`).
+
+4.  AddressBook deletes the person with the given index.
+
+    **Use case ends.**
 
 **Extensions**
 
 * 2a. The list is empty.
+    * 2a1. AddressBook informs the user that there are no contacts to delete.
 
-  Use case ends.
+      **Use case ends.**
 
 * 3a. The given index is invalid.
-
     * 3a1. AddressBook shows an error message.
 
-      Use case resumes at step 2.
+      **Use case** resumes at step 2.
+
+---
 
 **Use case: Add a person**
 
 **MSS**
 
-1.  User requests to add a new person.
-2.  AddressBook saves the new person.
+1. User requests to add a new person by specifying **Name, Phone, Email, and Address**
+   (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS`).
 
-    Use case ends.
+2. AddressBook validates the details (e.g., checks phone format, email format, etc.).
+
+3. AddressBook saves the new person to the address book.
+
+   **Use case ends.**
 
 **Extensions**
 
-* 2a. User provides incomplete or invalid details.
-
+* 2a. User provides incomplete or invalid details. (e.g., phone number format is invalid)
     * 2a1. AddressBook shows an error message.
 
-      Use case ends.
+      **Use case ends.**
+
+* 2b. User tries to add a contact that already exists (e.g., same **Name and Phone**).
+    * 2b1. AddressBook rejects the duplicate entry and shows an error message.
+
+      **Use case ends.**
+
+---
 
 **Use case: Find a person**
 
 **MSS**
 
-1.  User enters a search term.
-2.  AddressBook searches and displays matching persons.
+1.  User enters a **search term**. (e.g., using `find KEYWORD`).
 
-    Use case ends.
+2.  AddressBook searches for any **matching persons** based on the search term in their
+    **Name, Phone, Email** and **Address**.
+
+    **Use case ends.**
 
 **Extensions**
 
 * 2a. No matching persons found
-
     * 2a1. AddressBook informs the user that no results match the search.
 
-      Use case ends.
+      **Use case ends.**
+
+---
+
+**Use case: Edit a person**
+
+**MSS**
+
+1. User requests to list persons.
+
+2. AddressBook shows a list of persons.
+
+3. User requests to edit a specific person.
+
+4. AddressBook updates the details of the person.
+
+   **Use case ends.**
+
+**Extensions**
+
+* 2a. The list is empty.
+  **Use case ends.**
+
+* 3a. The given index is invalid.
+    * 3a1. AddressBook shows an error message.  
+      Use case resumes at step 2.
+
+* 4a. The new details are invalid.
+    * 4a1. AddressBook shows an error message.  
+      Use case resumes at step 3.
+
+---
+
+**Use case: Save Data**
+
+**MSS**
+
+1. User performs an action that modifies the data (e.g., adding, editing, or deleting a contact).
+
+2. AddressBook automatically saves the updated data to a local file (e.g., `data/addressbook.json`).
+
+   **Use case ends.**
+
+**Extensions**
+
+* 2a. Saving data fails (e.g., permission issues or disk is full).
+    * 2a1. AddressBook shows an error message indicating that the save failed.
+
+      **Use case ends.**
+
+* 2b. Data file is corrupted or unreadable.
+    * 2b1. AddressBook shows an error message about the corrupted file.
+
+      **Use case ends.**
 
 
 ### Non-Functional Requirements
