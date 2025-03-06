@@ -446,7 +446,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **CLI (Command-Line Interface)**: A text-based interface for interacting with the application through typed commands.
+* **GUI (Graphical User Interface)**: The visual interface of the application, including windows, buttons, and forms.
+* **Contact**: An entry in the address book containing details such as name, phone number, email, and address.
+* **Students**: NUS Students
 
 --------------------------------------------------------------------------------------------------------------------
 
