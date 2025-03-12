@@ -10,6 +10,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -72,6 +73,17 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code Year} of the {@code EditPersonDescriptor} that we are building.
+     *
+     * @param year The String representation of the year
+     * @return The {@code EditPersonDescriptorBuilder} instance with the year.
+     */
+    public EditPersonDescriptorBuilder withYear(String year) {
+        descriptor.setYear(new Year(year));
+        return this;
+    }
+
+    /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
@@ -84,4 +96,6 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptor build() {
         return descriptor;
     }
+
+
 }
