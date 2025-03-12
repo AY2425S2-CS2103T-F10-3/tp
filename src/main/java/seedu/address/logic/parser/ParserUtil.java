@@ -13,6 +13,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -121,4 +122,21 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    /**
+     * Parses a {@code String yearStr} into a {@code Year}.
+     * @param yearStr The String representation of the year.
+     *
+     * @throws ParseException if the given {@code email} is invalid.
+     */
+    public static Year parseYear(String yearStr) throws ParseException {
+        requireNonNull(yearStr);
+        String trimmedYear = yearStr.trim();
+
+        if (!Year.isValidYear(trimmedYear)) {
+            throw new ParseException(Year.MESSAGE_CONSTRAINTS);
+        }
+        return new Year(trimmedYear);
+    }
+
 }
