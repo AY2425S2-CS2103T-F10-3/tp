@@ -37,7 +37,10 @@ public class ModelManager implements Model {
         this.initialDataFileLoadingError = false;
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
-    
+
+    /**
+     * Initializes a ModelManager with the given addressBook and userPrefs and initialError.
+     */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs,
         boolean initialDataFileLoadingError) {
         requireAllNonNull(addressBook, userPrefs);
@@ -158,7 +161,7 @@ public class ModelManager implements Model {
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredPersons.equals(otherModelManager.filteredPersons);
     }
-    
+
     //=========== Initial Data File Loading Error Accessors ==================================================
 
     @Override

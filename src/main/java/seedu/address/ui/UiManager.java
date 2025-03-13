@@ -42,7 +42,7 @@ public class UiManager implements Ui {
         try {
             mainWindow = new MainWindow(primaryStage, logic);
             mainWindow.show(); //This should be called before creating other UI parts
-            
+
             // Show error if has initial error
             if (logic.hasInitialError()) {
                 this.showAlertDialogAndWait(AlertType.ERROR,
@@ -51,7 +51,7 @@ public class UiManager implements Ui {
                     "Problem encountered while parsing data file.\n"
                     + "The application will continue with an empty list."); // Content
             }
-            
+
             mainWindow.fillInnerParts();
 
         } catch (Throwable e) {
