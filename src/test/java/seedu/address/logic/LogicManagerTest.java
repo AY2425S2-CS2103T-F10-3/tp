@@ -88,6 +88,11 @@ public class LogicManagerTest {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredPersonList().remove(0));
     }
 
+    @Test
+    public void hasInitialError_default_returnsFalse() {
+        assertEquals(logic.hasInitialError(), false);
+    }
+
     /**
      * Executes the command and confirms that
      * - no exceptions are thrown <br>

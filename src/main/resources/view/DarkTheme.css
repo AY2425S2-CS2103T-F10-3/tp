@@ -302,7 +302,7 @@
 
 .dialog-pane:header *.header-panel *.label {
     -fx-font-size: 18px;
-    -fx-font-style: italic;
+    /*-fx-font-style: italic;*/
     -fx-fill: white;
     -fx-text-fill: white;
 }

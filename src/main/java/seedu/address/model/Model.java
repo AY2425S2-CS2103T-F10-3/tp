@@ -84,4 +84,9 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Returns true if there's error when loading data file initially.
+     */
+    boolean isInitialDataFileLoadingError();
 }

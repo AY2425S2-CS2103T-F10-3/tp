@@ -42,6 +42,16 @@ public class UiManager implements Ui {
         try {
             mainWindow = new MainWindow(primaryStage, logic);
             mainWindow.show(); //This should be called before creating other UI parts
+
+            // Show error if has initial error
+            if (logic.hasInitialError()) {
+                this.showAlertDialogAndWait(AlertType.ERROR,
+                    "Data Parsing Error", // Title
+                    "Could Not Load Data File", // Header
+                    "Problem encountered while parsing data file.\n" // Content
+                    + "The application will continue with an empty list.");
+            }
+
             mainWindow.fillInnerParts();
 
         } catch (Throwable e) {

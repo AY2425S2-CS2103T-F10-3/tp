@@ -22,22 +22,29 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final boolean initialDataFileLoadingError;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given addressBook and userPrefs and initialError.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(addressBook, userPrefs);
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs,
+        boolean initialDataFileLoadingError) {
+        requireAllNonNull(addressBook, userPrefs, initialDataFileLoadingError);
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
+        this.initialDataFileLoadingError = initialDataFileLoadingError;
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
 
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+        this(addressBook, userPrefs, false);
+    }
+
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new UserPrefs(), false);
     }
 
     //=========== UserPrefs ==================================================================================
@@ -145,4 +152,10 @@ public class ModelManager implements Model {
                 && filteredPersons.equals(otherModelManager.filteredPersons);
     }
 
+    //=========== Initial Data File Loading Error Accessors ==================================================
+
+    @Override
+    public boolean isInitialDataFileLoadingError() {
+        return this.initialDataFileLoadingError;
+    }
 }
