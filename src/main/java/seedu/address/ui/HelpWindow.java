@@ -45,6 +45,8 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow(Stage root) {
         super(FXML, root);
+        helpMessage.setText(HELP_MESSAGE);
+        userGuideUrl.setText(USERGUIDE_URL);
     }
 
     /**
@@ -52,15 +54,6 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow() {
         this(new Stage());
-    }
-
-    /**
-     * Ensures UI elements are initialized properly.
-     */
-    @FXML
-    public void initialize() {
-        helpMessage.setText(HELP_MESSAGE);
-        userGuideUrl.setText(USERGUIDE_URL);
     }
 
     /**
