@@ -25,10 +25,6 @@ public class ModelManager implements Model {
     private final boolean initialDataFileLoadingError;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
-     */
-
-    /**
      * Initializes a ModelManager with the given addressBook and userPrefs and initialError.
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs,
@@ -42,7 +38,7 @@ public class ModelManager implements Model {
         this.initialDataFileLoadingError = initialDataFileLoadingError;
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
-    
+
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         this(addressBook, userPrefs, false);
     }
