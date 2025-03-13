@@ -48,8 +48,8 @@ public class UiManager implements Ui {
                 this.showAlertDialogAndWait(AlertType.ERROR,
                     "Data Parsing Error", // Title
                     "Could Not Load Data File", // Header
-                    "Problem encountered while parsing data file.\n"
-                    + "The application will continue with an empty list."); // Content
+                    "Problem encountered while parsing data file.\n" // Content
+                    + "The application will continue with an empty list.");
             }
 
             mainWindow.fillInnerParts();
