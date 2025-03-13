@@ -94,6 +94,11 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void isInitialDataFileLoadingError_default_returnsFalse() {
+        assertEquals(modelManager.isInitialDataFileLoadingError(), false);
+    }
+
+    @Test
     public void equals() {
         AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
         AddressBook differentAddressBook = new AddressBook();
