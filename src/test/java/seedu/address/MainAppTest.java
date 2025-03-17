@@ -50,13 +50,15 @@ public class MainAppTest {
             return Optional.empty();
         }
 
+        // this one will be called
         @Override
-        public Path getAddressBookFilePath() { // this one will be called
+        public Path getAddressBookFilePath() {
             return Paths.get("testDir");
         }
 
+        // this one cannot throw error
         @Override
-        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException { // this one cannot throw error
+        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException {
             return Optional.empty();
         }
 
@@ -95,13 +97,15 @@ public class MainAppTest {
             return Optional.empty();
         }
 
+        // this one will be called
         @Override
-        public Path getAddressBookFilePath() { // this one will be called
+        public Path getAddressBookFilePath() {
             return Paths.get("testDir");
         }
 
+        // this one need to throw
         @Override
-        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException { // this one need to throw
+        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException {
             throw new DataLoadingException(new Exception("error"));
         }
 
