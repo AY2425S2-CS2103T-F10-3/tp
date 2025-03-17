@@ -56,7 +56,7 @@ public class MainAppTest {
         }
 
         @Override
-        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException { // this one need to throw
+        public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException { // this one cannot throw error
             return Optional.empty();
         }
 
