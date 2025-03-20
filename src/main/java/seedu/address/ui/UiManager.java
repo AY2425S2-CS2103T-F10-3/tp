@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Logger;
 
 import javafx.application.Platform;
@@ -9,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.util.FileUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 
@@ -45,11 +48,22 @@ public class UiManager implements Ui {
 
             // Show error if has initial error
             if (logic.hasInitialError()) {
+                CompletableFuture<Void> cp = CompletableFuture
+                    .runAsync(() -> {
+                        try {
+                            logger.info("Backuping corrupted data file.");
+                            FileUtil.backupFile(this.logic.getAddressBookFilePath());
+                        } catch (IOException ex) {
+                            logger.severe("Failed to backup old data file.");
+                            logger.severe("Reason: " + ex.getMessage());
+                        }
+                    });
                 this.showAlertDialogAndWait(AlertType.ERROR,
                     "Data Parsing Error", // Title
                     "Could Not Load Data File", // Header
                     "Problem encountered while parsing data file.\n" // Content
                     + "The application will continue with an empty list.");
+                cp.join();
             }
 
             mainWindow.fillInnerParts();
