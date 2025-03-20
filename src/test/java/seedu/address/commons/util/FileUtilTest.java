@@ -5,11 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 public class FileUtilTest {
+    @TempDir
+    Path tempDir;
 
     @Test
     public void isValidPath() {
@@ -63,5 +68,24 @@ public class FileUtilTest {
 
         // with parent directories
         assertEquals(FileUtil.getFileExtension(Path.of("1/2/3/test.java")), "java");
+    }
+
+    @Test
+    public void backupFileTest_correct_result() throws IOException {
+        final String fileName = "testFile.json";
+        final String backupFileName = "testFile_old.json";
+
+        Path originalFile = tempDir.resolve(fileName);
+        Files.writeString(originalFile, "Hello World.\nSome Data Here!");
+
+        FileUtil.backupFile(originalFile);
+
+        Path backupFile = tempDir.resolve(backupFileName);
+
+        // backup file is created
+        assertTrue(Files.exists(backupFile));
+
+        // content of backup file is correct
+        assertEquals(Files.readString(originalFile), Files.readString(backupFile));
     }
 }
