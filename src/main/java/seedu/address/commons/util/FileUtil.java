@@ -99,7 +99,7 @@ public class FileUtil {
     }
 
     /**
-     * Returns string of the filename of the given path without extention.
+     * Returns string of the filename of the given path without extension.
      * @param path A string representing the file path. Cannot be null.
      */
     public static String getFileNameWithoutExt(Path path) {
@@ -112,7 +112,7 @@ public class FileUtil {
     }
 
     /**
-     * Returns string of the extention of the given file.
+     * Returns string of the extension of the given file.
      * @param file A string representing the file path. Cannot be null.
      */
     public static String getFileExtension(Path file) {
@@ -121,6 +121,6 @@ public class FileUtil {
         if (index == -1) {
             return "";
         }
-        return fileName.substring(index);
+        return fileName.substring(index + 1);
     }
 }
