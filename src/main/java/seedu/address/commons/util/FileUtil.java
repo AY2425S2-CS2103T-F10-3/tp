@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * Writes and reads files
@@ -80,4 +81,46 @@ public class FileUtil {
         Files.write(file, content.getBytes(CHARSET));
     }
 
+    /**
+     * Backups the file given
+     * Backup file's name will be in the form of
+     *      [filename].[ext] -> [filename]_old.[ext]
+     */
+    public static void backupFile(Path file) throws IOException {
+        String oldFileName = getFileNameWithoutExt(file);
+        String backupFileName = oldFileName + "_old";
+        String fileExt = getFileExtension(file);
+        if (!fileExt.isBlank()) {
+            backupFileName += "." + fileExt;
+        }
+        Path backupFilePath = Path.of(file.getParent().toString(), backupFileName);
+        createIfMissing(backupFilePath);
+        Files.copy(file, backupFilePath, StandardCopyOption.REPLACE_EXISTING);
+    }
+
+    /**
+     * Returns string of the filename of the given path without extension.
+     * @param path A string representing the file path. Cannot be null.
+     */
+    public static String getFileNameWithoutExt(Path path) {
+        String fileName = path.getFileName().toString();
+        int index = fileName.lastIndexOf(".");
+        if (index == -1) {
+            return fileName;
+        }
+        return fileName.substring(0, index);
+    }
+
+    /**
+     * Returns string of the extension of the given file.
+     * @param file A string representing the file path. Cannot be null.
+     */
+    public static String getFileExtension(Path file) {
+        String fileName = file.getFileName().toString();
+        int index = fileName.lastIndexOf(".");
+        if (index == -1) {
+            return "";
+        }
+        return fileName.substring(index + 1);
+    }
 }
