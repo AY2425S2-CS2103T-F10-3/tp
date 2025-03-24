@@ -87,6 +87,24 @@ public class HelpWindow extends UiPart<Stage> {
     }
 
     /**
+     * Retrieves the user guide URL.
+     *
+     * @return the user guide URL as a string.
+     */
+    public String getUserguideUrl() {
+        return this.userGuideUrl.getText();
+    }
+
+    /**
+     * Retrieves the help message containing available commands.
+     *
+     * @return the help message as a string.
+     */
+    public String getHelpMessage() {
+        return this.helpMessage.getText();
+    }
+
+    /**
      * Copies the URL to the user guide to the clipboard.
      */
     @FXML
