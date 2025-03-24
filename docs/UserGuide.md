@@ -1,9 +1,3 @@
----
-  layout: default.md
-    title: "User Guide"
-    pageNav: 3
----
-
 # CollabSync User Guide
 
 CollabSync is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
