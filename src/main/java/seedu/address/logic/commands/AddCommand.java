@@ -47,12 +47,14 @@ public class AddCommand extends Command {
      * Creates an AddCommand to add the specified {@code Person}
      */
     public AddCommand(Person person) {
+        assert person != null : "Person cannot be null";
         requireNonNull(person);
         toAdd = person;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        assert model != null : "Model cannot be null";
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
