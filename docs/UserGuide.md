@@ -10,7 +10,7 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
 <!-- * Table of Contents -->
 ## Quick Search
-1. [Quick Start](#Quick-start)
+1. [Quick Start](#quick-start)
 2. [Features](#features)
    - [Help](#feature-1--help)
    - [Adding a person](#feature-2--add)
@@ -22,15 +22,15 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
    - [Data Management](#feature-8--data-management)
    - [Exit](#feature-9--exit)
 3. [FAQ](#faq)
-4. [Known Issues](#Known-Issues)
-5. [Command Summary](#Command-Summary)
+4. [Known Issues](#known-issues)
+5. [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
 1. Ensure you have Java `17` or above installed in your Computer.<br>
-   1.a. To check, click [here](#FAQ).<br>
+   1.a. To check, click [here](#faq).<br>
    1.b. **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
@@ -234,7 +234,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Known issues
+## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
@@ -243,7 +243,6 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 ## Command Summary
 
-### Command Summary
 | **Action** | **Format**                                                                              | **Examples**                                                                                       |
 |------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`                                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
