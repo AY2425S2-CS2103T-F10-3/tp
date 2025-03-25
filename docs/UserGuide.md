@@ -9,7 +9,6 @@
 CollabSync is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
-<page-nav-print />
 ## Quick Search
 1. [Quick Start](#Quick-start)
 2. [Features](#features)
@@ -20,7 +19,8 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
    - [Finding persons by name](#feature-5--find)
    - [Deleting a person](#feature-6--delete)
    - [Clearing all entries](#feature-7--clear)
-   - [Exiting the program](#feature-8--exit)
+   - [Data Management](#feature-8--data-management)
+   - [Exit](#feature-9--exit)
 3. [FAQ](#faq)
 4. [Known Issues](#Known-Issues)
 5. [Command Summary](#Command-Summary)
@@ -181,28 +181,20 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #8 : `exit`
-## `exit` : Exits the program.
-### Format: `exit`
-
-
------------------------------------------------------------------------------------------------------------------------
-
-<!-- tbc -->
+# Feature #8 : Data Management
 
 ### Saving the data
 
-CollabSync data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+* CollabSync data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-CollabSync data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+* CollabSync data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
-**Caution:**
-
-If your changes to the data file makes its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
+## Caution
+* If your changes to the data file makes its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
 
 <pic src="images/corruptedDataWarning.png">
     Example of warning prompt
@@ -213,6 +205,14 @@ Your existing data file will be automatically backed up at `/data/addressbook_ol
 <br>
 Furthermore, certain edits can cause the CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+# Feature #9 : `exit`
+## `exit` : Exits the program.
+### Format: `exit`
 
 --------------------------------------------------------------------------------------------------------------------
 
