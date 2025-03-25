@@ -36,7 +36,7 @@ public class HelpWindowTest extends ApplicationTest {
 
     @Test
     public void testUserGuideUrl() {
-        assertEquals(HelpWindow.USERGUIDE_URL, helpWindow.getUserguideUrl(), "User guide URL should be correctly set.");
+        assertEquals(HelpWindow.USERGUIDE_URL, helpWindow.getUserGuideUrl(), "User guide URL should be correctly set.");
     }
 
     @Test

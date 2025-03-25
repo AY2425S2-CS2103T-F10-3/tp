@@ -91,7 +91,7 @@ public class HelpWindow extends UiPart<Stage> {
      *
      * @return the user guide URL as a string.
      */
-    public String getUserguideUrl() {
+    public String getUserGuideUrl() {
         return this.userGuideUrl.getText();
     }
 
