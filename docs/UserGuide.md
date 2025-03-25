@@ -24,18 +24,18 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 ## Quick start
 
 1. Ensure you have Java `17` or above installed in your Computer.<br>
-   To check, click [here](#FAQ).<br>
-   **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+   1.a. To check, click [here](#FAQ).<br>
+   1.b. **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-1. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
+2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your CollabSync.
+3. Copy the file to the folder you want to use as the _home folder_ for your CollabSync. Click [here](#additional-guides-for-setup) if you wish to see a pictorial illustration.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar CollabSync.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar CollabSync.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
     * `list` : Lists all contacts.
@@ -48,7 +48,7 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
     * `exit` : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -219,13 +219,46 @@ _Details coming soon ..._
 
 ## Command Summary
 
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [y/YEARNUMBER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake tyrone@example.com`
-**List**   | `list`
-**Help**   | `help`
-**Exit**   | `terminate and exit the program`
+### Command Summary
+| **Action** | **Format**                                                                              | **Examples**                                                                                       |
+|------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`                                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Clear**  | `clear`                                                                                  | -                                                                                                  |
+| **Delete** | `delete INDEX`                                                                           | `delete 3`                                                                                         |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [y/YEARNUMBER] [t/TAG]…​`    | `edit 2 n/James Lee e/jameslee@example.com`                                                        |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                          | `find James Jake tyrone@example.com`                                                               |
+| **List**   | `list`                                                                                   | -                                                                                                  |
+| **Help**   | `help`                                                                                   | -                                                                                                  |
+| **Exit**   | `terminate and exit the program`                                                         | -                                                                                                  |
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+# Miscellaneous information
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Additional Guides for Setup
+
+1. Copy the file to the folder you want to use as the _home folder_ for your CollabSync.
+    * 1.a. _home folder_ used for this example is `AmazingProduct` , as seen from the image below.
+    * 1.b. `CollabSync.jar` is in the `AmazingProduct` folder, as seen from the image below too.
+
+![Guide_!](images/Guide_1.png)
+
+1. From the image above, move your cursor to the rectangular box and click it. For this example, the rectangular box contains `OneDrive > Teng .... > Desktop > AmazingProduct `
+
+
+2. Then, copy it. This would be the *`file path`* (the path to the `CollabSync.jar` file)
+
+
+3. You should see something similar, where the **file path** name is `C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct` for this example.
+
+
+4. Open your command prompt, type `cd <file path copied from step 2>` into the folder you put the jar file in. For this example, we would type `cd C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct`.
+   Then click `enter` for Window users or `return` for Mac users. Refer to the image below for your reference.
+
+
+5. Run `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
+
+![Guide_2](images/Guide_2.png)
