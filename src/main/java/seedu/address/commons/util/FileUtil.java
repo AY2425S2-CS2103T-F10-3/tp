@@ -90,6 +90,11 @@ public class FileUtil {
         String oldFileName = getFileNameWithoutExt(file);
         String backupFileName = oldFileName + "_old";
         String fileExt = getFileExtension(file);
+
+        assert(file.getFileName().toString().equals(getFileNameWithoutExt(file) + "." + getFileExtension(file))
+                || file.getFileName().toString().equals(getFileNameWithoutExt(file))
+                || file.getFileName().toString().equals("." + getFileExtension(file)));
+
         if (!fileExt.isBlank()) {
             backupFileName += "." + fileExt;
         }
