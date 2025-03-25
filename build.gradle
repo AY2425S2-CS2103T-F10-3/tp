@@ -22,7 +22,7 @@ checkstyle {
 
 test {
     useJUnitPlatform()
-    systemProperty "java.awt.headless", "false"
+    systemProperty "java.awt.headless", "true"
     finalizedBy jacocoTestReport
 }
 
