@@ -1,8 +1,15 @@
+---
+  layout: default.md
+  title: "User Guide"
+  pageNav: 3
+---
+
 # CollabSync User Guide
 
 CollabSync is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
+<page-nav-print />
 ## Quick Search
 1. [Quick Start](#Quick-start)
 2. [Features](#features)
@@ -17,7 +24,6 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 3. [FAQ](#faq)
 4. [Known Issues](#Known-Issues)
 5. [Command Summary](#Command-Summary)
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -190,27 +196,45 @@ CollabSync data are saved in the hard disk automatically after any command that 
 
 ### Editing the data file
 
-CollabSync data are saved automatically as a JSON file `[JAR file location]/data/CollabSync.json`. Advanced users are welcome to update data directly by editing that data file.
+CollabSync data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
 **Caution:**
-If your changes to the data file makes its format invalid, CollabSync will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+
+If your changes to the data file makes its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
+
+<pic src="images/corruptedDataWarning.png">
+    Example of warning prompt
+</pic>
+
+Your existing data file will be automatically backed up at `/data/addressbook_old.json`
+
+<br>
 Furthermore, certain edits can cause the CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
-
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
 
+**Q**: How do I check my Java Version?<br>
+**A**: Follow these steps: <br>
+1. Open the Start button and find the command prompt using the search button. <br>
+![find-command-prompt](images/find-command-prompt.png)
+2. Run `java -version` inside the terminal. 
+![java-version](images/java-version.png)
+
+
+**Q**: How do I transfer my data to another Computer?<br>
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CollabSync home folder.
+
+**Q**: Will the backup file be overwritten?<br>
+**A**: Yes, if a backup exists and the data corrupts again, the old backup will be overwritten.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Known Issues
+## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
