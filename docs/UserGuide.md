@@ -260,5 +260,4 @@ _Details coming soon ..._
 
 
 5. Run `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
-
 ![Guide_2](images/Guide_2.png)
