@@ -25,10 +25,12 @@ activate FileUtil
 
 FileUtil -> FileUtil : getFileNameWithoutExt(Path)
 activate FileUtil
+FileUtil --> FileUtil
 deactivate FileUtil
 
 FileUtil -> FileUtil : getFileExtension(Path)
 activate FileUtil
+FileUtil --> FileUtil
 deactivate FileUtil
 
 participant "Files" as Files <<class>> LOGIC_COLOR_T2
@@ -38,5 +40,4 @@ deactivate Files
 
 deactivate FileUtil
 end
-
 @enduml
