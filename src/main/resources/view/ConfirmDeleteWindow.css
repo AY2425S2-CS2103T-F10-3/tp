@@ -1,0 +1,51 @@
+/* Set a black background for good contrast */
+VBox {
+    -fx-background-color: #000000; /* Black colour used for CollabSync */
+    -fx-padding: 20;
+}
+
+/* Ensure labels and text are clearly visible */
+Label {
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Style the confirmation buttons */
+Button {
+    -fx-background-color: #4da6ff; /* Blue background for buttons for good constrast */
+    -fx-text-fill: white; /* White text on buttons */
+    -fx-font-size: 16px;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 0, 0);
+}
+
+
+Button:hover {
+    -fx-background-color: #0078D4;
+}
+
+
+Button:pressed {
+    -fx-background-color: #005A9E;
+}
+
+/* Set the background color for the confirmation message label */
+#confirmationMessage {
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-background-color: #1e1e1e; /* Dark background for the message box */
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+}
+
+/* Set the background color for the HBox to contain the buttons pressed by user */
+HBox {
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+
