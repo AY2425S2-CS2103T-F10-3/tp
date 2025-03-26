@@ -3,7 +3,7 @@
 skinparam ArrowFontStyle plain
 
 ' color to be update
-participant ":MainApp" as MainApp LOGIC_COLOR
+participant ":MainApp" as MainApp SETUP_COLOR
 [-> MainApp : start(Stage)
 activate MainApp
 
