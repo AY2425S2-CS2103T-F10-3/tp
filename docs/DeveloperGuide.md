@@ -158,6 +158,14 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Backup on corrupt feature
+
+#### Implementation
+
+Given below is the sequence diagram of the backup on corrupted data detected feature:
+
+<puml src="diagrams/BackupOnCorruptSequenceDiagram.puml" alt="Backup On Corrupt Sequence Diagram" />
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -250,10 +258,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -399,11 +403,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   **Use case ends.**
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.  
+    * 3a1. AddressBook shows an error message.
       Use case resumes at step 2.
 
 * 4a. The new details are invalid.
-    * 4a1. AddressBook shows an error message.  
+    * 4a1. AddressBook shows an error message.
       Use case resumes at step 3.
 
 ---

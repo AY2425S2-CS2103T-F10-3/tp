@@ -3,12 +3,16 @@
 skinparam ArrowFontStyle plain
 
 Actor User as user USER_COLOR
+Participant ":Setup" as setup #black
 Participant ":UI" as ui UI_COLOR
 Participant ":Logic" as logic LOGIC_COLOR
 Participant ":Model" as model MODEL_COLOR
 Participant ":Storage" as storage STORAGE_COLOR
 
-user -[USER_COLOR]> ui : "delete 1"
+user -> setup : "Start CollabSync Application"
+activate setup #black
+
+setup -[USER_COLOR]> ui : "delete 1"
 activate ui UI_COLOR
 
 ui -[UI_COLOR]> logic : execute("delete 1")
@@ -34,6 +38,6 @@ deactivate storage
 logic --[LOGIC_COLOR]> ui
 deactivate logic
 
-ui--[UI_COLOR]> user
+ui--[UI_COLOR]> setup
 deactivate ui
 @enduml
