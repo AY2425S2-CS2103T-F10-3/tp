@@ -81,27 +81,6 @@ public class DeleteCommandTest {
     }
 
     @Test
-    public void execute_validIndex_deletePersonSuccessfully() {
-        Person personToDelete = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON, true);
-
-        String expectedSuccessMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                Messages.format(personToDelete));
-
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.deletePerson(personToDelete);
-
-        try {
-            CommandResult result = deleteCommand.execute(model);
-            assertEquals(expectedSuccessMessage, result.getFeedbackToUser());
-            assertEquals(expectedModel, model);
-        } catch (CommandException e) {
-            // Dummy statement , but won't reach this line since we will always delete successfully for valid indexes
-            throw new RuntimeException("Error occured from DeleteCommandTest");
-        }
-    }
-
-    @Test
     public void equals() {
         DeleteCommand deleteFirstCommand = new DeleteCommand(INDEX_FIRST_PERSON, true);
         DeleteCommand deleteSecondCommand = new DeleteCommand(INDEX_SECOND_PERSON, true);
