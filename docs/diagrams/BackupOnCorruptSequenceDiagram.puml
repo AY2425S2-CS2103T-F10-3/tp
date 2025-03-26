@@ -1,0 +1,42 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+' color to be update
+participant ":MainApp" as MainApp LOGIC_COLOR
+[-> MainApp : start(Stage)
+activate MainApp
+
+' color to be update
+participant ":Ui" as Ui UI_COLOR
+MainApp -> Ui : start(Logic)
+activate Ui
+
+participant ":Logic" as Logic LOGIC_COLOR
+Ui -> Logic : hasInitialError()
+activate Logic
+Ui <-- Logic
+deactivate Logic
+
+participant "FileUtil" as FileUtil <<class>> LOGIC_COLOR_T2
+opt hasInitialError
+Ui -> FileUtil : backupFile(Path)
+activate FileUtil
+
+FileUtil -> FileUtil : getFileNameWithoutExt(Path)
+activate FileUtil
+deactivate FileUtil
+
+FileUtil -> FileUtil : getFileExtension(Path)
+activate FileUtil
+deactivate FileUtil
+
+participant "Files" as Files <<class>> LOGIC_COLOR_T2
+FileUtil -> Files : copy(Source, Target, Option)
+activate Files
+deactivate Files
+
+deactivate FileUtil
+end
+
+@enduml
