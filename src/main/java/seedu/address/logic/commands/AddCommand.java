@@ -53,6 +53,7 @@ public class AddCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        assert toAdd != null : "The person to add cannot be null";
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
@@ -80,6 +81,7 @@ public class AddCommand extends Command {
 
     @Override
     public String toString() {
+        assert (this != null) : "We cannot pass null objects to StringBuilder for adding persons";
         return new ToStringBuilder(this)
                 .add("toAdd", toAdd)
                 .toString();
