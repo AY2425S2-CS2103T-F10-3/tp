@@ -365,8 +365,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  User enters a **search term**. (e.g., using `find KEYWORD`).
 
-2.  AddressBook searches for any **matching persons** based on the search term in their
-    **Name, Phone, Email** and **Address**.
+2.  AddressBook searches for any **matching persons** based on the search term in their: 
+    - **Name**
+    - **Phone**
+    - **Email**
+    - **Address**
+    - **Tags**
 
     **Use case ends.**
 
