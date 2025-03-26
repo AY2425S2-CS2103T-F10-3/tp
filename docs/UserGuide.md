@@ -222,9 +222,8 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 **A**: Follow these steps: <br>
 1. Open the Start button and find the command prompt using the search button. <br>
 ![find-command-prompt](images/find-command-prompt.png)
-2. Run `java -version` inside the terminal. 
+2. Run `java -version` inside the terminal.
 ![java-version](images/java-version.png)
-
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CollabSync home folder.
