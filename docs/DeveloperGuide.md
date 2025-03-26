@@ -403,11 +403,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   **Use case ends.**
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.  
+    * 3a1. AddressBook shows an error message.
       Use case resumes at step 2.
 
 * 4a. The new details are invalid.
-    * 4a1. AddressBook shows an error message.  
+    * 4a1. AddressBook shows an error message.
       Use case resumes at step 3.
 
 ---
