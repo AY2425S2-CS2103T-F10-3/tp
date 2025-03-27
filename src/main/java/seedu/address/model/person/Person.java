@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
@@ -27,6 +29,8 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
+    // Flag to store visibility status
+    private final BooleanProperty areDetailsVisible = new SimpleBooleanProperty(true);
 
     /**
      * Every field must be present and not null.
@@ -39,6 +43,7 @@ public class Person {
         this.address = address;
         this.tags.addAll(tags);
         this.year = year;
+        areDetailsVisible.set(true);
     }
 
     public Name getName() {
@@ -60,7 +65,6 @@ public class Person {
     public Year getYear() {
         return year;
     }
-
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -123,5 +127,39 @@ public class Person {
                 .add("year", year)
                 .add("tags", tags)
                 .toString();
+    }
+
+    /**
+     * Returns the BooleanProperty representing the visibility state of the person's details.
+     *
+     * @return the detailsVisible property.
+     */
+    public BooleanProperty detailsVisibleProperty() {
+        return areDetailsVisible;
+    }
+
+    /**
+     * Returns true if the details are visible.
+     *
+     * @return true if details are visible, false otherwise.
+     */
+    public boolean areDetailsVisible() {
+        return areDetailsVisible.get();
+    }
+
+    /**
+     * Hides the details of the person.
+     * Sets the property to false.
+     */
+    public void hideDetails() {
+        areDetailsVisible.set(false);
+    }
+
+    /**
+     * Shows the details of the person.
+     * Sets the property to true.
+     */
+    public void showDetails() {
+        areDetailsVisible.set(true);
     }
 }
