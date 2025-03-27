@@ -7,10 +7,10 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -37,7 +37,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        descriptor.setYear(person.getYear());
+        descriptor.setMajor(person.getMajor());
         descriptor.setTags(person.getTags());
     }
 
@@ -74,13 +74,13 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Year} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@link Major} of the {@link EditPersonDescriptor} that we are building.
      *
-     * @param year The String representation of the year
-     * @return The {@code EditPersonDescriptorBuilder} instance with the year.
+     * @param major The String representation of the major.
+     * @return The {@code EditPersonDescriptorBuilder} instance with the major.
      */
-    public EditPersonDescriptorBuilder withYear(String year) {
-        descriptor.setYear(new Year(year));
+    public EditPersonDescriptorBuilder withMajor(String major) {
+        descriptor.setMajor(new Major(major));
         return this;
     }
 
