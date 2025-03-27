@@ -5,27 +5,33 @@ skinparam arrowColor LOGIC_COLOR_T4
 skinparam classBackgroundColor LOGIC_COLOR
 
 package Logic as LogicPackage {
-Class "<<interface>>\nLogic" as Logic
-Class LogicManager
+    Class "<<interface>>\nLogic" as Logic
+    Class LogicManager
+    ' <<Handles logic operations and command execution>>
 }
 
 package Model as ModelPackage {
-Class "<<interface>>\nModel" as Model
-Class ModelManager
+    Class "<<interface>>\nModel" as Model
+    Class ModelManager
+    ' <<Manages application state and data>>
 }
 
 package Storage as StoragePackage {
-Class "<<interface>>\nStorage" as Storage
-Class StorageManager
+    Class "<<interface>>\nStorage" as Storage
+    Class StorageManager
+    ' <<Handles saving and loading data>>
 }
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Logic
 
+' Interface Implementations
 LogicManager .up.|> Logic
 ModelManager .up.|> Model
 StorageManager .up.|> Storage
 
-LogicManager --> Model
-LogicManager --> Storage
+' Dependencies with multiplicity
+LogicManager --> "1" Model : uses
+LogicManager --> "1" Storage : depends on
+
 @enduml
