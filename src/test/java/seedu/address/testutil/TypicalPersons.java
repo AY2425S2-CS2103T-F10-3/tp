@@ -4,14 +4,14 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MAJOR_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MAJOR_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_YEAR_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_YEAR_BOB;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,36 +28,37 @@ public class TypicalPersons {
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
             .withPhone("94351253")
-            .withYear("2002")
+            .withMajor("Arts")
             .withTags("friends").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432")
-            .withYear("2003")
+            .withMajor("Biology")
             .withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withAddress("wall street").withYear("2004").build();
+            .withEmail("heinz@example.com").withAddress("wall street").withMajor("Chemistry").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withAddress("10th street").withYear("2005").withTags("friends").build();
+            .withEmail("cornelia@example.com").withAddress("10th street").withMajor("Dentistry")
+            .withTags("friends").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("94822241")
-            .withEmail("werner@example.com").withAddress("michegan ave").withYear("2006").build();
+            .withEmail("werner@example.com").withAddress("michegan ave").withMajor("English").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("94824272")
-            .withEmail("lydia@example.com").withAddress("little tokyo").withYear("2007").build();
+            .withEmail("lydia@example.com").withAddress("little tokyo").withMajor("Fine Arts").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("94824423")
-            .withEmail("anna@example.com").withAddress("4th street").withYear("2008").build();
+            .withEmail("anna@example.com").withAddress("4th street").withMajor("Geography").build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("84824243")
-            .withEmail("stefan@example.com").withAddress("little india").withYear("2009").build();
+            .withEmail("stefan@example.com").withAddress("little india").withMajor("Humanities").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("84821312")
-            .withEmail("hans@example.com").withAddress("chicago ave").withYear("2010").build();
+            .withEmail("hans@example.com").withAddress("chicago ave").withMajor("DSA").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withYear(VALID_YEAR_AMY)
+            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withMajor(VALID_MAJOR_AMY)
             .withTags(VALID_TAG_FRIEND).build();
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withYear(VALID_YEAR_BOB)
+            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withMajor(VALID_MAJOR_BOB)
             .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();
 
