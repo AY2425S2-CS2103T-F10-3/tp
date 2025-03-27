@@ -20,7 +20,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final Year year;
+    private final Major major;
 
 
     // Data fields
@@ -31,14 +31,14 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Year year) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Major major) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-        this.year = year;
+        this.major = major;
     }
 
     public Name getName() {
@@ -57,8 +57,8 @@ public class Person {
         return address;
     }
 
-    public Year getYear() {
-        return year;
+    public Major getMajor() {
+        return major;
     }
 
 
@@ -103,14 +103,14 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
-                && year.equals(otherPerson.year)
+                && major.equals(otherPerson.major)
                 && tags.equals(otherPerson.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, year, tags);
+        return Objects.hash(name, phone, email, address, major, tags);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
-                .add("year", year)
+                .add("major", major)
                 .add("tags", tags)
                 .toString();
     }
