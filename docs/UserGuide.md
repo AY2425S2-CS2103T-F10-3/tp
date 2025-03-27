@@ -6,21 +6,21 @@
 
 # CollabSync User Guide
 
-CollabSync is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
+CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 ## Quick Search
 1. [Quick Start](#quick-start)
 2. [Features](#features)
-   - [Help](#feature-1-help)
-   - [Adding a student](#feature-2-add)
-   - [Listing all students](#feature-3-list)
-   - [Editing a student](#feature-4-edit)
-   - [Finding students by name](#feature-5-find)
-   - [Deleting a student](#feature-6-delete)
-   - [Clearing all entries](#feature-7-clear)
-   - [Data Management](#feature-8-data-management)
-   - [Exit](#feature-9-exit)
+    - [Help](#feature-1-help)
+    - [Adding a student](#feature-2-adding-a-student)
+    - [Listing all students](#feature-3-listing-everyone-in-contact)
+    - [Editing a student](#feature-4-editing-a-contact)
+    - [Finding students](#feature-5-find-student)
+    - [Deleting a student](#feature-6-delete-a-contact)
+    - [Clearing all entries](#feature-7-clear)
+    - [Data Management](#feature-8-data-management)
+    - [Exit](#feature-9-exit)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
@@ -46,7 +46,7 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
     * `list` : Lists all contacts.
 
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 y/2024` : Adds a contact named `John Doe` to the Address Book.
+    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Physics` : Adds a contact named `John Doe` to the Address Book.
 
     * `delete 3` : Deletes the 3rd contact shown in the current list.
 
@@ -84,23 +84,29 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #1 : `help`
+# Feature #1 : Help
 ## `help` : Shows a help window
-### Format: `help`
+* Format: `help`
+
+<box type="info" seamless>
 
 * Shows a help window with the basic commands needed for basic usage of CollabSync. <br>
 * Also contains a message explaining how to access the help page.
-
+  </box>
 
 ![help message](images/helpMessage.png)
 
-
-
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #2 : `add`
+# Feature #2 : Adding a student
 ## `add` : Adds a student to the address book.
-### Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS y/YEARNUMBER [t/TAG]…​`
+
+<box type="info" seamless>
+
+* Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
+
+
+</box>
 
 <box type="tip" seamless>
 
@@ -108,26 +114,27 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 </box>
 
 ### Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 y/2022 t/CS2103T`
-* `add n/Betsy Crowe t/CS2100 e/betsycrowe@example.com a/Newgate Prison p/1234567 y/2023 t/MA1521`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Computer Science t/CS2103T`
+* `add n/Betsy Crowe t/CS2100 e/betsycrowe@example.com a/Newgate Prison p/1234567 m/Maths t/MA1521`
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #3 : `list`
-## `list` : Shows a list of all students in the address book.
-### Format: `list`
+# Feature #3 : Listing everyone in contact
+## `list` : Shows a list of all students in CollabSync.
+* Format: `list`
 
 <box type="note" seamless>
 
 **Note:** You do not need to enter anything else behind `list`
 </box>
 
-
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #4 : `edit`
+# Feature #4 : Editing a contact
 ## `edit` : Edits an existing student in the address book.
-### Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [y/YEARNUMBER] [t/TAG]…​`
+* Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
+
+<box type="info" seamless>
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -136,15 +143,19 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 * You can remove all the student’s tags by typing `t/` without
   specifying any tags after it.
 
+</box>
+
 ### Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #5 : `find`
+# Feature #5 : Find student
 ## `find` : Finds students whose names contain any of the given keywords.
-### Format: `find KEYWORD [MORE_KEYWORDS]`
+* Format: `find KEYWORD [MORE_KEYWORDS]`
+
+<box type="info" seamless>
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
@@ -154,6 +165,8 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 * The search can also search using other attributes, such as phone numbers and email addresses, to find a particular student.
 
+</box>
+
 ### Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
@@ -161,13 +174,17 @@ CollabSync is a **desktop app for managing contacts, optimized for use via a  Li
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #6 : `delete`
+# Feature #6 : Delete a contact
 ## `delete` : Deletes the specified student from the address book.
-### Format: `delete INDEX`
+* Format: `delete INDEX`
+
+<box type="info" seamless>
 
 * Deletes the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+</box>
 
 ### Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
@@ -206,24 +223,22 @@ Your existing data file will be automatically backed up at `/data/addressbook_ol
 Furthermore, certain edits can cause the CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
-
-
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #9 : `exit`
 ## `exit` : Exits the program.
 ### Format: `exit`
 
---------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
 
 **Q**: How do I check my Java Version?<br>
 **A**: Follow these steps: <br>
 1. Open the Start button and find the command prompt using the search button. <br>
-![find-command-prompt](images/find-command-prompt.png)
+   ![find-command-prompt](images/find-command-prompt.png)
 2. Run `java -version` inside the terminal.
-![java-version](images/java-version.png)
+   ![java-version](images/java-version.png)
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CollabSync home folder.
@@ -231,29 +246,27 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 **Q**: Will the backup file be overwritten?<br>
 **A**: Yes, if a backup exists and the data corrupts again, the old backup will be overwritten.
 
---------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 ## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
 
---------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary
 
-| **Action** | **Format**                                                                              | **Examples**                                                                                       |
-|------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`                                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Clear**  | `clear`                                                                                  | -                                                                                                  |
-| **Delete** | `delete INDEX`                                                                           | `delete 3`                                                                                         |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [y/YEARNUMBER] [t/TAG]…​`    | `edit 2 n/James Lee e/jameslee@example.com`                                                        |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                          | `find James Jake tyrone@example.com`                                                               |
-| **List**   | `list`                                                                                   | -                                                                                                  |
-| **Help**   | `help`                                                                                   | -                                                                                                  |
-| **Exit**   | `terminate and exit the program`                                                         | -                                                                                                  |
-
-
+| **Action** | **Format**                                                                       | **Examples**                                                                                             |
+|------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 m/DSA t/friend t/colleague` |
+| **Clear**  | `clear`                                                                          | -                                                                                                        |
+| **Delete** | `delete INDEX`                                                                   | `delete 3`                                                                                               |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                   | `find James Jake tyrone@example.com`                                                                     |
+| **List**   | `list`                                                                           | -                                                                                                        |
+| **Help**   | `help`                                                                           | -                                                                                                        |
+| **Exit**   | `terminate and exit the program`                                                 | -                                                                                                        |
 
 --------------------------------------------------------------------------------------------------------------------
 # Miscellaneous information
@@ -270,16 +283,13 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 1. From the image above, move your cursor to the rectangular box and click it. For this example, the rectangular box contains `OneDrive > Teng .... > Desktop > AmazingProduct `
 
-
 2. Then, copy it. This would be the *`file path`* (the path to the `CollabSync.jar` file)
 
-
 3. You should see something similar, where the **file path** name is `C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct` for this example.
-
 
 4. Open your command prompt, type `cd <file path copied from step 2>` into the folder you put the jar file in. For this example, we would type `cd C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct`.
    Then click `enter` for Window users or `return` for Mac users. Refer to the image below for your reference.
 
-
 5. Run `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
-![Guide_2](images/Guide_2.png)
+   ![Guide_2](images/Guide_2.png)
+
