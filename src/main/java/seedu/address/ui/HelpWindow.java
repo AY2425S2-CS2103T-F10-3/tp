@@ -24,7 +24,10 @@ public class HelpWindow extends UiPart<Stage> {
             + "5. edit format: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]...\u200B\n"
             + "6. clear: clear\n"
             + "7. exit: exit\n"
-            + "8. help: help\n";
+            + "8. help: help\n"
+            + "9. sort: sort\n"
+            + "10. hide: hide\n"
+            + "11. unhide: unhide\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
