@@ -71,6 +71,15 @@ public class Person {
     }
 
     /**
+     * Returns true if person has a tag also in {@code targetTags}/
+     *
+     * @param targetTags Set of tags to be matched against.
+     */
+    public boolean hasTags(Set<Tag> targetTags) {
+        return !Collections.disjoint(this.tags, targetTags);
+    }
+
+    /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */

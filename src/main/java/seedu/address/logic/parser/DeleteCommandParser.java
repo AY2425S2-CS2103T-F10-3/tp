@@ -1,10 +1,15 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
+import java.util.Optional;
+import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new DeleteCommand object
@@ -18,12 +23,35 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      */
     public DeleteCommand parse(String args) throws ParseException {
         try {
-            Index index = ParserUtil.parseIndex(args);
-            return new DeleteCommand(index);
+            if (args.contains(PREFIX_TAG.toString())) {
+                return this.parseWithTags(args);
+            }
+            return this.parseWithIndex(args);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE), pe);
         }
     }
 
+    private DeleteCommand parseWithIndex(String args) throws ParseException {
+        Index index = ParserUtil.parseIndex(args);
+        return new DeleteCommand(index);
+    }
+
+    private DeleteCommand parseWithTags(String args) throws ParseException {
+        ArgumentMultimap argMultimap =
+            ArgumentTokenizer.tokenize(args, PREFIX_TAG);
+
+        // check the tag is not empty
+        // From: AddCommandParser.java
+        // TODO: Refine In Next Iteration
+        Optional<String> lastTag = argMultimap.getValue(PREFIX_TAG);
+        if (!lastTag.isPresent() || !argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        }
+
+        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        return new DeleteCommand(tagList);
+    }
 }

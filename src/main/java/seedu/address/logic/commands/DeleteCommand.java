@@ -3,6 +3,8 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +16,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 import seedu.address.ui.ConfirmDeleteWindow;
 
 /**
@@ -24,29 +27,44 @@ public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the person identified by the index number used in the displayed person list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + ": Deletes the person(s) identified by either index number or tags.\n"
+            + "Parameters:\n"
+            + "1. " + COMMAND_WORD + " INDEX (must be a positive integer)\n"
+            + "    Example: " + COMMAND_WORD + " 1\n"
+            + "2. " + COMMAND_WORD + " t/TAG [MORE_TAGS] (deletes persons with matching tags)\n"
+            + "    Example: " + COMMAND_WORD + " t/CS2101 t/teammates";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
+    public static final String MESSAGE_DELETE_PERSONS_SUCCESS = "Deleted Persons:\n";
     public static final String CONFIRM_DELETE = "Are you sure you want to delete this person?";
     public static final String TITLE = "CollabSync - Confirm Delete";
     public static final String FEEDBACK_TO_USER_CANCELLED_DELETE = "Deletion canceled.";
     public static final String FEEDBACK_TO_USER_UNKNOWN_ERROR = "Unexpected error occured. Please try again";
 
-    private final Index targetIndex;
+    private final Optional<Index> targetIndex;
+    private final Optional<Set<Tag>> targetTags;
 
     // This flag is used to mock a situation where users enter "confirm" when deleting a person
     // True for JUnit testing, but otherwise, false for default boolean values
     private boolean isConfirmedForTesting;
 
     /**
-     * Default constructor for creating objects of DeleteCommand.
+     * Constructor for creating objects of DeleteCommand with {@code Index}.
      *
      * @param targetIndex The index of the person to be deleted.
      */
     public DeleteCommand(Index targetIndex) {
-        this.targetIndex = targetIndex;
+        this.targetIndex = Optional.of(targetIndex);
+        this.targetTags = Optional.empty();
+    }
+    /**
+     * Constructor for creating objects of DeleteCommand with {@code Tag}.
+     *
+     * @param targetTags The tags of the person to be deleted.
+     */
+    public DeleteCommand(Set<Tag> targetTags) {
+        this.targetTags = Optional.of(targetTags);
+        this.targetIndex = Optional.empty();
     }
 
     /**
@@ -57,7 +75,8 @@ public class DeleteCommand extends Command {
      * @param isConfirmedForTesting Value passed in is always {@code true} for JUnit testing only.
      */
     public DeleteCommand(Index targetIndex, boolean isConfirmedForTesting) {
-        this.targetIndex = targetIndex;
+        this.targetIndex = Optional.of(targetIndex);
+        this.targetTags = Optional.empty();
         this.isConfirmedForTesting = isConfirmedForTesting;
     }
 
@@ -66,13 +85,17 @@ public class DeleteCommand extends Command {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
+        /*
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+        */
 
         if (isConfirmedForTesting) {
+            // TODO: What is this?
+            Person personToDelete = lastShownList.get(targetIndex.get().getZeroBased());
             model.deletePerson(personToDelete);
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(personToDelete)));
         } else {
@@ -94,9 +117,10 @@ public class DeleteCommand extends Command {
 
                 // Based on the user's inputs to the confirmation dialog box, handle the deletion logic
                 if (deleteController.isConfirmed()) {
-                    model.deletePerson(personToDelete);
-                    return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS,
-                            Messages.format(personToDelete)));
+                    if (this.targetIndex.isPresent()) {
+                        return deleteWithIndex(model, lastShownList);
+                    }
+                    return deleteWithTags(model, lastShownList);
                 } else {
                     return new CommandResult(FEEDBACK_TO_USER_CANCELLED_DELETE);
                 }
@@ -105,6 +129,38 @@ public class DeleteCommand extends Command {
                 return new CommandResult(FEEDBACK_TO_USER_UNKNOWN_ERROR);
             }
         }
+    }
+
+    private CommandResult deleteWithIndex(Model model, List<Person> persons) throws CommandException {
+        assert this.targetIndex.isPresent() : "Index is empty";
+
+        if (this.targetIndex.get().getZeroBased() >= persons.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+
+        Person personToDelete = persons.get(targetIndex.get().getZeroBased());
+        model.deletePerson(personToDelete);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS,
+                Messages.format(personToDelete)));
+    }
+
+    private CommandResult deleteWithTags(Model model, List<Person> persons) {
+        assert this.targetTags.isPresent() : "Tag list is empty";
+
+        List<Person> personsToDelete = persons.stream()
+            .parallel()
+            .filter(p -> p.hasTags(this.targetTags.get()))
+            .toList();
+
+        String resMsg = personsToDelete.stream()
+            .parallel()
+            .map(p -> Messages.format(p))
+            .reduce((x, y) -> x + "\n" + y)
+            .orElse("");
+
+        personsToDelete.forEach(p -> model.deletePerson(p));
+
+        return new CommandResult(MESSAGE_DELETE_PERSONS_SUCCESS + resMsg);
     }
 
     @Override
