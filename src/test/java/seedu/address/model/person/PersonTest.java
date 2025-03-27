@@ -96,6 +96,30 @@ public class PersonTest {
     }
 
     @Test
+    public void hideDetailsTest() {
+        Person aliceCopy = new PersonBuilder(ALICE).build();
+
+        aliceCopy.hideDetails();
+        assertFalse(aliceCopy.areDetailsVisible());
+    }
+
+    @Test
+    public void showDetailsTest() {
+        Person aliceCopy = new PersonBuilder(ALICE).build();
+
+        aliceCopy.showDetails();
+        assertTrue(aliceCopy.areDetailsVisible());
+    }
+
+    @Test
+    public void detailsVisiblePropertyTest() {
+        Person aliceCopy = new PersonBuilder(ALICE).build();
+        Person bobCopy = new PersonBuilder(BOB).build();
+
+        assertEquals(aliceCopy.detailsVisibleProperty().get(), bobCopy.detailsVisibleProperty().get());
+    }
+
+    @Test
     public void toStringMethod() {
         String expected = Person.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
                 + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress()

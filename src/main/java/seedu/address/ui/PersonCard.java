@@ -58,5 +58,17 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+
+        phone.visibleProperty().bind(person.detailsVisibleProperty());
+        phone.managedProperty().bind(person.detailsVisibleProperty());
+
+        address.visibleProperty().bind(person.detailsVisibleProperty());
+        address.managedProperty().bind(person.detailsVisibleProperty());
+
+        email.visibleProperty().bind(person.detailsVisibleProperty());
+        email.managedProperty().bind(person.detailsVisibleProperty());
+
+        major.visibleProperty().bind(person.detailsVisibleProperty());
+        major.managedProperty().bind(person.detailsVisibleProperty());
     }
 }
