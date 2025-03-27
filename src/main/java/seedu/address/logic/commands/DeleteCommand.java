@@ -79,14 +79,28 @@ public class DeleteCommand extends Command {
         this.targetTags = Optional.empty();
         this.isConfirmedForTesting = isConfirmedForTesting;
     }
+    /**
+     * Constructor that is only used for JUnit Testing in {@code DeleteCommandTest}, where we are required
+     * to mock a situation where users enter "confirm" when deleting a person.
+     *
+     * @param targetTags The tags to be matched.
+     * @param isConfirmedForTesting Value passed in is always {@code true} for JUnit testing only.
+     */
+    public DeleteCommand(Set<Tag> targetTags, boolean isConfirmedForTesting) {
+        this.targetIndex = Optional.empty();
+        this.targetTags = Optional.of(targetTags);
+        this.isConfirmedForTesting = isConfirmedForTesting;
+    }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
-        // canExecuteCommand only if index is valid and user confirm
-        boolean canExecuteCommand = this.targetIndex
+        // canExecuteCommand only if
+        //      index is valid or use tags
+        //      and user confirm
+        boolean canExecuteCommand = this.targetTags.isPresent() || this.targetIndex
             .filter(i -> i.getZeroBased() < lastShownList.size())
             .isPresent();
 
@@ -141,7 +155,7 @@ public class DeleteCommand extends Command {
     }
 
     private CommandResult deleteWithTags(Model model, List<Person> persons) {
-        assert this.targetTags.isPresent() : "Tag list is empty";
+        assert this.targetTags.isPresent() : "Optional of Tag list is empty";
 
         List<Person> personsToDelete = persons.stream()
             .parallel()
@@ -171,7 +185,8 @@ public class DeleteCommand extends Command {
         }
 
         DeleteCommand otherDeleteCommand = (DeleteCommand) other;
-        return targetIndex.equals(otherDeleteCommand.targetIndex);
+        return targetIndex.equals(otherDeleteCommand.targetIndex)
+            && targetTags.equals(otherDeleteCommand.targetTags);
     }
 
     @Override
