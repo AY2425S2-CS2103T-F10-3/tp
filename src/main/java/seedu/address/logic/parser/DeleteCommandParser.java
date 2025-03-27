@@ -3,7 +3,6 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -44,12 +43,13 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
 
         // check the tag is not empty
         // From: AddCommandParser.java
-        // TODO: Refine In Next Iteration
+        /*
         Optional<String> lastTag = argMultimap.getValue(PREFIX_TAG);
         if (!lastTag.isPresent() || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         }
+        */
 
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         return new DeleteCommand(tagList);

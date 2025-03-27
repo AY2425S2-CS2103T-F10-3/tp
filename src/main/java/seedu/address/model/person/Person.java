@@ -80,7 +80,7 @@ public class Person {
      * @param targetTags Set of tags to be matched against.
      */
     public boolean hasTags(Set<Tag> targetTags) {
-        return !Collections.disjoint(this.tags, targetTags);
+        return !targetTags.isEmpty() && !Collections.disjoint(this.tags, targetTags);
     }
 
     /**
