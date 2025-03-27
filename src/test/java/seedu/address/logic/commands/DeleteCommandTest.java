@@ -9,6 +9,10 @@ import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalTags.EMPTY_TAG;
+
+import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +22,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
@@ -77,6 +82,33 @@ public class DeleteCommandTest {
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex, true);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_validTagsUnfilteredList_success() {
+        Person personRef = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Set<Tag> targetTags = personRef.getTags();
+        assertTrue(!targetTags.isEmpty());
+
+        DeleteCommand deleteCommand = new DeleteCommand(targetTags, true);
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        List<Person> personsToDelete = expectedModel.getFilteredPersonList().stream()
+            .filter(p -> p.hasTags(targetTags))
+            .toList();
+        personsToDelete.stream()
+            .forEach(p -> expectedModel.deletePerson(p));
+
+        String expectedMessage = DeleteCommand.MESSAGE_DELETE_PERSONS_SUCCESS
+                + personsToDelete.stream()
+                    .map(p -> Messages.format(p)).reduce((x, y) -> x + "\n" + y).orElse("");
+
+        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_emptyTagsUnfilteredList_success() {
+        DeleteCommand deleteCommand = new DeleteCommand(EMPTY_TAG, true);
+        assertCommandSuccess(deleteCommand, model, DeleteCommand.MESSAGE_DELETE_PERSONS_SUCCESS, model);
     }
 
     @Test
