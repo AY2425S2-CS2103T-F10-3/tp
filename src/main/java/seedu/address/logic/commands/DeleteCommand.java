@@ -166,7 +166,8 @@ public class DeleteCommand extends Command {
             .parallel()
             .map(p -> Messages.format(p))
             .reduce((x, y) -> x + "\n" + y)
-            .orElse("");
+            .orElse("")
+            .trim();
 
         personsToDelete.forEach(p -> model.deletePerson(p));
 
