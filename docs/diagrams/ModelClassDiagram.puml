@@ -19,7 +19,7 @@ Class Email
 Class Name
 Class Phone
 Class Tag
-Class Year
+Class Major
 
 Class I #FFFFFF
 }
@@ -42,7 +42,7 @@ Person *--> "1" Name
 Person *--> "1" Phone
 Person *--> "1" Email
 Person *--> "1" Address
-Person *--> "1" Year
+Person *--> "1" Major
 Person *--> "*" Tag
 
 Person -[hidden]up--> I

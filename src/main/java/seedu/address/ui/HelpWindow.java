@@ -17,11 +17,11 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL = "https://se-education.org/addressbook-level3/UserGuide.html";
     public static final String HELP_MESSAGE = "Available Commands:\n"
-            + "1. add format: add n/NAME p/PHONE e/EMAIL a/ADDRESS y/YEARNUMBER [t/TAG]...\n"
+            + "1. add format: add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR [t/TAG]...\n"
             + "2. delete format: delete INDEX\n"
             + "3. list format: list\n"
             + "4. find format: find KEYWORD\n"
-            + "5. edit format: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [y/YEARNUMBER] [t/TAG]...\u200B\n"
+            + "5. edit format: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]...\u200B\n"
             + "6. clear: clear\n"
             + "7. exit: exit\n"
             + "8. help: help\n";

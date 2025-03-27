@@ -5,10 +5,10 @@ import java.util.Set;
 
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,14 +21,14 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_YEAR = "2002";
+    public static final String DEFAULT_MAJOR = "Chemistry";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Set<Tag> tags;
-    private Year year;
+    private Major major;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -38,7 +38,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
-        year = new Year(DEFAULT_YEAR);
+        major = new Major(DEFAULT_MAJOR);
         tags = new HashSet<>();
     }
 
@@ -50,7 +50,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
-        year = personToCopy.getYear();
+        major = personToCopy.getMajor();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -95,15 +95,15 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Year} of the {@code Person} that we are building.
+     * Sets the {@link Major} of the {@code Person} that we are building.
      */
-    public PersonBuilder withYear(String year) {
-        this.year = new Year(year);
+    public PersonBuilder withMajor(String major) {
+        this.major = new Major(major);
         return this;
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags, year);
+        return new Person(name, phone, email, address, tags, major);
     }
 
 }

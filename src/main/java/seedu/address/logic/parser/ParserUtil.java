@@ -11,9 +11,9 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -124,19 +124,19 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String yearStr} into a {@code Year}.
-     * @param yearStr The String representation of the year.
+     * Parses a {@code String majorStr} into a {@link Major}.
+     * @param majorStr The String representation of the major.
      *
      * @throws ParseException if the given {@code email} is invalid.
      */
-    public static Year parseYear(String yearStr) throws ParseException {
-        requireNonNull(yearStr);
-        String trimmedYear = yearStr.trim();
+    public static Major parseMajor(String majorStr) throws ParseException {
+        requireNonNull(majorStr);
+        String trimmedMajor = majorStr.trim();
 
-        if (!Year.isValidYear(trimmedYear)) {
-            throw new ParseException(Year.MESSAGE_CONSTRAINTS);
+        if (!Major.isValidMajor(trimmedMajor)) {
+            throw new ParseException(Major.MESSAGE_CONSTRAINTS);
         }
-        return new Year(trimmedYear);
+        return new Major(trimmedMajor);
     }
 
 }

@@ -11,17 +11,17 @@ import seedu.address.model.util.SampleDataUtil;
 public class SampleDataUtilTest {
 
     @Test
-    public void getSamplePersons_returnsCorrectYears() {
+    public void getSamplePersons_returnsCorrectMajors() {
         Person[] samplePersons = SampleDataUtil.getSamplePersons();
         assertNotNull(samplePersons);
         assertEquals(6, samplePersons.length);
 
-        assertEquals("2002", samplePersons[0].getYear().value); // Alex Yeoh
-        assertEquals("2002", samplePersons[1].getYear().value); // Bernice Yu
-        assertEquals("2004", samplePersons[2].getYear().value); // Charlotte Oliveiro
-        assertEquals("2009", samplePersons[3].getYear().value); // David Li
-        assertEquals("2013", samplePersons[4].getYear().value); // Irfan Ibrahim
-        assertEquals("1998", samplePersons[5].getYear().value); // Roy Balakrishnan
+        assertEquals("Arts", samplePersons[0].getMajor().value); // Alex Yeoh
+        assertEquals("Biology", samplePersons[1].getMajor().value); // Bernice Yu
+        assertEquals("Chemistry", samplePersons[2].getMajor().value); // Charlotte Oliveiro
+        assertEquals("Dentistry", samplePersons[3].getMajor().value); // David Li
+        assertEquals("Intelligence", samplePersons[4].getMajor().value); // Irfan Ibrahim
+        assertEquals("Real estate", samplePersons[5].getMajor().value); // Roy Balakrishnan
     }
 }
 
