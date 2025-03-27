@@ -13,8 +13,12 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
@@ -93,6 +97,31 @@ public class PersonTest {
         // different tags -> returns false
         editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));
+    }
+
+    @Test
+    public void hasTags() {
+        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
+                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+
+        Set<Tag> testTags = new HashSet<>();
+        testTags.add(new Tag(VALID_TAG_HUSBAND));
+
+        // person has the tag
+        assertTrue(editedAlice.hasTags(testTags));
+
+        // empty tag set
+        assertFalse(editedAlice.hasTags(new HashSet<Tag>()));
+
+        // testTags has multiple tags, at least one matches
+        testTags.add(new Tag("test"));
+        assertTrue(editedAlice.hasTags(testTags));
+
+        // testTags has multiple tags, but no matches
+        testTags = new HashSet<>();
+        testTags.add(new Tag("nope"));
+        testTags.add(new Tag("nay"));
+        assertFalse(editedAlice.hasTags(testTags));
     }
 
     @Test
