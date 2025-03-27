@@ -101,12 +101,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 # Feature #2 : Adding a student
 ## `add` : Adds a student to the address book.
 
-<box type="info" seamless>
-
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
 
-
-</box>
 
 <box type="tip" seamless>
 
@@ -127,10 +123,35 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 **Note:** You do not need to enter anything else behind `list`
 </box>
+-----------------------------------------------------------------------------------------------------------------------
+
+# Feature #4 : Hide Information
+## `hide` : Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
+* Format: `hide`
+
+<box type="note" seamless>
+
+**Note:** 
+* If the contact list was already hidden, then running `hide` again will not change the contact card.
+* Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
+</box>
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #4 : Editing a contact
+# Feature #5 : Unhide Information
+## `unhide` : Unhides all information, uncovering all attributes (if it was shown in the first place)
+* Format: `unhide`
+
+<box type="note" seamless>
+
+**Note:** 
+* If the contact list was already hidden, then running `hide` again will not change the contact card.
+* Running `hide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
+</box>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+# Feature #6 : Editing a contact
 ## `edit` : Edits an existing student in the address book.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
@@ -151,7 +172,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #5 : Find student
+# Feature #7 : Find student
 ## `find` : Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -174,7 +195,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #6 : Delete a contact
+# Feature #8 : Delete a contact
 ## `delete` : Deletes the specified student from the address book.
 * Format: `delete INDEX`
 
@@ -192,13 +213,13 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #7 : `clear`
+# Feature #9 : clear
 ## `clear` : Clears all entries from the address book.
-### Format: `clear`
+* Format: `clear`
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #8 : Data Management
+# Feature #10 : Data Management
 
 ### Saving the data
 
@@ -225,9 +246,9 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #9 : `exit`
+# Feature #11 : `exit`
 ## `exit` : Exits the program.
-### Format: `exit`
+* Format: `exit`
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -239,6 +260,9 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
    ![find-command-prompt](images/find-command-prompt.png)
 2. Run `java -version` inside the terminal.
    ![java-version](images/java-version.png)
+
+**Q**: How to install Java-17?
+**A**: Follow the guide [here](https://www3.cs.stonybrook.edu/~amione/CSE114_Course/materials/resources/InstallingJava17.pdf).
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CollabSync home folder.
@@ -265,6 +289,8 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                   | `find James Jake tyrone@example.com`                                                                     |
 | **List**   | `list`                                                                           | -                                                                                                        |
+| **Hide**   | `hide`                                                                           | -                                                                                                        |
+| **Unhide** | `unhide`                                                                         | -                                                                                                        |
 | **Help**   | `help`                                                                           | -                                                                                                        |
 | **Exit**   | `terminate and exit the program`                                                 | -                                                                                                        |
 
