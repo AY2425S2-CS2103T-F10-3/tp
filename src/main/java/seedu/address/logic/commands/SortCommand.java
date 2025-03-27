@@ -15,8 +15,8 @@ public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
     public static final String MESSAGE_NO_CONTACTS = "No contacts to sort.";
     public static final String MESSAGE_SUCCESS = "Contacts sorted in %s order.";
-    public static final String MESSAGE_INVALID_ORDER = "Invalid sort order!\n + " +
-            COMMAND_WORD + ": Sorts the list of persons in either ascending or descending order "
+    public static final String MESSAGE_INVALID_ORDER = "Invalid sort order!\n + "
+            + COMMAND_WORD + ": Sorts the list of persons in either ascending or descending order "
             + "based on their names, followed by phone numbers if names are identical.\n"
             + "Parameters: sort (asc | desc)\n"
             + "Example: " + COMMAND_WORD + " asc";
