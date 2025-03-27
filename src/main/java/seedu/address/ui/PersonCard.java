@@ -68,7 +68,7 @@ public class PersonCard extends UiPart<Region> {
         email.visibleProperty().bind(person.detailsVisibleProperty());
         email.managedProperty().bind(person.detailsVisibleProperty());
 
-        year.visibleProperty().bind(person.detailsVisibleProperty());
-        year.managedProperty().bind(person.detailsVisibleProperty());
+        major.visibleProperty().bind(person.detailsVisibleProperty());
+        major.managedProperty().bind(person.detailsVisibleProperty());
     }
 }
