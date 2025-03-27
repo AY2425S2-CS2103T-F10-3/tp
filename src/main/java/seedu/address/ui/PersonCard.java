@@ -60,8 +60,15 @@ public class PersonCard extends UiPart<Region> {
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
 
         phone.visibleProperty().bind(person.detailsVisibleProperty());
+        phone.managedProperty().bind(person.detailsVisibleProperty());
+
         address.visibleProperty().bind(person.detailsVisibleProperty());
+        address.managedProperty().bind(person.detailsVisibleProperty());
+
         email.visibleProperty().bind(person.detailsVisibleProperty());
+        email.managedProperty().bind(person.detailsVisibleProperty());
+
         year.visibleProperty().bind(person.detailsVisibleProperty());
+        year.managedProperty().bind(person.detailsVisibleProperty());
     }
 }
