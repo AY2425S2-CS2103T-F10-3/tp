@@ -15,12 +15,14 @@ CollabSync is a **desktop app for university students to help manage contacts sw
     - [Help](#feature-1-help)
     - [Adding a student](#feature-2-adding-a-student)
     - [Listing all students](#feature-3-listing-everyone-in-contact)
-    - [Editing a student](#feature-4-editing-a-contact)
-    - [Finding students](#feature-5-find-student)
-    - [Deleting a student](#feature-6-delete-a-contact)
-    - [Clearing all entries](#feature-7-clear)
-    - [Data Management](#feature-8-data-management)
-    - [Exit](#feature-9-exit)
+    - [Hide information](#feature-4-hide-information)
+    - [Unhide information](#feature-5-unhide-information)
+    - [Editing a student's contact](#feature-6-editing-a-contact)
+    - [Finding a student](#feature-7-find-student)
+    - [Deleting a student's contact](#feature-8-delete-a-contact)
+    - [Clearing all contacts](#feature-9-clear)
+    - [Data management](#feature-10-data-management)
+    - [Exit](#feature-11-exit)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
@@ -123,6 +125,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 **Note:** You do not need to enter anything else behind `list`
 </box>
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #4 : Hide Information
