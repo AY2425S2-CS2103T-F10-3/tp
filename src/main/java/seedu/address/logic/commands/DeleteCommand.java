@@ -85,20 +85,16 @@ public class DeleteCommand extends Command {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
-        /*
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        // canExecuteCommand only if index is valid and user confirm
+        boolean canExecuteCommand = this.targetIndex
+            .filter(i -> i.getZeroBased() < lastShownList.size())
+            .isPresent();
+
+        if (!canExecuteCommand) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
-        */
-
-        if (isConfirmedForTesting) {
-            // TODO: What is this?
-            Person personToDelete = lastShownList.get(targetIndex.get().getZeroBased());
-            model.deletePerson(personToDelete);
-            return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(personToDelete)));
-        } else {
+        if (!isConfirmedForTesting && canExecuteCommand) {
             try {
                 // Load the FXML file and get the controller
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ConfirmDeleteWindow.fxml"));
@@ -115,20 +111,20 @@ public class DeleteCommand extends Command {
 
                 dialogStage.showAndWait(); // Wait for user's response
 
-                // Based on the user's inputs to the confirmation dialog box, handle the deletion logic
-                if (deleteController.isConfirmed()) {
-                    if (this.targetIndex.isPresent()) {
-                        return deleteWithIndex(model, lastShownList);
-                    }
-                    return deleteWithTags(model, lastShownList);
-                } else {
-                    return new CommandResult(FEEDBACK_TO_USER_CANCELLED_DELETE);
-                }
+                canExecuteCommand = deleteController.isConfirmed();
             } catch (Exception e) {
                 e.printStackTrace();
                 return new CommandResult(FEEDBACK_TO_USER_UNKNOWN_ERROR);
             }
         }
+
+        if (canExecuteCommand) {
+            if (this.targetIndex.isPresent()) {
+                return deleteWithIndex(model, lastShownList);
+            }
+            return deleteWithTags(model, lastShownList);
+        }
+        return new CommandResult(FEEDBACK_TO_USER_CANCELLED_DELETE);
     }
 
     private CommandResult deleteWithIndex(Model model, List<Person> persons) throws CommandException {
@@ -180,8 +176,11 @@ public class DeleteCommand extends Command {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .add("targetIndex", targetIndex)
-                .toString();
+        return this.targetIndex
+            .map(i -> new ToStringBuilder(this).add("targetIndex", i))
+            .orElseGet(() -> this.targetTags
+                .map(ts -> new ToStringBuilder(this).add("targetTags", ts))
+                .orElseThrow(() -> new IllegalStateException("All optionals are empty.")))
+            .toString();
     }
 }
