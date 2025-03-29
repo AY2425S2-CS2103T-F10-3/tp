@@ -47,6 +47,6 @@ deactivate FileUtil
 MainApp <-- Ui
 deactivate Ui
 
-[<-- MainApp 
+[<-- MainApp
 deactivate MainApp
 @enduml

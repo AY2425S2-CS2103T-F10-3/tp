@@ -134,7 +134,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 <box type="note" seamless>
 
-**Note:** 
+**Note:**
 * If the contact list was already hidden, then running `hide` again will not change the contact card.
 * Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
 </box>
@@ -147,7 +147,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 <box type="note" seamless>
 
-**Note:** 
+**Note:**
 * If the contact list was already hidden, then running `hide` again will not change the contact card.
 * Running `hide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
 </box>
