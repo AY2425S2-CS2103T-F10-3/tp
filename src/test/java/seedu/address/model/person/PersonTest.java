@@ -18,6 +18,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.tag.Priority;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
@@ -105,7 +106,7 @@ public class PersonTest {
                 .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
 
         Set<Tag> testTags = new HashSet<>();
-        testTags.add(new Tag(VALID_TAG_HUSBAND));
+        testTags.add(new Tag(VALID_TAG_HUSBAND, Priority.NONE));
 
         // person has the tag
         assertTrue(editedAlice.hasTags(testTags));
@@ -114,13 +115,13 @@ public class PersonTest {
         assertFalse(editedAlice.hasTags(new HashSet<Tag>()));
 
         // testTags has multiple tags, at least one matches
-        testTags.add(new Tag("test"));
+        testTags.add(new Tag("test", Priority.TRIVIAL));
         assertTrue(editedAlice.hasTags(testTags));
 
         // testTags has multiple tags, but no matches
         testTags = new HashSet<>();
-        testTags.add(new Tag("nope"));
-        testTags.add(new Tag("nay"));
+        testTags.add(new Tag("nope", Priority.NONE));
+        testTags.add(new Tag("nay", Priority.NONE));
         assertFalse(editedAlice.hasTags(testTags));
     }
 

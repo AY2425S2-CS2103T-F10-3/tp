@@ -9,20 +9,32 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Tag names should contain only letters, digits, hyphens (-), or underscores (_), and no spaces.";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}_-]+";
 
     public final String tagName;
+    public final Priority priority;
 
     /**
      * Constructs a {@code Tag}.
      *
-     * @param tagName A valid tag name.
+     * @param tagName  A valid tag name.
+     * @param priority
      */
-    public Tag(String tagName) {
+    public Tag(String tagName, Priority priority) {
         requireNonNull(tagName);
+        requireNonNull(priority);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
         this.tagName = tagName;
+        this.priority = priority;
+    }
+
+    /**
+     * Constructs a {@code Tag} with no priority (default).
+     */
+    public Tag(String tagName) {
+        this(tagName, Priority.NONE);
     }
 
     /**
@@ -44,19 +56,21 @@ public class Tag {
         }
 
         Tag otherTag = (Tag) other;
-        return tagName.equals(otherTag.tagName);
+        return tagName.equals(otherTag.tagName)
+                && priority.equals(otherTag.priority);
     }
 
     @Override
     public int hashCode() {
-        return tagName.hashCode();
+        return tagName.hashCode() + priority.hashCode();
     }
 
     /**
-     * Format state as text for viewing.
+     * Format state as text for viewing, as well as now displaying the priority.
      */
     public String toString() {
-        return '[' + tagName + ']';
+        return priority != Priority.NONE
+                ? '[' + tagName + ": " + priority + ']'
+                : '[' + tagName + ']';
     }
-
 }
