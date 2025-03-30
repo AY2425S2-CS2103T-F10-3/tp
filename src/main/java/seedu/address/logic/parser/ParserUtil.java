@@ -14,6 +14,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.tag.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -105,10 +106,25 @@ public class ParserUtil {
     public static Tag parseTag(String tag) throws ParseException {
         requireNonNull(tag);
         String trimmedTag = tag.trim();
-        if (!Tag.isValidTagName(trimmedTag)) {
+
+        String[] parts = trimmedTag.split(":", 2); // only split on the first ":" for priority
+        String tagName = parts[0].trim();
+
+        if (!Tag.isValidTagName(tagName)) {
             throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
         }
-        return new Tag(trimmedTag);
+
+        // If priority is provided by the user, we parse it too; otherwise default to NONE.
+        Priority priority = Priority.NONE;
+        if (parts.length == 2) {
+            try {
+                priority = Priority.fromString(parts[1].trim());
+            } catch (IllegalArgumentException e) {
+                throw new ParseException(e.getMessage());
+            }
+        }
+
+        return new Tag(tagName, priority);
     }
 
     /**

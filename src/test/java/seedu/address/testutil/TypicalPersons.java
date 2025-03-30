@@ -29,17 +29,17 @@ public class TypicalPersons {
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
             .withPhone("94351253")
             .withMajor("Arts")
-            .withTags("friends").build();
+            .withTags("friends:trivial").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432")
             .withMajor("Biology")
-            .withTags("owesMoney", "friends").build();
+            .withTags("owesMoney:urgent", "friends:trivial").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withEmail("heinz@example.com").withAddress("wall street").withMajor("Chemistry").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street").withMajor("Dentistry")
-            .withTags("friends").build();
+            .withTags("friends:trivial").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("94822241")
             .withEmail("werner@example.com").withAddress("michegan ave").withMajor("English").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("94824272")
