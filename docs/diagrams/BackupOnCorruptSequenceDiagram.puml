@@ -20,24 +20,33 @@ deactivate Logic
 
 participant "FileUtil" as FileUtil <<class>> LOGIC_COLOR_T2
 opt hasInitialError
-Ui -> FileUtil : backupFile(Path)
+Ui -> FileUtil : backupFile(filePath)
 activate FileUtil
 
-FileUtil -> FileUtil : getFileNameWithoutExt(Path)
+FileUtil -> FileUtil : getFileNameWithoutExt(filePath)
 activate FileUtil
 FileUtil --> FileUtil
 deactivate FileUtil
 
-FileUtil -> FileUtil : getFileExtension(Path)
+FileUtil -> FileUtil : getFileExtension(filePath)
 activate FileUtil
 FileUtil --> FileUtil
 deactivate FileUtil
 
 participant "Files" as Files <<class>> LOGIC_COLOR_T2
-FileUtil -> Files : copy(Source, Target, Option)
+' FileUtil -> Files : copy(Source, Target, Option)
+FileUtil -> Files : copy()
 activate Files
+FileUtil <-- Files
 deactivate Files
-
-deactivate FileUtil
 end
+
+Ui <-- FileUtil
+deactivate FileUtil
+
+MainApp <-- Ui
+deactivate Ui
+
+[<-- MainApp
+deactivate MainApp
 @enduml

@@ -162,9 +162,24 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Implementation
 
-Given below is the sequence diagram of the backup on corrupted data detected feature:
+The sequence diagram below illustrates the interactions between different components when corrupted data is detected and `backupFile(filePath)` is called.
 
 <puml src="diagrams/BackupOnCorruptSequenceDiagram.puml" alt="Backup On Corrupt Sequence Diagram" />
+
+Here's the workflow:
+1. During `MainApp`'s initialization, `MainApp` will set the `Logic` component to contain information about whether there is an initial error.
+2. When `MainApp.start()` is called, it will invoke `UI.start()` and pass the `Logic` component to it.
+3. The `UI` will then check with `Logic` whether an initial error exists.
+4. If there is an initial error, the `UI` will display a prompt to the user and wait for user interaction.
+5. Simultaneously, the `UI` will call the `backupFile()` method from `FileUtil`.
+6. `backupFile()` will gather and prepare all necessary information for the backup.
+7. Finally, it will call the `copy()` method from `Files` to complete the backup process.
+
+<box type="info" seamless>
+
+**Note:** The prompt and the backup process are invoked concurrently.
+
+</box>
 
 ### \[Proposed\] Undo/redo feature
 
