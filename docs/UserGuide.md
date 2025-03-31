@@ -72,6 +72,10 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 * Items in square brackets are optional.<br>
   e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
+* Items inside normal brackets means that it is an 'either or' option. <br>
+  e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag. <br> 
+  So delete format can either be `delete INDEX` or `delete t/TAGS`.
+
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
@@ -200,19 +204,27 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 # Feature #8 : Delete a contact
 ## `delete` : Deletes the specified student from the address book.
-* Format: `delete INDEX`
+* Format: `delete (INDEX | t/TAGS)`
 
 <box type="info" seamless>
 
-* Deletes the student at the specified `INDEX`.
+* Deletes the student at the specified `INDEX` or with the specified `TAGS`.
+
+### Index
 * The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+### Tags
+* The tags refer to the tags associated with a contact.
+* There must be at least 1 tag inside the parameter.
 
 </box>
 
 ### Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+* `list` followed by `delete t/CS2100` removes all contacts with tags `CS2100`.
+* `find Andrew` followed by `delete t/CS2100` removes all contacts with the name `Andrew` and tag `CS2100`.
 
 -----------------------------------------------------------------------------------------------------------------------
 
