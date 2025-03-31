@@ -144,6 +144,8 @@ public class HelpWindow extends UiPart<Stage> {
         commandFormatColumn.setReorderable(false);
         commandTitleColumn.setResizable(false);
         commandFormatColumn.setResizable(false);
+        commandTitleColumn.setSortable(false);
+        commandFormatColumn.setSortable(false);
         commandTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
