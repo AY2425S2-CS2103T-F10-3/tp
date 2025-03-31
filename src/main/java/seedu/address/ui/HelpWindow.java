@@ -31,7 +31,7 @@ public class HelpWindow extends UiPart<Stage> {
                     + "  e.g. 'n/NAME [t/TAG]' can be used as 'n/John Doe t/friend' or 'n/John Doe'.\n\n"
                     + "• Items with '...' after them can be used multiple times, including zero times.\n"
                     + "  e.g. '[t/TAG]...' can be used 0 times, or 't/friend', or 't/friend t/family', etc.\n\n"
-                    + "• Items inside brackets '()' means that it is either or.\n"
+                    + "• Items inside brackets '()' means that it is an either or option.\n"
                     + "  e.g. 'delete (INDEX | t/TAGS) means we can either delete by index or by tag.\n"
                     + "  So delete format can either be 'delete INDEX' or 'delete t/TAGS'\n\n"
                     + "• Parameters can be in any order.\n"
@@ -82,18 +82,18 @@ public class HelpWindow extends UiPart<Stage> {
      */
     private void populateTable() {
         ObservableList<CommandItem> commands = FXCollections.observableArrayList(
-                new CommandItem("Add", "add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR [t/TAG]..."),
-                new CommandItem("Delete", "delete (INDEX | t/TAGS)"),
+                new CommandItem("Help", "help"),
                 new CommandItem("List", "list"),
+                new CommandItem("Sort", "sort"),
+                new CommandItem("Hide", "hide"),
+                new CommandItem("Unhide", "unhide"),
+                new CommandItem("Add", "add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR [t/TAG]..."),
                 new CommandItem("Find", "find KEYWORD"),
                 new CommandItem("Edit", "edit INDEX [n/NAME] [p/PHONE] "
                         + "[e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]..."),
+                new CommandItem("Delete", "delete (INDEX | t/TAGS)"),
                 new CommandItem("Clear", "clear"),
-                new CommandItem("Exit", "exit"),
-                new CommandItem("Help", "help"),
-                new CommandItem("Sort", "sort"),
-                new CommandItem("Hide", "hide"),
-                new CommandItem("Unhide", "unhide")
+                new CommandItem("Exit", "exit")
         );
         commandTable.setItems(commands);
 
