@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.util.Objects;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -60,5 +62,23 @@ public class CommandItem {
      */
     public StringProperty getFormatProperty() {
         return format;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof CommandItem)) {
+            return false;
+        }
+        CommandItem otherCommandItem = (CommandItem) other;
+        return this.title.get().equals(otherCommandItem.title.get())
+                && this.format.get().equals(otherCommandItem.format.get());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, format);
     }
 }
