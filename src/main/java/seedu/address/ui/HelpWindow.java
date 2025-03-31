@@ -25,6 +25,21 @@ import seedu.address.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     private static final String USERGUIDE_URL = "https://se-education.org/addressbook-level3/UserGuide.html";
+    private static final String NOTES = "• Words in UPPER_CASE are parameters to be supplied by the user.\n"
+                    + "  e.g. in 'add n/NAME', 'NAME' is a parameter which can be used as 'add n/John Doe'.\n\n"
+                    + "• Items in square brackets are optional.\n"
+                    + "  e.g. 'n/NAME [t/TAG]' can be used as 'n/John Doe t/friend' or 'n/John Doe'.\n\n"
+                    + "• Items with '...' after them can be used multiple times, including zero times.\n"
+                    + "  e.g. '[t/TAG]...' can be used 0 times, or 't/friend', or 't/friend t/family', etc.\n\n"
+                    + "• Items inside brackets '()' means that it is either or.\n"
+                    + "  e.g. 'delete (INDEX | t/TAGS) means we can either delete by index or by tag.\n"
+                    + "  So delete format can either be 'delete INDEX' or 'delete t/TAGS'\n\n"
+                    + "• Parameters can be in any order.\n"
+                    + "  e.g. if the command specifies 'n/NAME p/PHONE_NUMBER', "
+                    + "then 'p/PHONE_NUMBER n/NAME' is also acceptable.\n\n"
+                    + "• Extraneous parameters for commands that do not take in parameters "
+                    + "(such as 'help', 'list', 'exit', or 'clear') will be ignored.\n"
+                    + "  e.g. If the command specifies 'help 123', it will be interpreted as 'help'.\n\n";
 
     private static final String FXML = "HelpWindow.fxml";
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
@@ -39,6 +54,8 @@ public class HelpWindow extends UiPart<Stage> {
     private TableColumn<CommandItem, String> commandTitleColumn;
     @FXML
     private TableColumn<CommandItem, String> commandFormatColumn;
+    @FXML
+    private Label notesLabel;
 
     /**
      * Creates a new HelpWindow with the given Stage.
@@ -50,6 +67,7 @@ public class HelpWindow extends UiPart<Stage> {
         userGuideUrl.setText(USERGUIDE_URL);
         populateTable();
         disableColumnDraggingResizing();
+        notesLabel.setText(NOTES);
     }
 
     /**
@@ -65,10 +83,11 @@ public class HelpWindow extends UiPart<Stage> {
     private void populateTable() {
         ObservableList<CommandItem> commands = FXCollections.observableArrayList(
                 new CommandItem("Add", "add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR [t/TAG]..."),
-                new CommandItem("Delete", "delete INDEX"),
+                new CommandItem("Delete", "delete (INDEX | t/TAGS)"),
                 new CommandItem("List", "list"),
                 new CommandItem("Find", "find KEYWORD"),
-                new CommandItem("Edit", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]..."),
+                new CommandItem("Edit", "edit INDEX [n/NAME] [p/PHONE] "
+                        + "[e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]..."),
                 new CommandItem("Clear", "clear"),
                 new CommandItem("Exit", "exit"),
                 new CommandItem("Help", "help"),

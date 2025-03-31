@@ -26,15 +26,8 @@
           <Insets top="15" right="15" bottom="15" left="15" />
         </padding>
         <children>
-          <HBox spacing="10">
-            <Label text="For more details, refer to the user guide:" />
-            <Label fx:id="userGuideUrl"
-                   style="-fx-text-fill: cyan; -fx-font-size: 12px;"/>
-            <Button fx:id="copyButton"
-                    mnemonicParsing="false"
-                    onAction="#copyUrl"
-                    text="Copy URL" />
-          </HBox>
+          <Label text="Available Commands"
+                 style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
           <TableView fx:id="commandTable" prefHeight="400" prefWidth="600">
             <columns>
               <TableColumn fx:id="commandTitleColumn"
@@ -45,6 +38,20 @@
                            prefWidth="400"/>
             </columns>
           </TableView>
+          <Label text="Notes on Command Format"
+                 style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+          <Label fx:id="notesLabel"
+                 wrapText="true"
+                 style="-fx-text-fill: white; -fx-font-size: 12px;"/>
+          <HBox spacing="10">
+            <Label text="For more details, refer to the user guide:" />
+            <Label fx:id="userGuideUrl"
+                   style="-fx-text-fill: cyan; -fx-font-size: 12px;"/>
+            <Button fx:id="copyButton"
+                    mnemonicParsing="false"
+                    onAction="#copyUrl"
+                    text="Copy URL" />
+          </HBox>
         </children>
       </VBox>
     </Scene>
