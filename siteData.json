@@ -129,6 +129,8 @@
         "examples-3": "Examples:",
         "feature-8-delete-a-contact": "Feature #8 : Delete a contact",
         "delete-deletes-the-specified-student-from-the-address-book": "delete : Deletes the specified student from the address book.",
+        "index": "Index",
+        "tags": "Tags",
         "examples-4": "Examples:",
         "feature-9-clear": "Feature #9 : clear",
         "clear-clears-all-entries-from-the-address-book": "clear : Clears all entries from the address book.",
