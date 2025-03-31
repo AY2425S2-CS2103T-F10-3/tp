@@ -167,12 +167,18 @@ public class HelpWindow extends UiPart<Stage> {
         logger.fine("Showing help page.");
         getRoot().show();
         getRoot().centerOnScreen();
+
+        assert getRoot().isShowing() : "HelpWindow should be visible after show()";
     }
 
     /**
      * Returns true if the help window is currently being shown.
      */
     public boolean isShowing() {
+        assert notesLabel.getText() != null
+                && !notesLabel.getText().isEmpty() : "Help message should not be empty";
+        assert userGuideUrl.getText() != null
+                && !userGuideUrl.getText().isEmpty() : "User guide URL should not be empty";
         return getRoot().isShowing();
     }
 
@@ -180,6 +186,10 @@ public class HelpWindow extends UiPart<Stage> {
      * Hides the help window.
      */
     public void hide() {
+        assert notesLabel.getText() != null
+                && !notesLabel.getText().isEmpty() : "Help message should not be empty";
+        assert userGuideUrl.getText() != null
+                && !userGuideUrl.getText().isEmpty() : "User guide URL should not be empty";
         getRoot().hide();
     }
 
