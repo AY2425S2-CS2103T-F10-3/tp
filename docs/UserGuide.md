@@ -17,7 +17,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
     - [Listing all students](#feature-3-listing-everyone-in-contact)
     - [Hide information](#feature-4-hide-information)
     - [Unhide information](#feature-5-unhide-information)
-    - [Sort contacts](#feature-6-)
+    - [Sort contacts](#feature-6-sorting-contacts)
     - [Editing a student's contact](#feature-7-editing-a-contact)
     - [Finding a student](#feature-8-find-student)
     - [Deleting a student's contact](#feature-9-delete-a-contact)
