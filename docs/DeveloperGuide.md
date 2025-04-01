@@ -385,7 +385,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  User enters a **search term**. (e.g., using `find KEYWORD`).
 
 2.  AddressBook searches for any **matching persons** based on the search term in their
-    **Name, Phone, Email** and **Address**.
+    **Name, Phone, Email, Major** and **Tags**.
 
     **Use case ends.**
 
@@ -424,6 +424,32 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 4a. The new details are invalid.
     * 4a1. AddressBook shows an error message.
       Use case resumes at step 3.
+
+---
+
+**Use case: Sort contacts**
+
+**MSS**
+
+1. User enters a **sort command** with a specified order (e.g., using 'sort asc' or 'sort desc').
+
+2. Sorts the contact list in the specified order based on **Name**, followed by **Phone Number** if names are identical.
+
+3. AddressBook displays the sorted contact list.
+
+   **Use case ends.**
+
+**Extensions**
+
+* 2a. No contacts found in the list.
+    * 2a1. AddressBook informs the user that there are no contacts to sort.
+
+      **Use case ends.**
+
+* 2b. User enters an invalid sorting order.
+    * 2b1. AddressBook informs the user of the invalid input and provides the correct format.
+
+      **Use case ends.**
 
 ---
 

@@ -20,7 +20,7 @@ import seedu.address.model.tag.Tag;
 import seedu.address.ui.ConfirmDeleteWindow;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes a person identified using its displayed index from the address book.
  */
 public class DeleteCommand extends Command {
 

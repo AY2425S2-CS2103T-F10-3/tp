@@ -323,18 +323,19 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 ## Command Summary
 
-| **Action** | **Format**                                                                       | **Examples**                                                                                             |
-|------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 m/DSA t/friend t/colleague` |
-| **Clear**  | `clear`                                                                          | -                                                                                                        |
-| **Delete** | `delete INDEX`                                                                   | `delete 3`                                                                                               |
+| **Action** | **Format**                                                                   | **Examples**                                                                                             |
+|------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`              | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 m/DSA t/friend t/colleague` |
+| **Clear**  | `clear`                                                                      | -                                                                                                        |
+| **Delete** | `delete INDEX`                                                               | `delete 3`                                                                                               |
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                   | `find James Jake tyrone@example.com`                                                                     |
-| **List**   | `list`                                                                           | -                                                                                                        |
-| **Hide**   | `hide`                                                                           | -                                                                                                        |
-| **Unhide** | `unhide`                                                                         | -                                                                                                        |
-| **Help**   | `help`                                                                           | -                                                                                                        |
-| **Exit**   | `terminate and exit the program`                                                 | -                                                                                                        |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                               | `find James Jake tyrone@example.com`                                                                     |
+| **Sort**   | `sort asc/desc`                                                              | `sort asc`                                                                                               |
+| **List**   | `list`                                                                       | -                                                                                                        |
+| **Hide**   | `hide`                                                                       | -                                                                                                        |
+| **Unhide** | `unhide`                                                                     | -                                                                                                        |
+| **Help**   | `help`                                                                       | -                                                                                                        |
+| **Exit**   | `terminate and exit the program`                                             | -                                                                                                        |
 
 --------------------------------------------------------------------------------------------------------------------
 # Miscellaneous information
