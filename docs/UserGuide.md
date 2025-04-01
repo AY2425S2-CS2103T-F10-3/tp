@@ -17,12 +17,13 @@ CollabSync is a **desktop app for university students to help manage contacts sw
     - [Listing all students](#feature-3-listing-everyone-in-contact)
     - [Hide information](#feature-4-hide-information)
     - [Unhide information](#feature-5-unhide-information)
-    - [Editing a student's contact](#feature-6-editing-a-contact)
-    - [Finding a student](#feature-7-find-student)
-    - [Deleting a student's contact](#feature-8-delete-a-contact)
-    - [Clearing all contacts](#feature-9-clear)
-    - [Data management](#feature-10-data-management)
-    - [Exit](#feature-11-exit)
+    - [Sort contacts](#feature-6-sorting-contacts)
+    - [Editing a student's contact](#feature-7-editing-a-contact)
+    - [Finding a student](#feature-8-find-student)
+    - [Deleting a student's contact](#feature-9-delete-a-contact)
+    - [Clearing all contacts](#feature-10-clear)
+    - [Data management](#feature-11-data-management)
+    - [Exit](#feature-12-exit)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
@@ -158,7 +159,33 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #6 : Editing a contact
+# Feature #6 : Sorting Contacts
+## `sort` :  Sorts the contact list in ascending or descending order based on name and phone number.
+* Format: `sort (ORDER: ascending/descending)`
+
+<box type="info" seamless>
+
+* Sorts all contacts in the displayed list.
+* The sorting is primarily by name (alphabetical order).
+* If names are identical, sorting will be based on phone numbers.
+* The `ORDER` parameter must be either:
+  * asc → Sorts the list in ascending order (A → Z). 
+  * desc → Sorts the list in descending order (Z → A).
+
+If the contact list is empty, the command will notify the user that there are no contacts to sort.
+
+Sorting does not modify existing contact details.
+
+
+</box>
+
+### Examples:
+*  `sort asc` Sorts the contact list in ascending order by name, followed by phone number.
+*  `sort desc` Sorts the contact list in descending order by name, followed by phone number.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+# Feature #7 : Editing a contact
 ## `edit` : Edits an existing student in the address book.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
@@ -179,7 +206,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #7 : Find student
+# Feature #8 : Find student
 ## `find` : Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -202,7 +229,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #8 : Delete a contact
+# Feature #9 : Delete a contact
 ## `delete` : Deletes the specified student from the address book.
 * Format: `delete (INDEX | t/TAGS)`
 
@@ -228,13 +255,13 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #9 : clear
+# Feature #10 : clear
 ## `clear` : Clears all entries from the address book.
 * Format: `clear`
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #10 : Data Management
+# Feature #11 : Data Management
 
 ### Saving the data
 
@@ -261,7 +288,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #11 : `exit`
+# Feature #12 : `exit`
 ## `exit` : Exits the program.
 * Format: `exit`
 
