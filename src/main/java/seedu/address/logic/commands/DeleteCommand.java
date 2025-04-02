@@ -36,7 +36,7 @@ public class DeleteCommand extends Command {
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
     public static final String MESSAGE_DELETE_PERSONS_SUCCESS = "Deleted Persons:\n";
-    public static final String CONFIRM_DELETE = "Are you sure you want to delete this person?";
+    public static final String CONFIRM_DELETE = "Are you sure you want to delete this person(s)?";
     public static final String TITLE = "CollabSync - Confirm Delete";
     public static final String FEEDBACK_TO_USER_CANCELLED_DELETE = "Deletion canceled.";
     public static final String FEEDBACK_TO_USER_UNKNOWN_ERROR = "Unexpected error occured. Please try again";
