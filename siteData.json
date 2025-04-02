@@ -105,6 +105,7 @@
     },
     {
       "src": "UserGuide.md",
+      "title": "User Guide",
       "headings": {
         "collabsync-user-guide": "CollabSync User Guide",
         "quick-search": "Quick Search",
