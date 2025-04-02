@@ -1,7 +1,7 @@
 ---
   layout: default.md
-  title: "User Guide"
-  pageNav: 3
+    title: "User Guide"
+    pageNav: 3
 ---
 
 # CollabSync User Guide
@@ -74,7 +74,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
   e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items inside normal brackets means that it is an 'either or' option. <br>
-  e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag. <br> 
+  e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag. <br>
   So delete format can either be `delete INDEX` or `delete t/TAGS`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
@@ -102,7 +102,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
   </box>
 
 ![help message](images/helpMessage.png)
-
+<br>
+<br>
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #2 : Adding a student
@@ -119,6 +120,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 ### Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Computer Science t/CS2103T`
 * `add n/Betsy Crowe t/CS2100 e/betsycrowe@example.com a/Newgate Prison p/1234567 m/Maths t/MA1521`
+  <br>
+  <br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -130,6 +133,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 **Note:** You do not need to enter anything else behind `list`
 </box>
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -142,7 +147,9 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 **Note:**
 * If the contact list was already hidden, then running `hide` again will not change the contact card.
 * Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
-</box>
+  </box>
+  <br>
+  <br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -153,15 +160,17 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 <box type="note" seamless>
 
 **Note:**
-* If the contact list was already hidden, then running `hide` again will not change the contact card.
-* Running `hide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
-</box>
+* If the contact list was already displayed, then running `unhide` again will not change the contact card.
+* Running `unhide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
+  </box>
+  <br>
+  <br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #6 : Sorting Contacts
 ## `sort` :  Sorts the contact list in ascending or descending order based on name and phone number.
-* Format: `sort (ORDER: ascending/descending)`
+* Format: `sort (asc | desc)`
 
 <box type="info" seamless>
 
@@ -169,8 +178,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 * The sorting is primarily by name (alphabetical order).
 * If names are identical, sorting will be based on phone numbers.
 * The `ORDER` parameter must be either:
-  * asc → Sorts the list in ascending order (A → Z). 
-  * desc → Sorts the list in descending order (Z → A).
+    * asc → Sorts the list in ascending order (A → Z).
+    * desc → Sorts the list in descending order (Z → A).
 
 If the contact list is empty, the command will notify the user that there are no contacts to sort.
 
@@ -182,6 +191,9 @@ Sorting does not modify existing contact details.
 ### Examples:
 *  `sort asc` Sorts the contact list in ascending order by name, followed by phone number.
 *  `sort desc` Sorts the contact list in descending order by name, followed by phone number.
+
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -203,6 +215,9 @@ Sorting does not modify existing contact details.
 ### Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -226,6 +241,9 @@ Sorting does not modify existing contact details.
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -253,11 +271,17 @@ Sorting does not modify existing contact details.
 * `list` followed by `delete t/CS2100` removes all contacts with tags `CS2100`.
 * `find Andrew` followed by `delete t/CS2100` removes all contacts with the name `Andrew` and tag `CS2100`.
 
+<br>
+<br>
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #10 : clear
 ## `clear` : Clears all entries from the address book.
 * Format: `clear`
+
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -286,11 +310,17 @@ Your existing data file will be automatically backed up at `/data/addressbook_ol
 Furthermore, certain edits can cause the CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
+<br>
+<br>
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #12 : `exit`
 ## `exit` : Exits the program.
 * Format: `exit`
+
+<br>
+<br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -303,7 +333,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 2. Run `java -version` inside the terminal.
    ![java-version](images/java-version.png)
 
-**Q**: How to install Java-17?
+**Q**: How to install Java-17?<br>
 **A**: Follow the guide [here](https://www3.cs.stonybrook.edu/~amione/CSE114_Course/materials/resources/InstallingJava17.pdf).
 
 **Q**: How do I transfer my data to another Computer?<br>
@@ -318,24 +348,26 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
+   <br>
+   <br>
 
 -----------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary
 
-| **Action** | **Format**                                                                   | **Examples**                                                                                             |
-|------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`              | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 m/DSA t/friend t/colleague` |
-| **Clear**  | `clear`                                                                      | -                                                                                                        |
-| **Delete** | `delete INDEX`                                                               | `delete 3`                                                                                               |
+| **Action** | **Format**                                                                       | **Examples**                                                                                             |
+|------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`                  | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 m/DSA t/friend t/colleague` |
+| **Clear**  | `clear`                                                                          | -                                                                                                        |
+| **Delete** | `delete (INDEX \| t/TAGS)`                                                       | `delete 3`, `delete t/CS2100`                                                                            |
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                               | `find James Jake tyrone@example.com`                                                                     |
-| **Sort**   | `sort asc/desc`                                                              | `sort asc`                                                                                               |
-| **List**   | `list`                                                                       | -                                                                                                        |
-| **Hide**   | `hide`                                                                       | -                                                                                                        |
-| **Unhide** | `unhide`                                                                     | -                                                                                                        |
-| **Help**   | `help`                                                                       | -                                                                                                        |
-| **Exit**   | `terminate and exit the program`                                             | -                                                                                                        |
+| **Sort**   | `sort (asc \| desc)`                                                             | `sort asc`, `sort desc`                                                                                  |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`                                                   | `find James Jake tyrone@example.com`                                                                     |
+| **List**   | `list`                                                                           | -                                                                                                        |
+| **Hide**   | `hide`                                                                           | -                                                                                                        |
+| **Unhide** | `unhide`                                                                         | -                                                                                                        |
+| **Help**   | `help`                                                                           | -                                                                                                        |
+| **Exit**   | `exit`                                                                           | -                                                                                                        |
 
 --------------------------------------------------------------------------------------------------------------------
 # Miscellaneous information
