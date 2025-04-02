@@ -48,6 +48,7 @@
         "logic-component": "Logic component",
         "model-component": "Model component",
         "storage-component": "Storage component",
+        "setup-component": "Setup component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
         "backup-on-corrupt-feature": "Backup on corrupt feature",
