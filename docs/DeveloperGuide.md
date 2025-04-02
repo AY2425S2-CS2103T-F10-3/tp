@@ -45,6 +45,7 @@ The bulk of the app's work is done by the following four components:
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`Setup`**](#setup-component): Responsible for the initial configuration and launching of the AddressBook application
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
@@ -147,6 +148,12 @@ The `Storage` component,
 * can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+
+### Setup component
+
+The `Setup` component, 
+* based on the original implementations of `Main.java` , `MainApp.java` & `AppParameters.java` in AB3.
+* now these 3 classes are in a package called `setup` for better coding standards.
 
 ### Common classes
 
@@ -307,13 +314,18 @@ _{more aspects and alternatives to be added}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | user                                       | add a new person             | store and retrieve essential information easily                        |
-| `* * *`  | user                                       | delete a person              | remove entries that are no longer need                                 |
-| `* * *`  | user                                       | find a person by name        | quickly locate specific individuals                                    |
-| `* *`    | user                                       | edit contact details         | I can keep their details up-to-date                                    |
-| `*`      | user with many persons in the address book | search for contacts fuzzily  | find a person even if I do not correctly know their names              |
+| Priority | As a …​                                    | I want to …​                    | So that I can…​                               |
+|---------|--------------------------------------------|---------------------------------|-----------------------------------------------|
+| `* * *` | user                                       | add a new person                | store and retrieve essential information easily |
+| `* * *` | user                                       | delete a person                 | remove entries that are no longer need        |
+| `* * *` | user                                       | find a person by name           | quickly locate specific individuals           |
+| `* *`   | user                                       | edit contact details            | keep their details up-to-date                 |
+| `* *`   | user                                       | sort contact details            | keep their details in an orderly manner       |
+| `* *`   | user                                       | list contact details            | view and manage contacts more efficiently     |
+| `*`     | user                                       | remember my last search         | don't need to type it again                   |
+| `*`     | user                                       | set birthday reminders for my contacts      | be notified in advance                        |
+| `*`     | user with many persons in the address book | search for contacts fuzzily     | find a person even if I do not correctly know their names |
+| `*`     | user with many persons in the address book | the application to load quickly | access my information without delay           |
 
 *{More to be added}*
 
@@ -323,17 +335,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Delete a person**
+**Use case: Delete a person based on index**
 
 **MSS**
 
 1.  User requests to list persons (e.g., using the `list` command).
 
-2.  AddressBook shows a list of persons with their **Name, Phone, Email and Address** in an indexed format.
+2.  AddressBook shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
 
 3.  User requests to delete a specific person in the list by index (e.g., `delete 3`).
 
-4.  AddressBook deletes the person with the given index.
+4.  AddressBook prompts a popup box to request user to confirm their deletion.
+
+5. User enters the confirm button.
+
+6. AddressBook deletes the person with the given index.
 
     **Use case ends.**
 
@@ -349,14 +365,57 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       **Use case** resumes at step 2.
 
+* 4a. Cancel button or `x` was pressed.
+    * 4a1. Contact is not deleted. Deletion canceled.
+
+      **Use case** resumes at step 2.
+
+---
+
+
+**Use case: Delete person(s) based on tags**
+
+**MSS**
+
+1.  User requests to list persons (e.g., using the `list` command).
+
+2.  AddressBook shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
+
+3.  User requests to delete a specific person in the list by the tags (e.g., `delete t/HSA1000`).
+
+4.  AddressBook prompts a popup box to request user to confirm their deletion.
+
+5. User enters the confirm button.
+
+6. AddressBook deletes the person with the given index.
+
+   **Use case ends.**
+
+**Extensions**
+
+* 2a. The list is empty.
+    * 2a1. AddressBook informs the user that there are no contacts to delete.
+
+      **Use case ends.**
+
+* 3a. The given index is invalid.
+    * 3a1. AddressBook shows an error message.
+
+      **Use case** resumes at step 2.
+
+* 4a. Cancel button or `x` was pressed.
+    * 4a1. Contact is not deleted. Deletion canceled.
+
+      **Use case** resumes at step 2.
+
 ---
 
 **Use case: Add a person**
 
 **MSS**
 
-1. User requests to add a new person by specifying **Name, Phone, Email, and Address**
-   (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS`).
+1. User requests to add a new person by specifying **Name, Phone, Email, Address, Major and Tags(if any)**
+   (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR t/[TAGS]`).
 
 2. AddressBook validates the details (e.g., checks phone format, email format, etc.).
 
@@ -402,7 +461,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to list persons.
+1.  User requests to list persons (e.g., using the `list` command).
 
 2. AddressBook shows a list of persons.
 
@@ -421,8 +480,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
       Use case resumes at step 2.
 
-* 4a. The new details are invalid.
-    * 4a1. AddressBook shows an error message.
+* 3b. The new tags entered by user are of invalid format.
+    * 3b1. AddressBook shows an error message.
       Use case resumes at step 3.
 
 ---
@@ -453,7 +512,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Save Data**
+
+**Use case: Hide/Unhide**
+
+**MSS**
+
+1. User performs a hide or unhide.
+
+2. AddressBook automatically hides the contact details of persons in CollabSync
+
+   **Use case ends.**
+
 
 **MSS**
 
