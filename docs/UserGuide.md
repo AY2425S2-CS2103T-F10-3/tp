@@ -104,6 +104,7 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 ![help message](images/helpMessage.png)
 <br>
 <br>
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # Feature #2 : Adding a student
