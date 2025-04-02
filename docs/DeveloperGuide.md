@@ -181,6 +181,30 @@ Here's the workflow:
 
 </box>
 
+### HideCommand Workflow
+
+#### Implementation
+
+The `HideCommand` is part of the `AddressBookParser` layer in the application and handles the action of hiding the details of a contact. <br>
+This operation is executed when the user triggers the `hide` command in the system.
+
+<puml src="diagrams/HideCommand.puml" alt="Hide Command Sequence Diagram" />
+
+Here's the workflow:
+1. The `HideCommand` is invoked when the user types the command `hide`. This is handled in the `execute(Model model)` method of the `HideCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
+2. The `HideCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the persons that the user has in the current view (filtered according to certain criteria).
+3. Once the `filteredPersonList` is retrieved, the `HideCommand` iterates over each `Person` object in the list and calls the method `person.hideDetails()`. This hides the details of each person in the list. The `hideDetails()` method, which is part of the `Person` class, modifies the internal state of the `Person` object, essentially "hiding" the contact's details from the user interface.
+4. After the details are hidden, the `HideCommand` returns a `CommandResult` indicating the success of the operation. The message `"Contact details hidden."` is passed to the `CommandResult` constructor, along with additional flags that help the UI decide how to update (whether to show a success message or not).
+5. The UI layer will use the `CommandResult` object to display feedback to the user. If successful, the system will notify the user that the contact's details have been hidden.
+
+
+<box type="info" seamless>
+
+**Note:** `UnhideCommand` also follows something similar, but instead of calling `hideDetails()`, the method invoked is `showDetails()`
+
+</box>
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
