@@ -323,7 +323,12 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 1. Open the Start button and find the command prompt using the search button. <br>
    ![find-command-prompt](images/find-command-prompt.png)
 2. Run `java -version` inside the terminal.
-   ![java-version](images/java-version.png)
+```{highlight-lines="1['java -version']"}
+foo@bar:~$ java -version
+java version "17.0.12" 2024-07-16 LTS
+Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
+```
 
 **Q**: How to install Java-17?<br>
 **A**: Follow the guide [here](https://www3.cs.stonybrook.edu/~amione/CSE114_Course/materials/resources/InstallingJava17.pdf).
@@ -372,17 +377,18 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
     * 1.a. _home folder_ used for this example is `AmazingProduct` , as seen from the image below.
     * 1.b. `CollabSync.jar` is in the `AmazingProduct` folder, as seen from the image below too.
 
-![Guide_!](images/Guide_1.png)
+<pic src="images/Guide_1.png"></pic>
 
-1. From the image above, move your cursor to the rectangular box and click it. For this example, the rectangular box contains `OneDrive > Teng .... > Desktop > AmazingProduct `
+2. From the image above, click the red-highlighted box. For this example, the rectangular box contains `OneDrive > Teng .... > Desktop > AmazingProduct `
 
-2. Then, copy it. This would be the *`file path`* (the path to the `CollabSync.jar` file)
+3. Then, copy it. This would be the **file path** (the path to the `CollabSync.jar` file)
 
-3. You should see something similar, where the **file path** name is `C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct` for this example.
+4. Open your command prompt, type `cd <file_path>` (without the "<" and ">"). Then press `enter`/`return`. Refer to the image below for your reference.
 
-4. Open your command prompt, type `cd <file path copied from step 2>` into the folder you put the jar file in. For this example, we would type `cd C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct`.
-   Then click `enter` for Window users or `return` for Mac users. Refer to the image below for your reference.
-
-5. Run `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
-   ![Guide_2](images/Guide_2.png)
+5. Lastly, type `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
+```{highlight-lines="1['cd \"C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct\"'], 2['java -jar CollabSync.jar']"}
+foo@bar:~$ cd "C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct"
+foo@bar:~$ java -jar CollabSync.jar
+...
+```
 
