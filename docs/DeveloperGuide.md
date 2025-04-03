@@ -6,8 +6,42 @@
 
 # AB-3 Developer Guide
 
-<!-- * Table of Contents -->
-<page-nav-print />
+* [Acknowledgements](#acknowledgements)
+* [Setting up, getting started](#setting-up-getting-started)
+* [Design](#design)
+  * [Architecture](#architecture)
+  * [UI component](#ui-component)
+  * [Logic component](#logic-component)
+  * [Model component](#model-component)
+  * [Storage component](#storage-component)
+  * [Setup component](#setup-component)
+  * [Common classes](#common-classes)
+* [Implementation](#implementation)
+  * [Backup on corrupt feature](#backup-on-corrupt-feature)
+  * [HideCommand workflow](#hidecommand-workflow)
+* [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
+* [Appendix: Requirements](#appendix-requirements)
+  * [Product scope](#product-scope)
+  * [User stories](#user-stories)
+  * [Use cases](#use-cases)
+    - [Use case: Add a person](#use-case-add-a-person)
+    - [Use case: Delete a person based on index](#use-case-delete-a-person-based-on-index)
+    - [Use case: Delete person(s) based on tags](#use-case-delete-persons-based-on-tags)
+    - [Use case: Edit a person](#use-case-edit-a-person)
+    - [Use case: List all students](#use-case-list-all-students)
+    - [Use case: Sort contacts](#use-case-sort-contacts)
+    - [Use case: Hide Information](#use-case-hide-information)
+    - [Use case: Unhide Information](#use-case-unhide-information)
+    - [Use case: Find a person](#use-case-find-a-person)
+    - [Use case: Save Data](#use-case-save-data)
+    - [Use case: Clear All Contacts](#use-case-clear-all-contacts)
+  * [Non-Functional Requirements](#non-functional-requirements)
+  * [Glossary](#glossary)
+* [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
+  * [Launch and shutdown](#launch-and-shutdown)
+  * [Deleting a person](#deleting-a-person)
+  * [Saving data](#saving-data)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -190,7 +224,7 @@ Here's the workflow:
 
 </box>
 
-### HideCommand Workflow
+### HideCommand workflow
 
 #### Implementation
 
@@ -270,7 +304,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Add a person**
+#### Use case: Add a person
 
 **MSS**
 
@@ -297,7 +331,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Delete a person based on index**
+#### Use case: Delete a person based on index
 
 **MSS**
 
@@ -335,7 +369,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ---
 
 
-**Use case: Delete person(s) based on tags**
+#### Use case: Delete person(s) based on tags
 
 **MSS**
 
@@ -372,7 +406,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Edit a person**
+#### Use case: Edit a person
 
 **MSS**
 
@@ -401,7 +435,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: List All Students**
+#### Use case: List all students
 
 **MSS**
 
@@ -420,7 +454,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Sort contacts**
+#### Use case: Sort contacts
 
 **MSS**
 
@@ -447,7 +481,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ---
 
 
-**Use case: Hide Information**
+#### Use case: Hide Information
 
 **MSS**
 
@@ -466,7 +500,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Unhide Information**
+#### Use case: Unhide Information
 
 **MSS**
 
@@ -485,7 +519,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Find a person**
+#### Use case: Find a person
 
 **MSS**
 
@@ -505,7 +539,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Save Data**
+#### Use case: Save Data
 
 **MSS**
 
@@ -530,7 +564,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Clear All Contacts**
+#### Use case: Clear All Contacts
 
 **MSS**
 
