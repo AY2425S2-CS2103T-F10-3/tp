@@ -12,17 +12,31 @@ faster than traditional GUI apps.
 
 ---
 
-## How to Use This Guide
+## 📚 Guide Directory
 
-This User Guide is structured to help you quickly set up and use CollabSync efficiently:
-1. **Table of Contents** – For easy navigation to any topic.
-2. **Quick Start** – Get CollabSync running in minutes.
-3. **Features** – Detailed explanations of every command.
-4. **FAQ** – Frequently asked questions.
-5. **Known Issues** – Commonly encountered issues and workarounds.
-6. **Command Summary** – Quick reference table for all commands.
-7. **Miscellaneous Information** – Extra notes or reminders.
-8. **Additional Guides for Setup** – Illustrated steps to set up your environment.
+This User Guide is structured to help you quickly set up and use **CollabSync** effectively. Here’s how you can navigate it based on your needs:
+
+1. **[Quick Start](#quick-start)** – *Recommended for first-time users*  
+   - Get CollabSync up and running in just a few minutes with step-by-step instructions.
+
+2. **[Table of Contents](#table-of-contents)** – *Use this to easily jump to any section*  
+   - Quickly find the command or topic you’re looking for.
+
+3. **[Features](#features)** – *Explore CollabSync’s capabilities in detail*  
+   - Learn how each command works, with examples, syntax, and best practices.
+
+4. **[FAQ](#faq)** – *Start here if you have common questions*  
+   - Helpful for addressing installation issues, usage doubts, or general inquiries.
+
+5. **[Known Issues](#known-issues)** – *Useful when troubleshooting problems*  
+   - Lists known bugs and how to work around them.
+
+6. **[Command Summary](#command-summary)** – *Perfect for quick reference*  
+   - A compact cheat sheet with all commands and formats at a glance.
+
+7. **[Miscellaneous Information](#miscellaneous-information)** – *Extra notes and setup tips*  
+   - Includes additional setup guidance and definitions of key terms used throughout the guide.
+
 
 ### Understanding these Callout Boxes
 
@@ -84,6 +98,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 5. [Command Summary](#command-summary)
 6. [Miscellaneous Information](#miscellaneous-information)
 7. [Additional Guides for Setup](#additional-guides-for-setup)
+8. [Glossary](#glossary)
 
 ---
 
@@ -168,7 +183,6 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 * Adds a student to the address book.
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
 
-
 <div markdown="1" class="alert alert-success">
 
 :bulb: **Tip**
@@ -178,13 +192,20 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 
 </div>
 
-
 ### Examples:
-* `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`
-* `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`
-* `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`
+
+* `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`  
+  → Adds a student named **Alex Albon** with contact details and one tag: `CS2100` (a module).
+
+* `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`  
+  → Adds a student named **Bax Berstappen** majoring in Maths, with four module tags. Useful when a student is involved in many courses.
+
+* `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`  
+  → Adds **Carloz Cainz** with no tags. Tags are optional — this is a valid minimal command with all required fields.
+
 <br>
 <br>
+
 
 ---
 
@@ -266,8 +287,10 @@ Sorting does not modify existing contact details.
 
 
 ### Examples:
-*  `sort asc` Sorts the contact list in ascending order by name, followed by phone number.
-*  `sort desc` Sorts the contact list in descending order by name, followed by phone number.
+*  `sort asc`
+   → Sorts the contact list in ascending order by name, followed by phone number.
+*  `sort desc`
+   → Sorts the contact list in descending order by name, followed by phone number.
 
 <br>
 <br>
@@ -334,7 +357,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-# Delete a Student's Contact : delete
+## Delete a Student's Contact : delete
 * Deletes the specified student from the address book.
 * Format: `delete (INDEX | t/TAGS)`
 
@@ -366,7 +389,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-# Clear All Contacts : clear
+## Clear All Contacts : clear
 * Clears all entries from the address book.
 * Format: `clear`
 
@@ -375,7 +398,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-# Data Management
+## Data Management
 
 ### Saving the data
 
@@ -404,7 +427,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-# Exit the Program
+## Exit the Program
 * Exits and stops the program for the User.
 * Format: `exit`
 
@@ -463,10 +486,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 | **Help**   | `help`                                                                           | -                                                                                                        |
 | **Exit**   | `exit`                                                                           | -                                                                                                        |
 
---------------------------------------------------------------------------------------------------------------------
+---
+
 # Miscellaneous information
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Additional Guides for Setup
 
@@ -488,4 +512,23 @@ foo@bar:~$ cd "C:\Users\tengc\OneDrive - National University of Singapore\Deskto
 foo@bar:~$ java -jar CollabSync.jar
 ...
 ```
+
+---
+
+## Glossary
+
+| **Terminology**                    | **Definition**                                                                                                 |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| **CLI (Command Line Interface)**   | A way to interact with CollabSync by typing commands into a text-based terminal.                               |
+| **GUI (Graphical User Interface)** | A visual interface that lets you interact with CollabSync using windows, buttons, and icons.                   |
+| **Command**                        | An instruction typed into the CLI to perform a specific task in CollabSync (e.g. `add`, `delete`).             |
+| **Tag**                            | A keyword or label that can be attached to a contact (e.g. `CS2100`, `urgent`) for organization and filtering. |
+| **Major**                          | The primary academic discipline (e.g. Computer Science, History) assigned to a student contact.                |
+| **Module**                         | A specific university course (e.g. CS2100, MA1521) which can be added as a tag.                                |
+| **Index**                          | The number assigned to a contact in the current list view (starts from 1). Used in commands like `edit 1`.     |
+| **Home Folder**                    | The folder where the `CollabSync.jar` file and its associated data files are stored.                           |
+| **.jar File**                      | A Java Archive file that contains the compiled Java code needed to run CollabSync application.                 |
+| **JSON File**                      | The file format (`addressbook.json`) used by CollabSync to store your data persistently.                       |
+
+---
 
