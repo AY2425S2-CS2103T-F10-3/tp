@@ -610,8 +610,7 @@ Given below are instructions to test the app manually.
 
 <box type="info" seamless>
 
-**Note:** These instructions only provide a starting point for testers to work on;
-testers are expected to do more *exploratory* testing.
+**Note:** These instructions only provide a starting point for testers to work on; testers are expected to do more *exploratory* testing.
 
 </box>
 
@@ -621,38 +620,133 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with a set of sample contacts (the window size may not be optimum).
 
 1. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+   1. Resize the window to an optimum size
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Move the window to a different location
 
-1. _{ more test cases …​ }_
+   1. Close the window
 
-### Deleting a person
+   1. Re-launch the app by double-clicking the jar file <br>
+   Expected: The most recent window size and location is retained.
 
-1. Deleting a person while all persons are being shown
+### Displaying help window
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+1. Displaying help window
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   1. Test case: `help` <br>
+   Expected: A help window popped out. List of commands and their format in the help window.
+
+   1. Test case: `help aaaaaaa` <br>
+   Expected: A help window popped out. List of commands and their format in the help window.
+
+### Adding a student
+
+1. Adding a student
+
+   1. Test case: `add n/Li Shi Rei p/98765432 e/shireiHG@u.nes.edu a/21 Lower Kent Ridge Road m/Prompt Engineering t/genius:trivial` <br>
+   Expected: Student is successfully added to the list. All details are displayed correctly. The contact list updates to show the new student.
+
+   1. Test case: `add n/Saitama p/23456789 e/atama@u.nos.edu a/21 Lower Kent Ridge Road m/Sport Science t/friends:trivial t/HDM1000:module` (different tags) <br>
+   Expected: Student is successfully added to the list. All details are displayed correctly. The contact list updates to show the new student.
+
+   1. Test case: `add n/Saitama p/23456789 e/atama@u.nos.edu a/21 Lower Kent Ridge Road m/Sport Science t/friends:trivial t/HDM1000:module` (same as previous test case) <br>
+   Expected: Student not added to the list. UI displays "This person already exists in the address book".
+
+   1. Test case: `add John Doe` <br>
+   Expected: Student not added to the list. Error details shown in the status message.
+
+   1. Test case: `add n/ t/ p/` <br>
+   Expected: Student not added to the list. Error details shown in the status message.
+
+### Listing all students
+
+1. Listing all students
+
+   1. Test case: `list` <br>
+   Expected: All students are display correctly.
+
+   1. Test case: `list abcdefg` <br>
+   Expected: All students are display correctly.
+
+### Hiding and Unhiding information
+
+1. Hiding information
+
+   1. Test case: `hide` <br>
+   Expected: All students' details is hidden, with only their names and tags shown.
+
+   1. Test case: `hide` (same as previous test case) <br>
+   Expected: All students' details remain hidden, with only their names and tags shown.
+
+1. Unhiding information
+
+   1. Test case: `unhide` <br>
+   Expected: All students' hidden details are displayed.
+
+   1. Test case: `unhide` (same as previous test case) <br>
+   Expected: All students' details remain displayed.
+
+### Sorting students
+
+1. Sorting students in ascending order (A → Z)
+
+   1. Test case: `sort asc` <br>
+   Expected: Students are sorted by their name in ascending order. Ties in names are broken by phone numbers.
+
+1. Sorting students in descending order (Z → A)
+
+   1. Test case: `sort desc` <br>
+   Expected: Students are sorted by their name in descending order. Ties in names are broken by phone numbers.
+
+1. Sorting students in other order
+
+   1. Test case: `sort xyz` <br>
+   Expected: The student list remains the same. Error details shown in the status message.
+
+### Editing a student
+
+1. Editing a student
+
+### Deleting a student
+
+1. Deleting a student while all students are being shown
+
+   1. Prerequisites: List all students using the `list` command. Multiple students in the list.
+
+   1. Test case: `delete 1` <br>
+   Expected: First student entry is deleted from the list. Details of the deleted students shown in the status message.
+
+   1. Test case: `delete t/friends:trivial` <br>
+   Expected: Students with same tag and priority are deleted. Details of the deleted students shown in the status message.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+   Expected: No student is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
-
-1. _{ more test cases …​ }_
+   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size) <br>
+   Expected: Similar to previous.
 
 ### Saving data
 
-1. Dealing with missing/corrupted data files
+1. Dealing with missing data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. Close the app
 
-1. _{ more test cases …​ }_
+   1. Delete `addressbook.json` in the `data` folder
+
+   1. Re-launch the app <br>
+   Expected: Shows the GUI with a set of sample contacts.
+
+1. Dealing with corrupted data files
+
+   1. Close the app
+
+   1. Modify addressbook.json in the data folder by inserting random data at either the start or end of the file
+
+   1. Re-launch the app <br>
+   Expected: A pop-up appears showing a warning message. The corrupted `addressbook.json` is backed up to `addressbook_old.json`. The app will continue with an empty list after pressing the 'OK' button.
+
