@@ -9,21 +9,21 @@ pageNav: 3
 CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
-## Quick Search
+## Table of Content
 1. [Quick Start](#quick-start)
 2. [Features](#features)
-    - [Help](#feature-1-help)
-    - [Adding a student](#feature-2-adding-a-student)
-    - [Listing all students](#feature-3-listing-everyone-in-contact)
-    - [Hide information](#feature-4-hide-information)
-    - [Unhide information](#feature-5-unhide-information)
-    - [Sort contacts](#feature-6-sorting-contacts)
-    - [Editing a student's contact](#feature-7-editing-a-contact)
-    - [Finding a student](#feature-8-find-student)
-    - [Deleting a student's contact](#feature-9-delete-a-contact)
-    - [Clearing all contacts](#feature-10-clear)
-    - [Data management](#feature-11-data-management)
-    - [Exit](#feature-12-exit)
+    - [Help](#view-help-window--help)
+    - [Add a Student](#add-a-student--add)
+    - [List All Students](#list-all-students--list)
+    - [Hide Information](#hide-information--hide)
+    - [Unhide Information](#unhide-information--unhide)
+    - [Sort Contacts](#sort-contacts--sort)
+    - [Edit a Student's Contact](#edit-a-students-contact--edit)
+    - [Find a Student](#find-a-student--find)
+    - [Delete a Student's Contact](#delete-a-students-contact--delete)
+    - [Clear All Contacts](#clear-all-contacts--clear)
+    - [Data Management](#data-management)
+    - [Exit the Program](#exit-the-program--exit)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
@@ -32,9 +32,9 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 ## Quick start
 
-1. Ensure you have Java `17` or above installed in your Computer.<br>
-   1.a. To check, click [here](#faq).<br>
-   1.b. **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+1. Ensure `Java 17` or above is installed on your computer.<br>
+   * If you're unsure whether Java is installed or need installation instructions, click [here](#faq).<br>
+   * **For Mac users:** Install the exact JDK version specified [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
 
@@ -91,15 +91,12 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #1 : Help
-## `help` : Shows a help window
-* Format: `help`
-
+# View help window : help
 <box type="info" seamless>
 
 * Shows a help window with the basic commands needed for basic usage of CollabSync. <br>
-* Also contains a message explaining how to access the help page.
-  </box>
+</box>
+* Format: `help`
 
 ![help message](images/helpMessage.png)
 <br>
@@ -107,17 +104,12 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #2 : Adding a student
-## `add` : Adds a student to the address book.
-
-* Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
-
-
-<box type="tip" seamless>
+# Add a Student : add
+* Adds a student to the address book. <br>
+* Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​` <br>
 
 **Tip:** A student can have any number of tags (You can choose to omit tags)
-         Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
-</box>
+Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
 
 ### Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Computer Science t/CS2103T`
@@ -127,8 +119,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #3 : Listing everyone in contact
-## `list` : Shows a list of all students in CollabSync.
+# List All Students : list
+* Shows a list of all students in CollabSync. <br>
 * Format: `list`
 
 <box type="note" seamless>
@@ -140,8 +132,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #4 : Hide Information
-## `hide` : Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
+# Hide Information : hide
+* Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
 * Format: `hide`
 
 <box type="note" seamless>
@@ -155,8 +147,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #5 : Unhide Information
-## `unhide` : Unhides all information, uncovering all attributes (if it was shown in the first place)
+# Unhide Information : unhide
+* Unhides all information, uncovering all attributes (if it was shown in the first place)
 * Format: `unhide`
 
 <box type="note" seamless>
@@ -170,8 +162,8 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #6 : Sorting Contacts
-## `sort` :  Sorts the contact list in ascending or descending order based on name and phone number.
+# Sort Contacts : sort
+* Sorts the contact list in ascending or descending order based on name and phone number.
 * Format: `sort (asc | desc)`
 
 <box type="info" seamless>
@@ -199,8 +191,8 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #7 : Editing a contact
-## `edit` : Edits an existing student in the address book.
+# Edit a Student's Contact : edit
+* Edits an existing student in the address book.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
 <box type="info" seamless>
@@ -224,8 +216,8 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #8 : Find student
-## `find` : Finds students whose names contain any of the given keywords.
+# Find a Student : find
+* Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
 <box type="info" seamless>
@@ -251,8 +243,8 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #9 : Delete a contact
-## `delete` : Deletes the specified student from the address book.
+# Delete a Student's Contact : delete
+* Deletes the specified student from the address book.
 * Format: `delete (INDEX | t/TAGS)`
 
 <box type="info" seamless>
@@ -280,8 +272,8 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #10 : clear
-## `clear` : Clears all entries from the address book.
+# Clear All Contacts : clear
+* Clears all entries from the address book.
 * Format: `clear`
 
 <br>
@@ -289,7 +281,7 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #11 : Data Management
+# Data Management
 
 ### Saving the data
 
@@ -315,17 +307,13 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 </box>
 
 <br>
-<br>
-
 -----------------------------------------------------------------------------------------------------------------------
 
-# Feature #12 : `exit`
-## `exit` : Exits the program.
+# Exit the Program : exit
+* Exits and stops the program for the User.
 * Format: `exit`
 
 <br>
-<br>
-
 -----------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
