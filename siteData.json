@@ -108,7 +108,7 @@
       "title": "User Guide",
       "headings": {
         "collabsync-user-guide": "CollabSync User Guide",
-        "how-to-use-this-guide": "How to Use This Guide",
+        "guide-directory": "📚 Guide Directory",
         "understanding-these-callout-boxes": "Understanding these Callout Boxes",
         "table-of-contents": "Table of Contents",
         "quick-start": "Quick Start",
@@ -138,7 +138,8 @@
         "known-issues": "Known Issues",
         "command-summary": "Command Summary",
         "miscellaneous-information": "Miscellaneous information",
-        "additional-guides-for-setup": "Additional Guides for Setup"
+        "additional-guides-for-setup": "Additional Guides for Setup",
+        "glossary": "Glossary"
       },
       "headingKeywords": {}
     },
