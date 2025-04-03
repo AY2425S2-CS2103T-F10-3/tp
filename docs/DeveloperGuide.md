@@ -6,6 +6,8 @@
 
 # AB-3 Developer Guide
 
+{{ toc() }}
+
 <!-- * Table of Contents -->
 <page-nav-print />
 
