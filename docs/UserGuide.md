@@ -6,7 +6,10 @@ pageNav: 3
 
 # CollabSync User Guide
 
-CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done faster than traditional GUI apps.
+CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively, 
+optimized for use via a Command Line Interface** (CLI) while still having the benefits of a 
+Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done
+faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 ## Table of Content
@@ -112,8 +115,9 @@ CollabSync is a **desktop app for university students to help manage contacts sw
 Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
 
 ### Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Computer Science t/CS2103T`
-* `add n/Betsy Crowe t/CS2100 e/betsycrowe@example.com a/Newgate Prison p/1234567 m/Maths t/MA1521`
+* `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`
+* `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`
+* `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`
   <br>
   <br>
 
