@@ -63,3 +63,7 @@
 #copyButton:armed {
     -fx-background-color: darkgray;
 }
+
+.scroll-pane {
+    -fx-background: #2b2b2b;
+}
