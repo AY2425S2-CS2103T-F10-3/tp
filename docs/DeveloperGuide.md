@@ -245,20 +245,24 @@ Here's the workflow:
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                    | So that I can…​                               |
-|---------|--------------------------------------------|---------------------------------|-----------------------------------------------|
-| `* * *` | user                                       | add a new person                | store and retrieve essential information easily |
-| `* * *` | user                                       | delete a person                 | remove entries that are no longer need        |
-| `* * *` | user                                       | find a person by name           | quickly locate specific individuals           |
-| `* *`   | user                                       | edit contact details            | keep their details up-to-date                 |
-| `* *`   | user                                       | sort contact details            | keep their details in an orderly manner       |
-| `* *`   | user                                       | list contact details            | view and manage contacts more efficiently     |
-| `*`     | user                                       | remember my last search         | don't need to type it again                   |
-| `*`     | user                                       | set birthday reminders for my contacts      | be notified in advance                        |
-| `*`     | user with many persons in the address book | search for contacts fuzzily     | find a person even if I do not correctly know their names |
-| `*`     | user with many persons in the address book | the application to load quickly | access my information without delay           |
-
-*{More to be added}*
+| Priority| As a …​                               | I want to …​                | So that I can…​                                       |
+|---------|--------------------------------------------|----------------------------------|------------------------------------------------------------|
+| `* * *` | user                                       | add a new student                | store and retrieve essential information easily            |
+| `* * *` | user                                       | delete a student                 | remove outdated  or irrelevant entries                     |
+| `* * *` | user                                       | find a student by name           | quickly locate specific student                            |
+| `* *`   | user                                       | data save automatically          | so that I never lose my contacts even if the app crashes   |
+| `* *`   | user                                       | find students by course          | quickly locate students with a specific course             |
+| `* *`   | user                                       | clear all contacts at once       | reset the app for a new semester                           |
+| `* *`   | user                                       | delete students by course        | remove related entries after a course ended                |
+| `* *`   | user                                       | edit student details             | keep their details up-to-date                              |
+| `* *`   | user                                       | sort student details             | keep their details in an orderly manner                    |
+| `* *`   | user                                       | list all students                | see all my saved contacts at once                          |
+| `* *`   | new user                                   | view a help menu                 | quickly learn how to use the application                   |
+| `*`     | user                                       | remember my last search          | don't need to type it again                                |
+| `*`     | privacy-conscious user                     | hide students' information       | hide sensitive details when others view my screen          |
+| `*`     | privacy-conscious user                     | unhide students' information     | access full contact details when needed                    |
+| `*`     | user with many persons in the address book | search for contacts fuzzily      | find a student even if I do not correctly know their names |
+| `*`     | user with many persons in the address book | the application to load quickly  | access my information without delay                        |
 
 ### Use cases
 
