@@ -236,6 +236,6 @@ with(this){return _c('ol',{attrs:{"start":"2"}},[_c('li',[_c('p',[_v("From the i
 with(this){return _c('pre',[_c('code',{pre:true,attrs:{"-":"","National":"","University":"","of":"","Singapore\Desktop\AmazingProduct\],2[java-jarCollabSync.jar]":"","class":"hljs"}},[_c('span',[_v("foo@bar:~$ cd \"C:\\Users\\tengc\\OneDrive - National University of Singapore\\Desktop\\AmazingProduct\"\n")]),_c('span',[_v("foo@bar:~$ java -jar CollabSync.jar\n")]),_c('span',[_v("...\n")])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Thu, 3 Apr 2025, 22:22:36 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Thu, 3 Apr 2025, 22:27:16 GMT+8]")])])])}
 }];
   
