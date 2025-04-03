@@ -62,7 +62,13 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-person": "Deleting a person",
+        "displaying-help-window": "Displaying help window",
+        "adding-a-student": "Adding a student",
+        "listing-all-students": "Listing all students",
+        "hiding-and-unhiding-information": "Hiding and Unhiding information",
+        "sorting-students": "Sorting students",
+        "editing-a-student": "Editing a student",
+        "deleting-a-student": "Deleting a student",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
