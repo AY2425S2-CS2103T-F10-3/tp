@@ -13,7 +13,9 @@
 
 ## **Acknowledgements**
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+CollabSync is built upon [AddressBook-Level3](https://se-education.org/addressbook-level3/), a project developed by the [SE-EDU initiative](https://se-education.org/).
+
+We also acknowledge the use of the following third-party libraries: [JavaFX](https://openjfx.io/), [JUnit5](https://github.com/junit-team/junit5)
 
 --------------------------------------------------------------------------------------------------------------------
 
