@@ -1,190 +1,224 @@
 ---
 layout: default.md
 title: "User Guide"
-pageNav: 3
 ---
 
 # CollabSync User Guide
 
-CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively, 
-optimized for use via a Command Line Interface** (CLI) while still having the benefits of a 
+CollabSync is a **desktop app for university students to help manage contacts swiftly and effectively**,
+optimized for use via a Command Line Interface (CLI) while still having the benefits of a
 Graphical User Interface (GUI). If you can type fast, CollabSync can get your contact management tasks done
 faster than traditional GUI apps.
 
-<!-- * Table of Contents -->
-## Table of Content
+---
+
+## How to Use This Guide
+
+This User Guide is structured to help you quickly set up and use CollabSync efficiently:
+1. **Table of Contents** – For easy navigation to any topic.
+2. **Quick Start** – Get CollabSync running in minutes.
+3. **Features** – Detailed explanations of every command.
+4. **FAQ** – Frequently asked questions.
+5. **Known Issues** – Commonly encountered issues and workarounds.
+6. **Command Summary** – Quick reference table for all commands.
+7. **Miscellaneous Information** – Extra notes or reminders.
+8. **Additional Guides for Setup** – Illustrated steps to set up your environment.
+
+### Understanding these Callout Boxes
+
+Throughout this guide, you'll encounter different types of callout boxes that provide important information:
+
+<div markdown="span" class="alert alert-info">:information_source: **Info Box**<br><br>
+Provides additional information or clarifications about a feature or command in CollabSync.
+</div>
+
+<div markdown="span" class="alert alert-success">:bulb: **Tip Box**<br><br>
+Offers helpful tips to boost productivity. These tips allows you to navigate CollabSync more effectively.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Warning Box**<br><br>
+Highlights important warnings or potential issues. Do pay extra attention to these warnings to avoid facing problems.
+</div>
+
+<div markdown="span" class="alert alert-danger">:warning: **Danger Box**<br><br>
+Indicates critical warnings or irreversible actions. Always read these carefully before proceeding to the next step.
+</div>
+
+---
+
+## Table of Contents
 1. [Quick Start](#quick-start)
 2. [Features](#features)
-    - [Help](#view-help-window--help)
-    - [Add a Student](#add-a-student--add)
-    - [List All Students](#list-all-students--list)
-    - [Hide Information](#hide-information--hide)
-    - [Unhide Information](#unhide-information--unhide)
-    - [Sort Contacts](#sort-contacts--sort)
-    - [Edit a Student's Contact](#edit-a-students-contact--edit)
-    - [Find a Student](#find-a-student--find)
-    - [Delete a Student's Contact](#delete-a-students-contact--delete)
-    - [Clear All Contacts](#clear-all-contacts--clear)
+    - [View Help Window](#view-help-window-help)
+    - [Add a Student](#add-a-student-add)
+    - [List All Students](#list-all-students-list)
+    - [Hide Information](#hide-information-hide)
+    - [Unhide Information](#unhide-information-unhide)
+    - [Sort Contacts](#sort-contacts-sort)
+    - [Edit a Student's Contact](#edit-a-students-contact-edit)
+    - [Find a Student](#find-a-student-find)
+    - [Delete a Student's Contact](#delete-a-students-contact-delete)
+    - [Clear All Contacts](#clear-all-contacts-clear)
     - [Data Management](#data-management)
-    - [Exit the Program](#exit-the-program--exit)
+    - [Exit the Program](#exit-the-program-exit)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
+6. [Miscellaneous Information](#miscellaneous-information)
+7. [Additional Guides for Setup](#additional-guides-for-setup)
 
---------------------------------------------------------------------------------------------------------------------
+---
 
-## Quick start
+## Quick Start
 
-1. Ensure `Java 17` or above is installed on your computer.<br>
-   * If you're unsure whether Java is installed or need installation instructions, click [here](#faq).<br>
-   * **For Mac users:** Install the exact JDK version specified [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+1. Ensure `Java 17` or above is installed on your computer.
+    - If you're unsure whether Java is installed or need installation instructions, click [here](#faq).
+    - **For Mac users:** Install the exact JDK version specified [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your CollabSync. Click [here](#additional-guides-for-setup) if you wish to see a pictorial illustration.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar CollabSync.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar CollabSync.jar` command to run the application.  
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.  
    ![Ui](images/Ui.png)
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. For example, typing **`help`** and pressing Enter will open the help window.  
    Some example commands you can try:
-
-    * `list` : Lists all contacts.
-
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Physics` : Adds a contact named `John Doe` to the Address Book.
-
-    * `delete 3` : Deletes the 3rd contact shown in the current list.
-
-    * `clear` : Deletes all contacts.
-
-    * `exit` : Exits the app.
+    - `list`: Lists all contacts.
+    - `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/Physics`: Adds a contact named `John Doe` to the Address Book.
+    - `delete 3`: Deletes the 3rd contact shown in the current list.
+    - `clear`: Deletes all contacts.
+    - `exit`: Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 # Features
 
-<box type="info" seamless>
-
-**Notes about the command format:**<br>
-
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+**Notes about the command format:**  
+- Words in `UPPER_CASE` are the parameters to be supplied by the user.  
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+- Items in square brackets are optional.  
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
-* Items inside normal brackets means that it is an 'either or' option. <br>
-  e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag. <br>
-  So delete format can either be `delete INDEX` or `delete t/TAGS`.
+- Items inside normal brackets means that it is an 'either or' option.  
+  e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag.  
+  So the delete format can either be `delete INDEX` or `delete t/TAGS`.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
+- Items with `…`​ after them can be used multiple times including zero times.  
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
-* Parameters can be in any order.<br>
+- Parameters can be in any order.  
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+- Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.  
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-  </box>
+- If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+</div>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
-# View help window : help
-<box type="info" seamless>
+## View Help Window : `help`
 
-* Shows a help window with the basic commands needed for basic usage of CollabSync. <br>
-</box>
+<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+Shows a help window with the basic commands needed for basic usage of CollabSync.
+</div>
+
+**Format:**
+
 * Format: `help`
 
 ![help message](images/helpMessage.png)
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+--- 
 
-# Add a Student : add
+## Add a Student : add
 * Adds a student to the address book. <br>
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​` <br>
 
-**Tip:** A student can have any number of tags (You can choose to omit tags)
-Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
+
+<div markdown="1" class="alert alert-success">:bulb: **Tip**<br><br>
+- A student can have any number of tags (You can choose to omit tags).
+- Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
+</div>
 
 ### Examples:
 * `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`
 * `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`
 * `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`
-  <br>
-  <br>
+<br>
+<br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
-# List All Students : list
-* Shows a list of all students in CollabSync. <br>
+## List All Students : `list`
+
+* Shows a list of all students in CollabSync.
 * Format: `list`
 
-<box type="note" seamless>
+<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
+You do not need to enter anything else behind `list`.
+</div>
 
-**Note:** You do not need to enter anything else behind `list`
-</box>
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
-# Hide Information : hide
+## Hide Information : hide
 * Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
 * Format: `hide`
 
 <box type="note" seamless>
 
-**Note:**
-* If the contact list was already hidden, then running `hide` again will not change the contact card.
-* Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
-  </box>
-  <br>
-  <br>
+<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
+- If the contact list was already hidden, then running `hide` again will not change the contact card.  
+- Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
+</div>
 
------------------------------------------------------------------------------------------------------------------------
 
-# Unhide Information : unhide
+<br>
+<br>
+
+---
+
+## Unhide Information : unhide
 * Unhides all information, uncovering all attributes (if it was shown in the first place)
 * Format: `unhide`
 
-<box type="note" seamless>
+<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
+- If the contact list was already displayed, then running `unhide` again will not change the contact card.  
+- Running `unhide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
+</div>
 
-**Note:**
-* If the contact list was already displayed, then running `unhide` again will not change the contact card.
-* Running `unhide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
-  </box>
-  <br>
-  <br>
+<br>
+<br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
-# Sort Contacts : sort
+## Sort Contacts : sort
 * Sorts the contact list in ascending or descending order based on name and phone number.
 * Format: `sort (asc | desc)`
 
-<box type="info" seamless>
+<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+- Sorts all contacts in the displayed list.  
+- The sorting is primarily by name (alphabetical order).  
+- If names are identical, sorting will be based on phone numbers.  
+- The `ORDER` parameter must be either:
+- `asc` → Sorts the list in ascending order (A → Z).
+- `desc` → Sorts the list in descending order (Z → A).  
 
-* Sorts all contacts in the displayed list.
-* The sorting is primarily by name (alphabetical order).
-* If names are identical, sorting will be based on phone numbers.
-* The `ORDER` parameter must be either:
-    * asc → Sorts the list in ascending order (A → Z).
-    * desc → Sorts the list in descending order (Z → A).
-
-If the contact list is empty, the command will notify the user that there are no contacts to sort.
+If the contact list is empty, the command will notify you that there are no contacts to sort.
 
 Sorting does not modify existing contact details.
-
-
-</box>
+</div>
 
 ### Examples:
 *  `sort asc` Sorts the contact list in ascending order by name, followed by phone number.
@@ -193,23 +227,22 @@ Sorting does not modify existing contact details.
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
-# Edit a Student's Contact : edit
+## Edit a Student's Contact : edit
 * Edits an existing student in the address book.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
-<box type="info" seamless>
 
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, `priority` of the existing tags also can be changed too.
-* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
-* You can remove all the student’s tags by typing `t/` without
-  specifying any tags after it.
+<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+- Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …  
+- At least one of the optional fields must be provided.  
+- Existing values will be updated to the input values.  
+- When editing tags, `priority` of the existing tags can also be changed.  
+- When editing tags, the existing tags of the student will be removed i.e., adding of tags is not cumulative.  
+- You can remove all the student’s tags by typing `t/` without specifying any tags after it.
+</div>
 
-</box>
 
 ### Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
@@ -220,22 +253,20 @@ Sorting does not modify existing contact details.
 
 -----------------------------------------------------------------------------------------------------------------------
 
-# Find a Student : find
+## Find a Student : find
 * Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
-<box type="info" seamless>
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-* The search can also search using other attributes, such as phone numbers and email addresses, to find a particular student.
-* For search using tags, only the `tagname` & `priority(if any)` can be used. (i.e. When a person named `John Smith` is added with tag `t/CS2100:Module`, we search for `John Smith` using the tagname: `CS2100` or priority: `Module`)
-
-</box>
+<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+- The search is case-insensitive. e.g. `hans` will match `Hans`  
+- The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`  
+- Only the name is searched.  
+- Only full words will be matched e.g. `Han` will not match `Hans`  
+- Persons matching at least one keyword will be returned (i.e. `OR` search).  
+e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`  
+- The search can also look up other attributes, such as phone numbers and email addresses, to find a particular student.  
+- For search using tags, only the `tagname` & `priority (if any)` can be used. (i.e. When a person named `John Smith` is added with tag `t/CS2100:Module`, we can search for `John Smith` using the tagname: `CS2100` or priority: `Module`)
+</div>
 
 ### Examples:
 * `find John` returns `john` and `John Doe`
