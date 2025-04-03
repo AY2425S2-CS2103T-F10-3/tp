@@ -28,21 +28,39 @@ This User Guide is structured to help you quickly set up and use CollabSync effi
 
 Throughout this guide, you'll encounter different types of callout boxes that provide important information:
 
-<div markdown="span" class="alert alert-info">:information_source: **Info Box**<br><br>
+<div markdown="1" class="alert alert-info">
+
+:information_source: **Info Box**
+
 Provides additional information or clarifications about a feature or command in CollabSync.
+
 </div>
 
-<div markdown="span" class="alert alert-success">:bulb: **Tip Box**<br><br>
-Offers helpful tips to boost productivity. These tips allows you to navigate CollabSync more effectively.
+
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Tip Box**
+
+Offers helpful tips to boost productivity. These tips allow you to navigate CollabSync more effectively.
+
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning Box**<br><br>
-Highlights important warnings or potential issues. Do pay extra attention to these warnings to avoid facing problems.
+<div markdown="1" class="alert alert-warning">
+
+:exclamation: **Warning Box**
+
+Highlights important warnings or potential issues. Pay extra attention to these warnings to avoid problems.
+
 </div>
 
-<div markdown="span" class="alert alert-danger">:warning: **Danger Box**<br><br>
+<div markdown="1" class="alert alert-danger">
+
+:warning: **Danger Box**
+
 Indicates critical warnings or irreversible actions. Always read these carefully before proceeding to the next step.
+
 </div>
+
 
 ---
 
@@ -97,8 +115,9 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 # Features
 
-<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
-**Notes about the command format:**  
+<div markdown="1" class="alert alert-info">
+
+**Notes about the command format:**
 - Words in `UPPER_CASE` are the parameters to be supplied by the user.  
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
@@ -119,19 +138,22 @@ Indicates critical warnings or irreversible actions. Always read these carefully
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 - If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+
 </div>
 
 ---
 
 ## View Help Window : `help`
+* Format: `help`
 
-<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
+<div markdown="1" class="alert alert-info">
+
+:information_source: **Info**
+
 Shows a help window with the basic commands needed for basic usage of CollabSync.
+
 </div>
 
-**Format:**
-
-* Format: `help`
 
 ![help message](images/helpMessage.png)
 <br>
@@ -144,17 +166,22 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​` <br>
 
 
-<div markdown="1" class="alert alert-success">:bulb: **Tip**<br><br>
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Tip**
+
 - A student can have any number of tags (You can choose to omit tags).
 - Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
+
 </div>
+
 
 ### Examples:
 * `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`
 * `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`
 * `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`
-<br>
-<br>
+  <br>
+  <br>
 
 ---
 
@@ -175,8 +202,6 @@ You do not need to enter anything else behind `list`.
 ## Hide Information : hide
 * Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
 * Format: `hide`
-
-<box type="note" seamless>
 
 <div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
 - If the contact list was already hidden, then running `hide` again will not change the contact card.  
@@ -344,7 +369,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 <br>
 -----------------------------------------------------------------------------------------------------------------------
 
-# Exit the Program : exit
+# Exit the Program
 * Exits and stops the program for the User.
 * Format: `exit`
 
