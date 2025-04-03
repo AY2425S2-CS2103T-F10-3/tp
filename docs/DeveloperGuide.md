@@ -260,7 +260,34 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `CollabSync` and the **Actor** is the `user`, unless specified otherwise)
+
+---
+
+**Use case: Add a person**
+
+**MSS**
+
+1. User requests to add a new person by specifying **Name, Phone, Email, Address, Major and Tags(if any)**
+   (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR t/[TAGS]`).
+
+2. CollabSync validates the details (e.g., checks phone format, email format, etc.).
+
+3. CollabSync saves the new person to the address book.
+
+   **Use case ends.**
+
+**Extensions**
+
+* 2a. User provides incomplete or invalid details. (e.g., phone number format is invalid)
+    * 2a1. CollabSync shows an error message.
+
+      **Use case ends.**
+
+* 2b. User tries to add a contact that already exists (e.g., same **Name and Phone**).
+    * 2b1. CollabSync rejects the duplicate entry and shows an error message.
+
+      **Use case ends.**
 
 ---
 
@@ -270,27 +297,27 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  User requests to list persons (e.g., using the `list` command).
 
-2.  AddressBook shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
+2.  CollabSync shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
 
 3.  User requests to delete a specific person in the list by index (e.g., `delete 3`).
 
-4.  AddressBook prompts a popup box to request user to confirm their deletion.
+4.  CollabSync prompts a popup box to request user to confirm their deletion.
 
 5. User enters the confirm button.
 
-6. AddressBook deletes the person with the given index.
+6. CollabSync deletes the person with the given index.
 
     **Use case ends.**
 
 **Extensions**
 
 * 2a. The list is empty.
-    * 2a1. AddressBook informs the user that there are no contacts to delete.
+    * 2a1. CollabSync informs the user that there are no contacts to delete.
 
       **Use case ends.**
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CollabSync shows an error message.
 
       **Use case** resumes at step 2.
 
@@ -308,27 +335,27 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  User requests to list persons (e.g., using the `list` command).
 
-2.  AddressBook shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
+2.  CollabSync shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
 
 3.  User requests to delete a specific person in the list by the tags (e.g., `delete t/HSA1000`).
 
-4.  AddressBook prompts a popup box to request user to confirm their deletion.
+4.  CollabSync prompts a popup box to request user to confirm their deletion.
 
 5. User enters the confirm button.
 
-6. AddressBook deletes the person with the given index.
+6. CollabSync deletes the person with the given index.
 
    **Use case ends.**
 
 **Extensions**
 
 * 2a. The list is empty.
-    * 2a1. AddressBook informs the user that there are no contacts to delete.
+    * 2a1. CollabSync informs the user that there are no contacts to delete.
 
       **Use case ends.**
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CollabSync shows an error message.
 
       **Use case** resumes at step 2.
 
@@ -339,64 +366,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: Add a person**
-
-**MSS**
-
-1. User requests to add a new person by specifying **Name, Phone, Email, Address, Major and Tags(if any)**
-   (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR t/[TAGS]`).
-
-2. AddressBook validates the details (e.g., checks phone format, email format, etc.).
-
-3. AddressBook saves the new person to the address book.
-
-   **Use case ends.**
-
-**Extensions**
-
-* 2a. User provides incomplete or invalid details. (e.g., phone number format is invalid)
-    * 2a1. AddressBook shows an error message.
-
-      **Use case ends.**
-
-* 2b. User tries to add a contact that already exists (e.g., same **Name and Phone**).
-    * 2b1. AddressBook rejects the duplicate entry and shows an error message.
-
-      **Use case ends.**
-
----
-
-**Use case: Find a person**
-
-**MSS**
-
-1.  User enters a **search term**. (e.g., using `find KEYWORD`).
-
-2.  AddressBook searches for any **matching persons** based on the search term in their
-    **Name, Phone, Email, Major** and **Tags**.
-
-    **Use case ends.**
-
-**Extensions**
-
-* 2a. No matching persons found
-    * 2a1. AddressBook informs the user that no results match the search.
-
-      **Use case ends.**
-
----
-
 **Use case: Edit a person**
 
 **MSS**
 
 1.  User requests to list persons (e.g., using the `list` command).
 
-2. AddressBook shows a list of persons.
+2. CollabSync shows a list of persons.
 
 3. User requests to edit a specific person.
 
-4. AddressBook updates the details of the person.
+4. CollabSync updates the details of the person.
 
    **Use case ends.**
 
@@ -406,12 +386,31 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   **Use case ends.**
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CollabSync shows an error message.
       Use case resumes at step 2.
 
 * 3b. The new tags entered by user are of invalid format.
-    * 3b1. AddressBook shows an error message.
+    * 3b1. CollabSync shows an error message.
       Use case resumes at step 3.
+
+---
+
+**Use case: List All Students**
+
+**MSS**
+
+1. User enters the `list` command.
+
+2. CollabSync displays a list of all students with their **Name, Phone, Email, Address, Major, and Tags (if any)** in an indexed format.
+
+   **Use case ends.**
+
+**Extensions**
+
+* **2a. No students in the address book**:
+    * **2a1.** CollabSync informs the user that the list is empty.
+
+      **Use case ends.**
 
 ---
 
@@ -423,34 +422,82 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 2. Sorts the contact list in the specified order based on **Name**, followed by **Phone Number** if names are identical.
 
-3. AddressBook displays the sorted contact list.
+3. CollabSync displays the sorted contact list.
 
    **Use case ends.**
 
 **Extensions**
 
 * 2a. No contacts found in the list.
-    * 2a1. AddressBook informs the user that there are no contacts to sort.
+    * 2a1. CollabSync informs the user that there are no contacts to sort.
 
       **Use case ends.**
 
 * 2b. User enters an invalid sorting order.
-    * 2b1. AddressBook informs the user of the invalid input and provides the correct format.
+    * 2b1. CollabSync informs the user of the invalid input and provides the correct format.
 
       **Use case ends.**
 
 ---
 
 
-**Use case: Hide/Unhide**
+**Use case: Hide Information**
 
 **MSS**
 
-1. User performs a hide or unhide.
+1. User enters the `hide` command.
 
-2. AddressBook automatically hides the contact details of persons in CollabSync
+2. CollabSync automatically hides the contact details of all persons currently shown in the application, except for **Name and Tags** (if they were displayed previously).
 
    **Use case ends.**
+
+**Extensions**
+
+* **2a. Information is already hidden**:
+    * **2a1.** The information of the contacts in the current window currently will remain hidden.
+
+      **Use case ends.**
+
+---
+
+**Use case: Unhide Information**
+
+**MSS**
+
+1. User enters the `unhide` command.
+
+2. CollabSync automatically reveals all the hidden information of the persons currently in the application.
+
+   **Use case ends.**
+
+**Extensions**
+
+* **1a. No information was hidden**:
+    * **1a1.** The information of the contacts in the current window will remain revealed.
+
+      **Use case ends.**
+
+---
+
+**Use case: Find a person**
+
+**MSS**
+
+1.  User enters a **search term**. (e.g., using `find KEYWORD`).
+
+2.  CollabSync searches for any **matching persons** based on the search term in their
+    **Name, Phone, Email, Major** and **Tags**.
+
+    **Use case ends.**
+
+**Extensions**
+
+* 2a. No matching persons found
+    * 2a1. CollabSync informs the user that no results match the search.
+
+      **Use case ends.**
+
+---
 
 **Use case: Save Data**
 
@@ -458,22 +505,43 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User performs an action that modifies the data (e.g., adding, editing, or deleting a contact).
 
-2. AddressBook automatically saves the updated data to a local file (e.g., `data/addressbook.json`).
+2. CollabSync automatically saves the updated data to a local file (e.g., `data/addressbook.json`).
 
    **Use case ends.**
 
 **Extensions**
 
 * 2a. Saving data fails (e.g., permission issues or disk is full).
-    * 2a1. AddressBook shows an error message indicating that the save failed.
+    * 2a1. CollabSync shows an error message indicating that the save failed.
 
       **Use case ends.**
 
 * 2b. Data file is corrupted or unreadable.
-    * 2b1. AddressBook shows an error message about the corrupted file.
+    * 2b1. CollabSync shows an error message about the corrupted file.
 
       **Use case ends.**
 
+
+---
+
+**Use case: Clear All Contacts**
+
+**MSS**
+
+1. User enters the `clear` command.
+
+2. CollabSync clears all entries from the address book.
+
+   **Use case ends.**
+
+**Extensions**
+
+* **2a. User clears an empty contact list**:
+    * **2a1.** CollabSync still clears the contact.
+
+      **Use case ends.**
+
+---
 
 ### Non-Functional Requirements
 
