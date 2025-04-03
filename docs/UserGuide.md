@@ -47,7 +47,7 @@ Offers helpful tips to boost productivity. These tips allow you to navigate Coll
 
 <div markdown="1" class="alert alert-warning">
 
-:exclamation: **Warning Box**
+:warning: **Warning Box**
 
 Highlights important warnings or potential issues. Pay extra attention to these warnings to avoid problems.
 
@@ -55,7 +55,7 @@ Highlights important warnings or potential issues. Pay extra attention to these 
 
 <div markdown="1" class="alert alert-danger">
 
-:warning: **Danger Box**
+:exclamation: **Danger Box**
 
 Indicates critical warnings or irreversible actions. Always read these carefully before proceeding to the next step.
 
@@ -99,7 +99,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar CollabSync.jar` command to run the application.  
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.  
-   ![Ui](images/Ui.png)
+   <img alt="Ui" src="images/Ui.png" width="400"/>
 
 5. Type the command in the command box and press Enter to execute it. For example, typing **`help`** and pressing Enter will open the help window.  
    Some example commands you can try:
@@ -155,7 +155,7 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 </div>
 
 
-![help message](images/helpMessage.png)
+<img alt="help message" src="images/helpMessage.png" width="400"/>
 <br>
 <br>
 
@@ -296,7 +296,7 @@ e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 ### Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+  <img alt="result for &#39;find alex david&#39;" src="images/findAlexDavidResult.png" width="400"/>
 
 <br>
 <br>
@@ -381,7 +381,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 **Q**: How do I check my Java Version?<br>
 **A**: Follow these steps: <br>
 1. Open the Start button and find the command prompt using the search button. <br>
-   ![find-command-prompt](images/find-command-prompt.png)
+   <img alt="find-command-prompt" src="images/find-command-prompt.png" width="400"/>
 2. Run `java -version` inside the terminal.
 ```{highlight-lines="1['java -version']"}
 foo@bar:~$ java -version
