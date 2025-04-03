@@ -14,28 +14,36 @@ faster than traditional GUI apps.
 
 ## 📚 Guide Directory
 
-This User Guide is structured to help you quickly set up and use **CollabSync** effectively. Here’s how you can navigate it based on your needs:
+This User Guide is structured to help you quickly set up and use **CollabSync** effectively:
 
-1. **[Quick Start](#quick-start)** – *Recommended for first-time users*  
-   - Get CollabSync up and running in just a few minutes with step-by-step instructions.
+- **[Quick Start](#quick-start)**  
+  *Recommended for first-time users.*  
+  Step-by-step instructions to get CollabSync running in minutes.
 
-2. **[Table of Contents](#table-of-contents)** – *Use this to easily jump to any section*  
-   - Quickly find the command or topic you’re looking for.
+- **[Table of Contents](#table-of-contents)**  
+  *Quickly navigate to any section.*  
+  Jump directly to features, commands, or FAQs.
 
-3. **[Features](#features)** – *Explore CollabSync’s capabilities in detail*  
-   - Learn how each command works, with examples, syntax, and best practices.
+- **[Features](#features)**  
+  *Explore commands in detail.*  
+  Learn how to use each command with syntax, examples, and best practices.
 
-4. **[FAQ](#faq)** – *Start here if you have common questions*  
-   - Helpful for addressing installation issues, usage doubts, or general inquiries.
+- **[FAQ](#faq)**  
+  *Have a question? Start here.*  
+  Answers to common usage and installation queries.
 
-5. **[Known Issues](#known-issues)** – *Useful when troubleshooting problems*  
-   - Lists known bugs and how to work around them.
+- **[Known Issues](#known-issues)**  
+  *Troubleshooting help.*  
+  Lists current bugs and suggested workarounds.
 
-6. **[Command Summary](#command-summary)** – *Perfect for quick reference*  
-   - A compact cheat sheet with all commands and formats at a glance.
+- **[Command Summary](#command-summary)**  
+  *Perfect for quick reference.*  
+  A brief overview of all commands syntax and formats.
 
-7. **[Miscellaneous Information](#miscellaneous-information)** – *Extra notes and setup tips*  
-   - Includes additional setup guidance and definitions of key terms used throughout the guide.
+- **[Miscellaneous Information](#miscellaneous-information)**  
+  *Setup notes & definitions.*  
+  Additional setup tips and glossary of important terms.
+
 
 
 ### Understanding these Callout Boxes
@@ -504,7 +512,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 
 3. Then, copy it. This would be the **file path** (the path to the `CollabSync.jar` file)
 
-4. Open your command prompt, type `cd <file_path>` (without the "<" and ">"). Then press `enter`/`return`. Refer to the image below for your reference.
+4. Open your command prompt, type `cd <file_path>` (without the "<" and ">"). Then press `enter`/`return`. Refer to the image below step 5 for your reference.
 
 5. Lastly, type `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
 ```{highlight-lines="1['cd \"C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct\"'], 2['java -jar CollabSync.jar']"}
@@ -525,10 +533,12 @@ foo@bar:~$ java -jar CollabSync.jar
 | **Tag**                            | A keyword or label that can be attached to a contact (e.g. `CS2100`, `urgent`) for organization and filtering. |
 | **Major**                          | The primary academic discipline (e.g. Computer Science, History) assigned to a student contact.                |
 | **Module**                         | A specific university course (e.g. CS2100, MA1521) which can be added as a tag.                                |
+| **Trivial**                        | Any fun fact or trivial/unimportant fact about the person (e.g. family, buddy) which can be added as a tag.    |
 | **Index**                          | The number assigned to a contact in the current list view (starts from 1). Used in commands like `edit 1`.     |
 | **Home Folder**                    | The folder where the `CollabSync.jar` file and its associated data files are stored.                           |
 | **.jar File**                      | A Java Archive file that contains the compiled Java code needed to run CollabSync application.                 |
 | **JSON File**                      | The file format (`addressbook.json`) used by CollabSync to store your data persistently.                       |
+| **Command Syntax** | The structure that a command must follow to be valid (e.g. required parameters, format). |
 
 ---
 
