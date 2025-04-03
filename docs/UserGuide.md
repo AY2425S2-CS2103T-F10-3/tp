@@ -117,6 +117,8 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 <div markdown="1" class="alert alert-info">
 
+:information_source: **Info**
+
 **Notes about the command format:**
 - Words in `UPPER_CASE` are the parameters to be supplied by the user.  
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
@@ -144,6 +146,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 ---
 
 ## View Help Window : `help`
+* List out all commands featured in CollabSync.
 * Format: `help`
 
 <div markdown="1" class="alert alert-info">
@@ -162,8 +165,8 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 --- 
 
 ## Add a Student : add
-* Adds a student to the address book. <br>
-* Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​` <br>
+* Adds a student to the address book.
+* Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
 
 
 <div markdown="1" class="alert alert-success">
@@ -180,18 +183,21 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 * `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`
 * `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100 t/MA1521 t/CS2103T t/AX1234`
 * `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`
-  <br>
-  <br>
+<br>
+<br>
 
 ---
 
 ## List All Students : `list`
-
 * Shows a list of all students in CollabSync.
 * Format: `list`
 
-<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Note**
+
 You do not need to enter anything else behind `list`.
+
 </div>
 
 <br>
@@ -203,9 +209,13 @@ You do not need to enter anything else behind `list`.
 * Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
 * Format: `hide`
 
-<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
-- If the contact list was already hidden, then running `hide` again will not change the contact card.  
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Note**
+
+- If the contact list was already hidden, then running `hide` again will not change the contact card.
 - Running `hide` on the current window only hides the contacts' attributes **in this window**, and not all the contacts in the address book.
+
 </div>
 
 
@@ -218,10 +228,15 @@ You do not need to enter anything else behind `list`.
 * Unhides all information, uncovering all attributes (if it was shown in the first place)
 * Format: `unhide`
 
-<div markdown="1" class="alert alert-success">:bulb: **Note**<br><br>
-- If the contact list was already displayed, then running `unhide` again will not change the contact card.  
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Note**
+
+- If the contact list was already displayed, then running `unhide` again will not change the contact card.
 - Running `unhide` on the current window only reveals the contacts' attributes **in this window**, and not all the contacts in the address book.
+
 </div>
+
 
 <br>
 <br>
@@ -232,18 +247,23 @@ You do not need to enter anything else behind `list`.
 * Sorts the contact list in ascending or descending order based on name and phone number.
 * Format: `sort (asc | desc)`
 
-<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
-- Sorts all contacts in the displayed list.  
-- The sorting is primarily by name (alphabetical order).  
-- If names are identical, sorting will be based on phone numbers.  
+<div markdown="1" class="alert alert-info">
+
+:information_source: **Info**
+
+- Sorts all contacts in the displayed list.
+- The sorting is primarily by name (alphabetical order).
+- If names are identical, sorting will be based on phone numbers.
 - The `ORDER` parameter must be either:
 - `asc` → Sorts the list in ascending order (A → Z).
-- `desc` → Sorts the list in descending order (Z → A).  
+- `desc` → Sorts the list in descending order (Z → A).
 
 If the contact list is empty, the command will notify you that there are no contacts to sort.
 
 Sorting does not modify existing contact details.
+
 </div>
+
 
 ### Examples:
 *  `sort asc` Sorts the contact list in ascending order by name, followed by phone number.
@@ -259,14 +279,19 @@ Sorting does not modify existing contact details.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
 
-<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
-- Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …  
-- At least one of the optional fields must be provided.  
-- Existing values will be updated to the input values.  
-- When editing tags, `priority` of the existing tags can also be changed.  
-- When editing tags, the existing tags of the student will be removed i.e., adding of tags is not cumulative.  
+<div markdown="1" class="alert alert-info">
+
+:information_source: **Info**
+
+- Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …
+- At least one of the optional fields must be provided.
+- Existing values will be updated to the input values.
+- When editing tags, `priority` of the existing tags can also be changed.
+- When editing tags, the existing tags of the student will be removed i.e., adding of tags is not cumulative.
 - You can remove all the student’s tags by typing `t/` without specifying any tags after it.
+
 </div>
+
 
 
 ### Examples:
@@ -276,22 +301,28 @@ Sorting does not modify existing contact details.
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
 ## Find a Student : find
 * Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
-<div markdown="1" class="alert alert-info">:information_source: **Info**<br><br>
-- The search is case-insensitive. e.g. `hans` will match `Hans`  
-- The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`  
-- Only the name is searched.  
-- Only full words will be matched e.g. `Han` will not match `Hans`  
+<div markdown="1" class="alert alert-info">
+
+:information_source: **Info**
+
+- The search is case-insensitive. e.g. `hans` will match `Hans`
+- The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+- Only the name is searched.
+- Only full words will be matched e.g. `Han` will not match `Hans`
 - Persons matching at least one keyword will be returned (i.e. `OR` search).  
-e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`  
-- The search can also look up other attributes, such as phone numbers and email addresses, to find a particular student.  
-- For search using tags, only the `tagname` & `priority (if any)` can be used. (i.e. When a person named `John Smith` is added with tag `t/CS2100:Module`, we can search for `John Smith` using the tagname: `CS2100` or priority: `Module`)
+  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+- The search can also look up other attributes, such as phone numbers and email addresses, to find a particular student.
+- For search using tags, only the `tagname` & `priority (if any)` can be used.  
+  (i.e. When a person named `John Smith` is added with tag `t/CS2100:Module`, we can search for `John Smith` using the tagname: `CS2100` or priority: `Module`)
+
 </div>
+
 
 ### Examples:
 * `find John` returns `john` and `John Doe`
@@ -301,25 +332,28 @@ e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
 # Delete a Student's Contact : delete
 * Deletes the specified student from the address book.
 * Format: `delete (INDEX | t/TAGS)`
 
-<box type="info" seamless>
+<div markdown="1" class="alert alert-info">
 
-* Deletes the student at the specified `INDEX` or with the specified `TAGS`.
+:information_source: **Info**
+
+- Deletes the student at the specified `INDEX` or with the specified `TAGS`.
 
 ### Index
-* The index refers to the index number shown in the displayed student list.
-* The index **must be a positive integer** 1, 2, 3, …​
+- The index refers to the index number shown in the displayed student list.
+- The index **must be a positive integer** 1, 2, 3, …
 
 ### Tags
-* The tags refer to the tags associated with a contact.
-* There must be at least 1 tag inside the parameter.
+- The tags refer to the tags associated with a contact.
+- There must be at least 1 tag inside the parameter.
 
-</box>
+</div>
+
 
 ### Examples:
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
@@ -330,7 +364,7 @@ e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
 # Clear All Contacts : clear
 * Clears all entries from the address book.
@@ -339,7 +373,7 @@ e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 <br>
 <br>
 
------------------------------------------------------------------------------------------------------------------------
+---
 
 # Data Management
 
@@ -351,30 +385,33 @@ e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 * CollabSync data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+<div markdown="1" class="alert alert-danger">
 
-## Caution
-* If your changes to the data file makes its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
+:warning: **Caution**
 
-<pic src="images/corruptedDataWarning.png">
-    Example of warning prompt
-</pic>
+- If your changes to the data file make its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
 
-Your existing data file will be automatically backed up at `/data/addressbook_old.json`
+![Example of warning prompt](images/corruptedDataWarning.png)
+
+- Your existing data file will be automatically backed up at `/data/addressbook_old.json`.
+
+- Furthermore, certain edits can cause CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+
+</div>
 
 <br>
-Furthermore, certain edits can cause the CollabSync to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
-</box>
-
 <br>
------------------------------------------------------------------------------------------------------------------------
+
+---
 
 # Exit the Program
 * Exits and stops the program for the User.
 * Format: `exit`
 
 <br>
------------------------------------------------------------------------------------------------------------------------
+<br>
+
+---
 
 ## FAQ
 
