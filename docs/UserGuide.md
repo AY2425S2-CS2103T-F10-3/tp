@@ -335,7 +335,7 @@ Furthermore, certain edits can cause the CollabSync to behave in unexpected ways
 1. Open the Start button and find the command prompt using the search button. <br>
    ![find-command-prompt](images/find-command-prompt.png)
 2. Run `java -version` inside the terminal.
-```
+```{highlight-lines="1['java -version']"}
 foo@bar:~$ java -version
 java version "17.0.12" 2024-07-16 LTS
 Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
@@ -398,7 +398,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 4. Open your command prompt, type `cd <file_path>` (without the "<" and ">"). Then press `enter`/`return`. Refer to the image below for your reference.
 
 5. Lastly, type `java -jar CollabSync.jar` on your command terminal. And that's it! You should be able to access the exciting features of CollabSync!
-```
+```{highlight-lines="1['cd \"C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct\"'], 2['java -jar CollabSync.jar']"}
 foo@bar:~$ cd "C:\Users\tengc\OneDrive - National University of Singapore\Desktop\AmazingProduct"
 foo@bar:~$ java -jar CollabSync.jar
 ...
