@@ -37,10 +37,6 @@
   * [Non-Functional Requirements](#non-functional-requirements)
   * [Glossary](#glossary)
 * [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
-  * [Launch and shutdown](#launch-and-shutdown)
-  * [Deleting a person](#deleting-a-person)
-  * [Saving data](#saving-data)
-
 
 --------------------------------------------------------------------------------------------------------------------
 
