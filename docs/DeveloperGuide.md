@@ -260,12 +260,13 @@ Here's the workflow:
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* is an NUS student
+* need to manage project team contacts
+* track relationships between classmates across multiple courses
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
-* National University of Singapore students
 
 **Value proposition**: manage contacts for NUS students faster than a typical mouse/GUI driven app
 
