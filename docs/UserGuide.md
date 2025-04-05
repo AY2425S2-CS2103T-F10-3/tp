@@ -560,20 +560,27 @@ foo@bar:~$ java -jar CollabSync.jar
 
 ## Glossary
 
-| **Terminology**                    | **Definition**                                                                                                 |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| **CLI (Command Line Interface)**   | A way to interact with CollabSync by typing commands into a text-based terminal.                               |
-| **GUI (Graphical User Interface)** | A visual interface that lets you interact with CollabSync using windows, buttons, and icons.                   |
-| **Command**                        | An instruction typed into the CLI to perform a specific task in CollabSync (e.g. `add`, `delete`).             |
-| **Tag**                            | A keyword or label that can be attached to a contact (e.g. `CS2100`, `urgent`) for organization and filtering. |
-| **Major**                          | The primary academic discipline (e.g. Computer Science, History) assigned to a student contact.                |
-| **Module**                         | A specific university course (e.g. CS2100, MA1521) which can be added as a tag.                                |
-| **Trivial**                        | Any fun fact or trivial/unimportant fact about the person (e.g. family, buddy) which can be added as a tag.    |
-| **Index**                          | The number assigned to a contact in the current list view (starts from 1). Used in commands like `edit 1`.     |
-| **Home Folder**                    | The folder where the `CollabSync.jar` file and its associated data files are stored.                           |
-| **.jar File**                      | A Java Archive file that contains the compiled Java code needed to run CollabSync application.                 |
-| **JSON File**                      | The file format (`addressbook.json`) used by CollabSync to store your data persistently.                       |
-| **Command Syntax** | The structure that a command must follow to be valid (e.g. required parameters, format). |
+| **Terminology**                       | **Definition**                                                                                                                                                                                            |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CLI (Command Line Interface)**      | A way to interact with CollabSync by typing commands into a text-based terminal.                                                                                                                          |
+| **GUI (Graphical User Interface)**    | A visual interface that lets you interact with CollabSync using windows, buttons, and icons.                                                                                                              |
+| **Command**                           | An instruction typed into the CLI to perform a specific task in CollabSync (e.g. `add`, `delete`).                                                                                                        |
+| **Tag**                               | A keyword or label that can be attached to a contact (e.g. `CS2100`, `urgent`) for organization and filtering.                                                                                            |
+| **Major**                             | The primary academic discipline (e.g. Computer Science, History) assigned to a student contact.                                                                                                           |
+| **Module**                            | A specific university course (e.g. CS2100, MA1521) which can be added as a tag.                                                                                                                           |
+| **Trivial**                           | Any fun fact or trivial/unimportant fact about the person (e.g. family, buddy) which can be added as a tag.                                                                                               |
+| **Index**                             | The number assigned to a contact in the current list view (starts from 1). Used in commands like `edit 1`.                                                                                                |
+| **Home Folder**                       | The folder where the `CollabSync.jar` file and its associated data files are stored.                                                                                                                      |
+| **.jar File**                         | A Java Archive file that contains the compiled Java code needed to run CollabSync application.                                                                                                            |
+| **JSON File**                         | The file format (`addressbook.json`) used by CollabSync to store your data persistently.                                                                                                                  |
+| **JDK (Java Development Kit)**        | A software development environment used for developing Java applications that includes the JRE, an interpreter/loader, a compiler, and other tools needed for Java development.                           |
+| **Tag Priority**                      | A classification system for tags that determines their importance level. Available priorities include Module, Trivial, Urgent, or no priority. Priority affects how contacts are organized and displayed. |
+| **Contact Card**                      | The visual representation of a student's contact information in the application interface, displaying details such as name, phone number, email address, and tags.                                        |
+| **Parameter**                         | A specific piece of information provided to a command, typically indicated by a prefix (e.g., n/ for name, p/ for phone number) followed by the actual value.                                             |
+| **Attributes**                        | The specific pieces of information associated with a contact, such as name, phone number, email address, physical address, and major.                                                                     |
+| **Command Box**                       | The text input field at the bottom of the CollabSync window where users type commands to interact with the application.                                                                                   |
+| **Cumulative (in context of tags)**   | The property of adding to existing values rather than replacing them. In CollabSync, tag editing is not cumulative, meaning new tags replace all existing tags rather than being added to them.           | 
+| **Command Syntax**                    | The structure that a command must follow to be valid (e.g. required parameters, format).                                                                                                                  |
 
 ---
 
