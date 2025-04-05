@@ -1,9 +1,12 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -27,6 +30,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -141,8 +145,8 @@ public class ParserUtil {
 
     /**
      * Parses a {@code String majorStr} into a {@link Major}.
-     * @param majorStr The String representation of the major.
      *
+     * @param majorStr The String representation of the major.
      * @throws ParseException if the given {@code email} is invalid.
      */
     public static Major parseMajor(String majorStr) throws ParseException {
@@ -155,4 +159,24 @@ public class ParserUtil {
         return new Major(trimmedMajor);
     }
 
+    /**
+     * Validates all the prefixes are valid, to be used as tokens.
+     *
+     * @param args          The input string containing command arguments/prefixes.
+     * @param usageMessage  The usage message for the command, used in the error message if validation fails.
+     * @param validPrefixes The allowed prefixes (e.g., "n/", "p/", "e/", "a/", "m/", "t/").
+     * @throws ParseException If any token with a slash does not start with one of the valid prefixes
+     */
+    public static void validatePrefixes(String args, String usageMessage, String... validPrefixes)
+            throws ParseException {
+        List<String> validPrefixList = Arrays.asList(validPrefixes);
+        for (String token : args.split("\\s+")) {
+            if (token.contains("/")) {
+                boolean isValid = validPrefixList.stream().anyMatch(token::startsWith);
+                if (!isValid) {
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, usageMessage));
+                }
+            }
+        }
+    }
 }

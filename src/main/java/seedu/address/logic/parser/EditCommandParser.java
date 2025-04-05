@@ -32,6 +32,7 @@ public class EditCommandParser implements Parser<EditCommand> {
      */
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
+        ParserUtil.validatePrefixes(args, EditCommand.MESSAGE_USAGE, "n/", "p/", "e/", "a/", "m/", "t/");
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
                         PREFIX_MAJOR, PREFIX_TAG);
