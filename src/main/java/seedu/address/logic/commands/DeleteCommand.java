@@ -9,6 +9,7 @@ import java.util.Set;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
@@ -123,6 +124,7 @@ public class DeleteCommand extends Command {
                 dialogStage.setTitle(TITLE);
                 dialogStage.setScene(new Scene(dialogRoot));
 
+                dialogStage.initModality(Modality.APPLICATION_MODAL);
                 dialogStage.showAndWait(); // Wait for user's response
 
                 canExecuteCommand = deleteController.isConfirmed();

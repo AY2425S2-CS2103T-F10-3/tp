@@ -51,6 +51,10 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         }
         */
 
+        // If there's anything in the preamble, it means an index was provided.
+        if (!argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        }
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         return new DeleteCommand(tagList);
     }
