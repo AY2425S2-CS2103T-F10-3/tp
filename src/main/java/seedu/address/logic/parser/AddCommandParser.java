@@ -32,6 +32,7 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
+        ParserUtil.validatePrefixes(args, AddCommand.MESSAGE_USAGE, "n/", "p/", "e/", "a/", "m/", "t/");
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG,
                         PREFIX_MAJOR);

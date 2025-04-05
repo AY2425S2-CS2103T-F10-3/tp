@@ -6,7 +6,8 @@ import static java.util.Objects.requireNonNull;
  * Represents a Person's degree/major in CollabSync
  */
 public class Major {
-    public static final String MESSAGE_CONSTRAINTS = "Degree/Major field must not be empty.";
+    public static final String MESSAGE_CONSTRAINTS = "Degree/Major field must not be empty"
+            + " and must only contain alphabetical characters.";
     private static final String VALIDATION_REGEX = "^[A-Za-z ]+$";
 
     public final String value;
