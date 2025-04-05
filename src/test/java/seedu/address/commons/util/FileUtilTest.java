@@ -88,4 +88,43 @@ public class FileUtilTest {
         // content of backup file is correct
         assertEquals(Files.readString(originalFile), Files.readString(backupFile));
     }
+
+    @Test
+    public void deleteFileTest_correct_result() throws IOException {
+        final String fileName = "testFile.json";
+
+        Path originalFile = tempDir.resolve(fileName);
+
+        // need to write some data, otherwise the file will not be created
+        Files.writeString(originalFile, "Hello World.\nSome Data Here!");
+
+        FileUtil.deleteFile(originalFile);
+
+        // backup file is created
+        assertFalse(Files.exists(originalFile));
+    }
+
+    @Test
+    public void backupAndDeleteFileTest_correct_result() throws IOException {
+        final String fileName = "testFile.json";
+        final String backupFileName = "testFile_old.json";
+        final String oriData = "Hello World.\nSome Data Here!";
+
+        Path originalFile = tempDir.resolve(fileName);
+        Files.writeString(originalFile, oriData);
+
+        FileUtil.backupAndDeleteFile(originalFile);
+
+        Path backupFile = tempDir.resolve(backupFileName);
+
+        // backup file is created
+        assertTrue(Files.exists(backupFile));
+
+        // old/corrupted file is deleted
+        assertFalse(Files.exists(originalFile));
+
+        // content of backup file is correct
+        assertEquals(oriData, Files.readString(backupFile));
+    }
+
 }

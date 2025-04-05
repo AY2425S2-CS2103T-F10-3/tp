@@ -20,25 +20,29 @@ deactivate Logic
 
 participant "FileUtil" as FileUtil <<class>> LOGIC_COLOR_T2
 opt hasInitialError
-Ui -> FileUtil : backupFile(filePath)
+Ui -> FileUtil : backupAndDeleteFile()
 activate FileUtil
 
-FileUtil -> FileUtil : getFileNameWithoutExt(filePath)
+FileUtil -> FileUtil : backupFile()
 activate FileUtil
-FileUtil --> FileUtil
-deactivate FileUtil
-
-FileUtil -> FileUtil : getFileExtension(filePath)
-activate FileUtil
-FileUtil --> FileUtil
-deactivate FileUtil
 
 participant "Files" as Files <<class>> LOGIC_COLOR_T2
-' FileUtil -> Files : copy(Source, Target, Option)
 FileUtil -> Files : copy()
 activate Files
 FileUtil <-- Files
 deactivate Files
+FileUtil --> FileUtil
+deactivate FileUtil
+
+FileUtil -> FileUtil : deleteFile()
+activate FileUtil
+FileUtil -> Files : deleteIfExists()
+activate Files
+FileUtil <-- Files
+deactivate Files
+FileUtil --> FileUtil
+deactivate FileUtil
+
 end
 
 Ui <-- FileUtil

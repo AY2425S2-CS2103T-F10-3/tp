@@ -51,8 +51,8 @@ public class UiManager implements Ui {
                 CompletableFuture<Void> cp = CompletableFuture
                     .runAsync(() -> {
                         try {
-                            logger.info("Backuping corrupted data file.");
-                            FileUtil.backupFile(this.logic.getAddressBookFilePath());
+                            logger.info("Backuping and deleting corrupted data file.");
+                            FileUtil.backupAndDeleteFile(this.logic.getAddressBookFilePath());
                         } catch (IOException ex) {
                             logger.severe("Failed to backup old data file.");
                             logger.severe("Reason: " + ex.getMessage());
