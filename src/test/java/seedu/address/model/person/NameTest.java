@@ -36,6 +36,12 @@ public class NameTest {
         assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+
+        // invalid long names
+        assertFalse(Name.isValidName("Johnathan Alexander Montgomery Fitzpatrick the Third of House Windsor, "
+                + "Earl of Springfield, and renowned philosopher."));
+        assertFalse(Name.isValidName("Maximillian Archibald Percival Remington III, "
+                + "a descendant of illustrious noble families, whose long name defies brevity."));
     }
 
     @Test
