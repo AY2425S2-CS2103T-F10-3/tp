@@ -89,18 +89,18 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 ## Table of Contents
 1. [Quick Start](#quick-start)
 2. [Features](#features)
-    - [View Help Window](#view-help-window-help)
-    - [Add a Student](#add-a-student-add)
-    - [List All Students](#list-all-students-list)
-    - [Hide Information](#hide-information-hide)
-    - [Unhide Information](#unhide-information-unhide)
-    - [Sort Contacts](#sort-contacts-sort)
-    - [Edit a Student's Contact](#edit-a-students-contact-edit)
-    - [Find a Student](#find-a-student-find)
-    - [Delete a Student's Contact](#delete-a-students-contact-delete)
-    - [Clear All Contacts](#clear-all-contacts-clear)
+    - [View Help Window](#view-help-window)
+    - [Add a Student](#add-a-student)
+    - [List All Students](#list-all-students)
+    - [Hide Information](#hide-information)
+    - [Unhide Information](#unhide-information)
+    - [Sort Contacts](#sort-contacts)
+    - [Edit a Student's Contact](#edit-a-students-contact)
+    - [Find a Student](#find-a-student)
+    - [Delete a Student's Contact](#delete-a-students-contact)
+    - [Clear All Contacts](#clear-all-contacts)
     - [Data Management](#data-management)
-    - [Exit the Program](#exit-the-program-exit)
+    - [Exit the Program](#exit-the-program)
 3. [FAQ](#faq)
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
@@ -149,6 +149,9 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 - Items in square brackets are optional.  
   e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
+- For the tags, we denote tag as `TAG` , where `TAG` is represented as either `TAGNAME` / `TAGNAME:` , tags with no priority or `TAGNAME:PRIORITY` , which corresponds to the 
+  tags associated with priority. This syntax would be highly useful when using add/delete/edit with respect to the tags. `TAGNAME` is the description of the tag while `PRIORITY` has 3 levels : **Urgent** , **Trivial** , **Module**.
+
 - Items inside normal brackets means that it is an 'either or' option.  
   e.g. `delete (INDEX | t/TAGS)` means we can either delete by index or by tag.  
   So the delete format can either be `delete INDEX` or `delete t/TAGS`.
@@ -168,7 +171,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 ---
 
-## View Help Window : `help`
+## View Help Window
 * List out all commands featured in CollabSync.
 * Format: `help`
 
@@ -187,7 +190,7 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 
 --- 
 
-## Add a Student : add
+## Add a Student
 * Adds a student to the address book.
 * Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR [t/TAG]…​`
 
@@ -197,6 +200,15 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 
 - A student can have any number of tags (You can choose to omit tags).
 - Tags added in also have priority: Module, Trivial, Urgent or no priority at all.
+
+</div>
+
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Note**
+
+- Unfortunately, we do not allow names that contains special characters. (E.g : Bala Gopal S/O)
+- As such, we highly recommend students to simply replace these special characters with spacing. (E.g : Bala Gopal S O)
 
 </div>
 
@@ -217,7 +229,7 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 
 ---
 
-## List All Students : `list`
+## List All Students
 * Shows a list of all students in CollabSync.
 * Format: `list`
 
@@ -234,7 +246,7 @@ You do not need to enter anything else behind `list`.
 
 ---
 
-## Hide Information : hide
+## Hide Information
 * Hides all attributes about all contacts currently listed in the window, except for the name and tags (if it was shown in the first place)
 * Format: `hide`
 
@@ -253,7 +265,7 @@ You do not need to enter anything else behind `list`.
 
 ---
 
-## Unhide Information : unhide
+## Unhide Information
 * Unhides all information, uncovering all attributes (if it was shown in the first place)
 * Format: `unhide`
 
@@ -272,9 +284,12 @@ You do not need to enter anything else behind `list`.
 
 ---
 
-## Sort Contacts : sort
+## Sort Contacts
 * Sorts the contact list in ascending or descending order based on name and phone number.
 * Format: `sort (asc | desc)`
+* For a comprehensive, complete description of the format, refer to the 2 acceptable formats below.
+    - `sort asc ` : to sort persons in ascending order. For persons with same name, ....
+    - `sort desc` : to sort persons in descending order. For persons with same name, ....
 
 <div markdown="1" class="alert alert-info">
 
@@ -305,7 +320,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-## Edit a Student's Contact : edit
+## Edit a Student's Contact
 * Edits an existing student in the address book.
 * Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]…​`
 
@@ -334,7 +349,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-## Find a Student : find
+## Find a Student
 * Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -344,7 +359,6 @@ Sorting does not modify existing contact details.
 
 - The search is case-insensitive. e.g. `hans` will match `Hans`
 - The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-- Only the name is searched.
 - Only full words will be matched e.g. `Han` will not match `Hans`
 - Persons matching at least one keyword will be returned (i.e. `OR` search).  
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
@@ -355,6 +369,20 @@ Sorting does not modify existing contact details.
 </div>
 
 
+<div markdown="1" class="alert alert-danger">
+
+:warning: **Caution**
+
+- This feature only works for **name, contact number, email, tags**
+- To find based on tags, please only enter the **tagname** or **priority** of the tag. Below is an illustration of this example
+  <img src="images/find_person_using_tag.png" alt="Find using tags" width="400">
+
+From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and its priority : `Module` , use either `find HSA1000` or `find module`. Do not use `find HSA1000:Module`.
+
+</div>
+
+
+
 ### Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
@@ -363,17 +391,23 @@ Sorting does not modify existing contact details.
 <br>
 <br>
 
----
+--- 
 
-## Delete a Student's Contact : delete
-* Deletes the specified student from the address book.
-* Format: `delete (INDEX | t/TAGS)`
+## Delete a Student's Contact
+* Deletes the specified student(s) from the address book.
+* Format: `delete (INDEX | t/TAG [ ,t/TAGS])` , where `TAG` is `TAGNAME:PRIORITY`
+* For a comprehensive, complete description of the format, refer to the 5 acceptable formats below.
+  - `delete INDEX ` : to delete a contact by index.
+  - `delete t/TAGNAME` : to delete any contacts who have tags that correspond to the tagname, with no priority given.
+  - `delete t/TAGNAME:trivial` : to delete any contacts who have tags that correspond to the tagname, and with the **trivial** priority.
+  - `delete t/TAGNAME:module` : to delete any contacts whose have tags that correspond to the tagname, and with the **module** priority.
+  - `delete t/TAGNAME:urgent` : to delete any contacts whose tags that correspond to the tagname, and with the **urgent** priority. 
 
 <div markdown="1" class="alert alert-info">
 
 :information_source: **Info**
 
-- Deletes the student at the specified `INDEX` or with the specified `TAGS`.
+- Deletes the student(s) at the specified `INDEX` or with the specified `TAGS`.
 
 ### Index
 - The index refers to the index number shown in the displayed student list.
@@ -382,6 +416,7 @@ Sorting does not modify existing contact details.
 ### Tags
 - The tags refer to the tags associated with a contact.
 - There must be at least 1 tag inside the parameter.
+- For any tags with priority, please delete them by **including the priority (if any)**.
 
 </div>
 
@@ -397,7 +432,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-## Clear All Contacts : clear
+## Clear All Contacts
 * Clears all entries from the address book.
 * Format: `clear`
 
