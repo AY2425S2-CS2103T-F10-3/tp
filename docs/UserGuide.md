@@ -95,9 +95,9 @@ Indicates critical warnings or irreversible actions. Always read these carefully
     - [Hide Information](#hide-information)
     - [Unhide Information](#unhide-information)
     - [Sort Contacts](#sort-contacts)
-    - [Edit a Student's Contact](#edit-a-students-contact)
-    - [Find a Student](#find-a-student)
-    - [Delete a Student's Contact](#delete-a-students-contact)
+    - [Edit a Student's Contact](#edit-a-student-s-contact)
+    - [Find Student(s)](#find-student-s)
+    - [Delete Contact(s)](#delete-contact-s)
     - [Clear All Contacts](#clear-all-contacts)
     - [Data Management](#data-management)
     - [Exit the Program](#exit-the-program)
@@ -349,7 +349,7 @@ Sorting does not modify existing contact details.
 
 ---
 
-## Find a Student
+## Find Student(s)
 * Finds students whose names contain any of the given keywords.
 * Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -393,7 +393,7 @@ From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and
 
 --- 
 
-## Delete a Student's Contact
+## Delete Contact(s)
 * Deletes the specified student(s) from the address book.
 * Format: `delete (INDEX | t/TAG [ ,t/TAGS])` , where `TAG` is `TAGNAME:PRIORITY`
 * For a comprehensive, complete description of the format, refer to the 5 acceptable formats below.
