@@ -24,7 +24,7 @@ import seedu.address.commons.core.LogsCenter;
  */
 public class HelpWindow extends UiPart<Stage> {
 
-    private static final String USERGUIDE_URL = "https://se-education.org/addressbook-level3/UserGuide.html";
+    private static final String USERGUIDE_URL = "https://ay2425s2-cs2103t-f10-3.github.io/tp/UserGuide.html";
     private static final String NOTES = "• Words in UPPER_CASE are parameters to be supplied by the user.\n"
                     + "  e.g. in 'add n/NAME', 'NAME' is a parameter which can be used as 'add n/John Doe'.\n\n"
                     + "• Items in square brackets are optional.\n"
