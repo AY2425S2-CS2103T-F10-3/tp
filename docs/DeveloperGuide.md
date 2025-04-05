@@ -260,7 +260,7 @@ Here's the workflow:
 
 **Target user profile**:
 
-* is an NUS student
+* is a National University of Singapore student
 * need to manage project team contacts
 * track relationships between classmates across multiple courses
 * prefer desktop apps over other types
