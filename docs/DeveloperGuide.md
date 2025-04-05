@@ -704,15 +704,51 @@ Given below are instructions to test the app manually.
    1. Test case: `sort xyz` <br>
    Expected: The student list remains the same. Error details shown in the status message.
 
-### Editing a student
+### Editing a Student
 
-1. Editing a student
+1. Editing a student while all students are being shown
+
+    1. **Prerequisites:**
+        - List all students using the `list` command.
+        - Ensure there are multiple students in the list.
+
+    2. Test case: `edit 1 n/John Doe p/91234567 e/johndoe@example.com a/123 Main Street m/Computer Science t/friend` <br>
+       Expected:
+        - The student at index 1 is updated with the following details:
+            - **Name:** John Doe
+            - **Phone:** 91234567
+            - **Email:** johndoe@example.com
+            - **Address:** 123 Main Street
+            - **Major:** Computer Science
+            - **Tag:** friend
+        - A success message is shown, and the UI reflects the updated information.
+
+    3. Test case: `edit 2 p/98765432 a/456 New Road` <br>
+       Expected:
+        - The student at index 2 is updated with the new phone number and address only.
+        - All other fields (name, email, major, tags) remain unchanged.
+        - A confirmation message is displayed.
+
+    4. Test case: `edit 1 n/ p/` <br>
+       Expected:
+        - The command fails because required fields (e.g., name) are empty or missing.
+        - An error message is displayed in the status message.
+
+    5. Test case: `edit 100 n/Jane Doe` <br>
+       Expected:
+        - If there is no student at index 100, the command fails.
+        - An error message is displayed in the status message.
+    6. Test case: `edit 1 e/invalidEmailFormat p/abcde` <br>
+       Expected:
+        - The command fails due to invalid email and phone number formats.
+        - An error message is displayed in the status message.
 
 ### Deleting a student
 
 1. Deleting a student while all students are being shown
-
-   1. Prerequisites: List all students using the `list` command. Multiple students in the list.
+   1. **Prerequisites:**
+      - List all students using the `list` command.
+      - Ensure there are multiple students in the list.
 
    1. Test case: `delete 1` <br>
    Expected: First student entry is deleted from the list. Details of the deleted students shown in the status message.
