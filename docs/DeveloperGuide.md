@@ -200,7 +200,7 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Implementation
 
-The sequence diagram below illustrates the interactions between different components when corrupted data is detected and `backupFile(filePath)` is called.
+The sequence diagram below illustrates the interactions between different components when corrupted data is detected and `backupAndDeleteFile(filePath)` is called.
 
 <puml src="diagrams/BackupOnCorruptSequenceDiagram.puml" alt="Backup On Corrupt Sequence Diagram" />
 
@@ -209,9 +209,10 @@ Here's the workflow:
 2. When `MainApp.start()` is called, it will invoke `UI.start()` and pass the `Logic` component to it.
 3. The `UI` will then check with `Logic` whether an initial error exists.
 4. If there is an initial error, the `UI` will display a prompt to the user and wait for user interaction.
-5. Simultaneously, the `UI` will call the `backupFile()` method from `FileUtil`.
-6. `backupFile()` will gather and prepare all necessary information for the backup.
-7. Finally, it will call the `copy()` method from `Files` to complete the backup process.
+5. Simultaneously, the `UI` will call the `backupAndDeleteFile()` method from `FileUtil`.
+6. `backupAndDeleteFile()` will gather and prepare all necessary information for the backup and delete.
+7. It will then call the `copy()` method from `Files` to complete the backup process.
+8. Finally, the corrupted data file will be deleted after the backup process is done.
 
 <box type="info" seamless>
 
