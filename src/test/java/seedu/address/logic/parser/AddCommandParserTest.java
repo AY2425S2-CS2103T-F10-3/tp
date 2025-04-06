@@ -210,8 +210,8 @@ public class AddCommandParserTest {
 
         // Missing all required fields
         assertParseFailure(parser, TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                "Missing required field(s): Name (prefix: \"n/\"), Phone (prefix: \"p/\"), " +
-                        "Email (prefix: \"e/\"), Address (prefix: \"a/\"), Major (prefix: \"m/\")");
+                "Missing required field(s): Name (prefix: \"n/\"), Phone (prefix: \"p/\"), "
+                        +  "Email (prefix: \"e/\"), Address (prefix: \"a/\"), Major (prefix: \"m/\")");
     }
 
 }
