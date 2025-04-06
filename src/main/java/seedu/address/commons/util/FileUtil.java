@@ -82,6 +82,14 @@ public class FileUtil {
     }
 
     /**
+     * Backups then delete the file given
+     */
+    public static void backupAndDeleteFile(Path file) throws IOException {
+        backupFile(file);
+        deleteFile(file);
+    }
+
+    /**
      * Backups the file given
      * Backup file's name will be in the form of
      *      [filename].[ext] -> [filename]_old.[ext]
@@ -101,6 +109,13 @@ public class FileUtil {
         Path backupFilePath = Path.of(file.getParent().toString(), backupFileName);
         createIfMissing(backupFilePath);
         Files.copy(file, backupFilePath, StandardCopyOption.REPLACE_EXISTING);
+    }
+
+    /**
+     * Deletes the file given
+     */
+    public static void deleteFile(Path file) throws IOException {
+        Files.deleteIfExists(file);
     }
 
     /**
