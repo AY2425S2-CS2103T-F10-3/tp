@@ -1,5 +1,7 @@
 package seedu.address.model.tag;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+
 /**
  * Represents the priority or category of a tag.
  */
@@ -25,7 +27,7 @@ public enum Priority {
      * @param input The string representation of the priority (e.g., "urgent", "trivial", "module", or "").
      * @return The corresponding {@code Priority} enum.
      */
-    public static Priority fromString(String input) {
+    public static Priority fromString(String input) throws IllegalValueException {
         switch (input.toLowerCase()) {
         case "urgent":
             return URGENT;
@@ -36,7 +38,7 @@ public enum Priority {
         case "":
             return NONE;
         default:
-            throw new IllegalArgumentException(
+            throw new IllegalValueException(
                     OOPS + input + INVALID_PROPERTY_MESSAGE);
         }
     }
