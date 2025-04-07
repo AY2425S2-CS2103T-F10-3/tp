@@ -1,0 +1,31 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":AddCommand" as AddCommand SETUP_COLOR
+[-> AddCommand : execute(Model)
+activate AddCommand
+
+participant ":Model" as Model MODEL_COLOR
+AddCommand -> Model : hasPerson(personToAdd)
+activate Model
+Model --> AddCommand
+deactivate Model
+
+opt !hasPerson
+AddCommand -> Model : addPerson(personToAdd)
+activate Model
+Model --> AddCommand
+deactivate Model
+end
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+AddCommand -> CommandResult
+activate CommandResult
+CommandResult --> AddCommand
+deactivate CommandResult
+
+[<-- AddCommand
+deactivate AddCommand
+@enduml

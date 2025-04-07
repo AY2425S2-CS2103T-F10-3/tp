@@ -17,6 +17,7 @@
   * [Common classes](#common-classes)
 * [**Implementation**](#implementation)
   * [Backup on corrupt workflow](#backup-on-corrupt-workflow)
+  * [AddCommand workflow](#addcommand-workflow)
   * [DeleteCommand workflow](#deletecommand-workflow)
   * [HideCommand workflow](#hidecommand-workflow)
   * [FindCommand workflow](#findcommand-workflow)
@@ -231,6 +232,19 @@ Here's the workflow:
 **Note:** The prompt and the backup process are invoked concurrently.
 
 </box>
+
+### AddCommand workflow
+
+#### Implementation
+
+The `AddCommand` is part of the `AddressBookParser` layer in the application and handles the action of adding the contact. <br>
+
+<puml src="diagrams/AddCommand.puml" alt="Add Command Sequence Diagram" />
+
+Here's the workflow:
+1. The `AddCommand` is invoked when the user types the command `add`. This is handled in the `execute(Model model)` method of the `AddCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
+2. The `AddCommand` will query `Model` object with `hasPerson()` to ensure no duplicate person before adding.
+3. If `hasPerson()` return false, `AddCommand` will call `addPerson()` of `Model` object to add the new person.
 
 ### DeleteCommand workflow
 
