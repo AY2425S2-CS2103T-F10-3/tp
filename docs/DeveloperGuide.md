@@ -18,6 +18,8 @@
 * [Implementation](#implementation)
   * [Backup on corrupt feature](#backup-on-corrupt-feature)
   * [HideCommand workflow](#hidecommand-workflow)
+  * [FindCommand workflow](#findcommand-workflow)
+  * [SortCommand workflow](#sortcommand-workflow)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix: Requirements](#appendix-requirements)
   * [Product scope](#product-scope)
