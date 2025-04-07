@@ -215,10 +215,10 @@ Shows a help window with the basic commands needed for basic usage of CollabSync
 ### Examples:
 
 * `add n/Alex Albon p/98765432 e/Alex@example.com a/Alex street, block 123, #01-01 m/Computer Science t/CS2100`  
-  → Adds a student named **Alex Albon** with contact details and one tag: `CS2100` (a module).
+  → Adds a student named **Alex Albon** with contact details and one tag: `CS2100`.
 
 * `add n/Bax Berstappen p/87654321 e/Bax@example.com a/Newgate Prison m/Maths t/CS2100:module t/MA1521:module t/CS2103T:module t/AX1234:module`  
-  → Adds a student named **Bax Berstappen** majoring in Maths, with four module tags. Useful when a student is involved in many courses.
+  → Adds a student named **Bax Berstappen** majoring in Maths, with four tags associated with the `module` priority. Useful when a student is involved in many courses.
 
 * `add n/Carloz Cainz p/85580001 e/Carloz@example.com a/Carloz stree m/History`  
   → Adds **Carloz Cainz** with no tags. Tags are optional — this is a valid minimal command with all required fields.
