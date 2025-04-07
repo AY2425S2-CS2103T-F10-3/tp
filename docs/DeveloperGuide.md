@@ -18,6 +18,7 @@
 * [**Implementation**](#implementation)
   * [Backup on corrupt workflow](#backup-on-corrupt-workflow)
   * [AddCommand workflow](#addcommand-workflow)
+  * [EditCommand workflow](#editcommand-workflow)
   * [DeleteCommand workflow](#deletecommand-workflow)
   * [HideCommand workflow](#hidecommand-workflow)
   * [FindCommand workflow](#findcommand-workflow)
@@ -27,15 +28,15 @@
   * [Product scope](#product-scope)
   * [User stories](#user-stories)
   * [Use cases](#use-cases)
-    * [Use case: Add a person](#use-case-add-a-person)
-    * [Use case: Delete a person based on index](#use-case-delete-a-person-based-on-index)
-    * [Use case: Delete person(s) based on tags](#use-case-delete-persons-based-on-tags)
-    * [Use case: Edit a person](#use-case-edit-a-person)
+    * [Use case: Add a student](#use-case-add-a-student)
+    * [Use case: Delete a student based on index](#use-case-delete-a-student-based-on-index)
+    * [Use case: Delete student(s) based on tags](#use-case-delete-students-based-on-tags)
+    * [Use case: Edit a student](#use-case-edit-a-student)
     * [Use case: List all students](#use-case-list-all-students)
     * [Use case: Sort contacts](#use-case-sort-contacts)
     * [Use case: Hide Information](#use-case-hide-information)
     * [Use case: Unhide Information](#use-case-unhide-information)
-    * [Use case: Find a person](#use-case-find-a-person)
+    * [Use case: Find a student](#use-case-find-a-student)
     * [Use case: Save Data](#use-case-save-data)
     * [Use case: Clear All Contacts](#use-case-clear-all-contacts)
   * [Non-Functional Requirements](#non-functional-requirements)
@@ -148,7 +149,7 @@ How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
-1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
+1. The command can communicate with the `Model` when it is executed (e.g. to delete a student).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
@@ -243,8 +244,22 @@ The `AddCommand` is part of the `AddressBookParser` layer in the application and
 
 Here's the workflow:
 1. The `AddCommand` is invoked when the user types the command `add`. This is handled in the `execute(Model model)` method of the `AddCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
-2. The `AddCommand` will query `Model` object with `hasPerson()` to ensure no duplicate person before adding.
-3. If `hasPerson()` return false, `AddCommand` will call `addPerson()` of `Model` object to add the new person.
+2. The `AddCommand` will query `Model` object with `hasPerson()` to ensure no duplicate student before adding.
+3. If `hasPerson()` return false, `AddCommand` will call `addPerson()` of `Model` object to add the new student.
+
+### EditCommand workflow
+
+#### Implementation
+
+The `EditCommand` is part of the `AddressBookParser` layer in the application and handles the action of adding the contact. <br>
+
+<puml src="diagrams/EditCommand.puml" alt="Edit Command Sequence Diagram" />
+
+Here's the workflow:
+1. The `EditCommand` is invoked when the user types the command `edit`. This is handled in the `execute(Model model)` method of the `EditCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
+2. The `EditCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the students that the user has in the current view (filtered according to certain criteria).
+3. If the `INDEX` paramter is valid, `EditCommand` will call `createEditedPerson()` to create a new student with updated details.
+4. The `EditCommand` then invoke `setPerson()` and `updateFilteredPersonList()` methods of `Model` object to update the student.
 
 ### DeleteCommand workflow
 
@@ -256,11 +271,11 @@ The `DeleteCommand` is part of the `AddressBookParser` layer in the application 
 
 Here's the workflow:
 1. The `DeleteCommand` is invoked when the user types the command `delete`. This is handled in the `execute(Model model)` method of the `DeleteCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
-2. The `DeleteCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the persons that the user has in the current view (filtered according to certain criteria).
+2. The `DeleteCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the students that the user has in the current view (filtered according to certain criteria).
 3. Before `DeleteCommand` continues it's execution, `DeleteCommand` will first check the format of the parameters to determine user wants to delete with tags or index.
 4. Next, `DeleteCommand` will prompt user for confirmation before proceed with deletion.
-5. If the command format matches `delete INDEX`, the system invokes `deleteWithIndex()`. This method retrieves the target `Person` object based on the provided index, then calls `deletePerson()` from the `Model` object to remove the person.
-6. If the command format matches `delete t/TAG [ ,t/TAGS]`, the system invokes `deleteWithTag()`. This method filters the `List<Person>` to find entries matching any of the specified tags (using `hasTags()`). Deletes all matched persons by calling `deletePerson()` from the Model object.
+5. If the command format matches `delete INDEX`, the system invokes `deleteWithIndex()`. This method retrieves the target `Person` object based on the provided index, then calls `deletePerson()` from the `Model` object to remove the student.
+6. If the command format matches `delete t/TAG [ ,t/TAGS]`, the system invokes `deleteWithTag()`. This method filters the `List<Person>` to find entries matching any of the specified tags (using `hasTags()`). Deletes all matched students by calling `deletePerson()` from the Model object.
 
 ### HideCommand workflow
 
@@ -273,8 +288,8 @@ This operation is executed when the user triggers the `hide` command in the syst
 
 Here's the workflow:
 1. The `HideCommand` is invoked when the user types the command `hide`. This is handled in the `execute(Model model)` method of the `HideCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
-2. The `HideCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the persons that the user has in the current view (filtered according to certain criteria).
-3. Once the `filteredPersonList` is retrieved, the `HideCommand` iterates over each `Person` object in the list and calls the method `person.hideDetails()`. This hides the details of each person in the list. The `hideDetails()` method, which is part of the `Person` class, modifies the internal state of the `Person` object, essentially "hiding" the contact's details from the user interface.
+2. The `HideCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the students that the user has in the current view (filtered according to certain criteria).
+3. Once the `filteredPersonList` is retrieved, the `HideCommand` iterates over each `Person` object in the list and calls the method `person.hideDetails()`. This hides the details of each student in the list. The `hideDetails()` method, which is part of the `Person` class, modifies the internal state of the `Person` object, essentially "hiding" the contact's details from the user interface.
 4. After the details are hidden, the `HideCommand` returns a `CommandResult` indicating the success of the operation. The message `"Contact details hidden."` is passed to the `CommandResult` constructor, along with additional flags that help the UI decide how to update (whether to show a success message or not).
 5. The UI layer will use the `CommandResult` object to display feedback to the user. If successful, the system will notify the user that the contact's details have been hidden.
 
@@ -324,7 +339,7 @@ Below is the frontend update process:
 
 #### Implementation
 
-The `FindCommand` is part of the `AddressBookParser` layer and handles searching for persons based on keywords.  
+The `FindCommand` is part of the `AddressBookParser` layer and handles searching for students based on keywords.  
 This operation is executed when the user triggers the `find` command in the system.
 
 <puml src="diagrams/FindCommand.puml" alt="Find Command Sequence Diagram" />
@@ -332,15 +347,15 @@ This operation is executed when the user triggers the `find` command in the syst
 Here's the workflow:
 1. The user types the command `find KEYWORD...`. This is handled in the `execute(Model model)` method of the `FindCommand` class.
 2. The `FindCommand` creates a `PersonContainsKeywordsPredicate` object with the specified keywords.
-3. The `FindCommand` calls `model.updateFilteredPersonList(Predicate<Person>)` to update the filtered list of `Person` objects. This filters out any persons whose names do not match the given keywords.
+3. The `FindCommand` calls `model.updateFilteredPersonList(Predicate<Person>)` to update the filtered list of `Person` objects. This filters out any students whose names do not match the given keywords.
 4. The `FindCommand` calls `model.getFilteredPersonList()` to get the size of the list displayed.
-5. A `CommandResult` is returned, containing a success message that indicates how many persons were found (e.g., `"X persons listed!"`).
-6. The UI layer reads the `CommandResult` and refreshes the display to show only those persons who match the keywords.
+5. A `CommandResult` is returned, containing a success message that indicates how many students were found (e.g., `"X persons listed!"`).
+6. The UI layer reads the `CommandResult` and refreshes the display to show only those students who match the keywords.
 
 <box type="info" seamless>
 
 **Note:** 
-1. The search is case-insensitive, meaning a keyword "alice" will match both "Alice" and "alice" in the person's name.
+1. The search is case-insensitive, meaning a keyword "alice" will match both "Alice" and "alice" in the student's name.
 2. `ListCommand` works similar to the above, but the `Predicate<Person>` is always set to `true`, which makes it display all the contacts by default.
 
 </box>
@@ -349,7 +364,7 @@ Here's the workflow:
 
 #### Implementation
 
-The `SortCommand` is part of the `AddressBookParser` layer and handles searching for persons based on keywords.  
+The `SortCommand` is part of the `AddressBookParser` layer and handles searching for students based on keywords.  
 This operation is executed when the user triggers the `sort` command in the system. <br>
 If identical names are in the contact, the contacts will be sorted using their phone numbers.
 
@@ -359,11 +374,11 @@ Here's the workflow:
 1. The user enters the command `sort asc` or `sort desc`.
 2. In the `execute(Model model)` method of `SortCommand`, the following steps occur:
     - The model is checked to ensure it is not null.
-    - The filtered person list is retrieved via `model.getFilteredPersonList()`.
+    - The filtered student list is retrieved via `model.getFilteredPersonList()`.
     - **Empty List Check:**  
       If the list is empty, the command immediately returns a `CommandResult` with the message `"No contacts to sort."`
     - **Sorting Comparator:**  
-      A comparator is defined that first compares persons by name, and in cases where names are equal, by phone number:
+      A comparator is defined that first compares students by name, and in cases where names are equal, by phone number:
       ```java
       Comparator<Person> comparator = Comparator.comparing(Person::getName)
               .thenComparing(Person::getPhone);
@@ -430,8 +445,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`     | user                                       | remember my last search          | don't need to type it again                                |
 | `*`     | privacy-conscious user                     | hide students' information       | hide sensitive details when others view my screen          |
 | `*`     | privacy-conscious user                     | unhide students' information     | access full contact details when needed                    |
-| `*`     | user with many persons in the address book | search for contacts fuzzily      | find a student even if I do not correctly know their names |
-| `*`     | user with many persons in the address book | the application to load quickly  | access my information without delay                        |
+| `*`     | user with many students in the address book | search for contacts fuzzily      | find a student even if I do not correctly know their names |
+| `*`     | user with many students in the address book | the application to load quickly  | access my information without delay                        |
 
 ### Use cases
 
@@ -439,16 +454,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-#### Use case: Add a person
+#### Use case: Add a student
 
 **MSS**
 
-1. User requests to add a new person by specifying **Name, Phone, Email, Address, Major and Tags(if any)**
+1. User requests to add a new student by specifying **Name, Phone, Email, Address, Major and Tags(if any)**
    (e.g., using `add n/NAME p/PHONE e/EMAIL a/ADDRESS m/MAJOR t/[TAGS]`).
 
 2. CollabSync validates the details (e.g., checks phone format, email format, etc.).
 
-3. CollabSync saves the new person to the address book.
+3. CollabSync saves the new student to the address book.
 
    **Use case ends.**
 
@@ -466,21 +481,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-#### Use case: Delete a person based on index
+#### Use case: Delete a student based on index
 
 **MSS**
 
-1.  User requests to list persons (e.g., using the `list` command).
+1.  User requests to list students (e.g., using the `list` command).
 
-2.  CollabSync shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
+2.  CollabSync shows a list of students with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
 
-3.  User requests to delete a specific person in the list by index (e.g., `delete 3`).
+3.  User requests to delete a specific student in the list by index (e.g., `delete 3`).
 
 4.  CollabSync prompts a popup box to request user to confirm their deletion.
 
 5. User enters the confirm button.
 
-6. CollabSync deletes the person with the given index.
+6. CollabSync deletes the student with the given index.
 
     **Use case ends.**
 
@@ -504,21 +519,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ---
 
 
-#### Use case: Delete person(s) based on tags
+#### Use case: Delete student(s) based on tags
 
 **MSS**
 
-1.  User requests to list persons (e.g., using the `list` command).
+1.  User requests to list students (e.g., using the `list` command).
 
-2.  CollabSync shows a list of persons with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
+2.  CollabSync shows a list of students with their **Name, Phone, Email, Address, Major and Tags(if any)** in an indexed format.
 
-3.  User requests to delete a specific person in the list by the tags (e.g., `delete t/HSA1000`).
+3.  User requests to delete a specific student in the list by the tags (e.g., `delete t/HSA1000`).
 
 4.  CollabSync prompts a popup box to request user to confirm their deletion.
 
 5. User enters the confirm button.
 
-6. CollabSync deletes the person with the given index.
+6. CollabSync deletes the student with the given index.
 
    **Use case ends.**
 
@@ -541,17 +556,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-#### Use case: Edit a person
+#### Use case: Edit a student
 
 **MSS**
 
-1.  User requests to list persons (e.g., using the `list` command).
+1.  User requests to list students (e.g., using the `list` command).
 
-2. CollabSync shows a list of persons.
+2. CollabSync shows a list of students.
 
-3. User requests to edit a specific person.
+3. User requests to edit a specific student.
 
-4. CollabSync updates the details of the person.
+4. CollabSync updates the details of the student.
 
    **Use case ends.**
 
@@ -622,7 +637,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User enters the `hide` command.
 
-2. CollabSync automatically hides the contact details of all persons currently shown in the application, except for **Name and Tags** (if they were displayed previously).
+2. CollabSync automatically hides the contact details of all students currently shown in the application, except for **Name and Tags** (if they were displayed previously).
 
    **Use case ends.**
 
@@ -641,7 +656,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User enters the `unhide` command.
 
-2. CollabSync automatically reveals all the hidden information of the persons currently in the application.
+2. CollabSync automatically reveals all the hidden information of the students currently in the application.
 
    **Use case ends.**
 
@@ -654,20 +669,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-#### Use case: Find a person
+#### Use case: Find a student
 
 **MSS**
 
 1.  User enters a **search term**. (e.g., using `find KEYWORD`).
 
-2.  CollabSync searches for any **matching persons** based on the search term in their
+2.  CollabSync searches for any **matching students** based on the search term in their
     **Name, Phone, Email, Major** and **Tags**.
 
     **Use case ends.**
 
 **Extensions**
 
-* 2a. No matching persons found
+* 2a. No matching students found
     * 2a1. CollabSync informs the user that no results match the search.
 
       **Use case ends.**
@@ -721,7 +736,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2.  Should be able to hold up to 1000 students without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  The product should be for a single user.
 5.  Response to any use action should become visible within 5 seconds.
@@ -791,7 +806,7 @@ Given below are instructions to test the app manually.
    Expected: Student is successfully added to the list. All details are displayed correctly. The contact list updates to show the new student.
 
    1. Test case: `add n/Saitama p/23456789 e/atama@u.nos.edu a/21 Lower Kent Ridge Road m/Sport Science t/friends:trivial t/HDM1000:module` (same as previous test case) <br>
-   Expected: Student not added to the list. UI displays "This person already exists in the address book".
+   Expected: Student not added to the list. UI displays "This student already exists in the address book".
 
    1. Test case: `add John Doe` <br>
    Expected: Student not added to the list. Error details shown in the status message.

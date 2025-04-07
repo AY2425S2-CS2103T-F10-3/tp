@@ -1,0 +1,44 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":EditCommand" as EditCommand SETUP_COLOR
+[-> EditCommand : execute(Model)
+activate EditCommand
+
+participant ":Model" as Model MODEL_COLOR
+EditCommand -> Model : getFilteredPersonList()
+activate Model
+Model --> EditCommand
+deactivate Model
+
+opt is valid index
+EditCommand -> EditCommand : createEditedPerson()
+activate EditCommand
+
+participant ":Person" as Person PERSON_COLOR
+create Person
+EditCommand -> Person
+activate Person
+Person --> EditCommand
+deactivate Person
+
+EditCommand --> EditCommand
+deactivate EditCommand
+end
+
+EditCommand -> Model : setPerson(personToEdit, editedPerson)
+EditCommand <-- Model
+EditCommand -> Model : updateFilteredPersonList()
+EditCommand <-- Model
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+EditCommand -> CommandResult
+activate CommandResult
+CommandResult --> EditCommand
+deactivate CommandResult
+
+[<-- EditCommand
+deactivate EditCommand
+@enduml
