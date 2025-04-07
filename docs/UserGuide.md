@@ -105,8 +105,8 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
 6. [Miscellaneous Information](#miscellaneous-information)
-7. [Additional Guides for Setup](#additional-guides-for-setup)
-8. [Glossary](#glossary)
+    - [Additional Guides for Setup](#additional-guides-for-setup)
+    - [Glossary](#glossary)
 
 ---
 
@@ -542,17 +542,17 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 
 ---
 
-# 📌 Miscellaneous information
+## 📌 Miscellaneous information
 
 ---
 
-## Additional Guides for Setup
+### Additional Guides for Setup
 
 1. Copy the file to the folder you want to use as the _home folder_ for your CollabSync.
     * 1.a. _home folder_ used for this example is `AmazingProduct` , as seen from the image below.
     * 1.b. `CollabSync.jar` is in the `AmazingProduct` folder, as seen from the image below too.
 
-<pic src="images/Guide_1.png"></pic>
+<img alt="guide_1" src="images/Guide_1.png" width="400"/>
 
 2. From the image above, click the red-highlighted box. For this example, the rectangular box contains `OneDrive > Teng .... > Desktop > AmazingProduct `
 
@@ -569,7 +569,7 @@ foo@bar:~$ java -jar CollabSync.jar
 
 ---
 
-## Glossary
+### Glossary
 
 | **Terminology**                       | **Definition**                                                                                                                                                                                            |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
