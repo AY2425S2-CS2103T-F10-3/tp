@@ -288,8 +288,8 @@ You do not need to enter anything else behind `list`.
 * Sorts the contact list in ascending or descending order based on name and phone number.
 * Format: `sort (asc | desc)`
 * For a comprehensive, complete description of the format, refer to the 2 acceptable formats below.
-    - `sort asc ` : to sort persons in ascending order. For persons with same name, ....
-    - `sort desc` : to sort persons in descending order. For persons with same name, ....
+    - `sort asc ` : to sort persons in ascending order by name, followed by phone number.
+    - `sort desc` : to sort persons in descending order by name, followed by phone number.
 
 <div markdown="1" class="alert alert-info">
 
