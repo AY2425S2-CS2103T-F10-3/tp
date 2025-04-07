@@ -30,7 +30,7 @@
   * [Use cases](#use-cases)
     * [Use case: Add a student](#use-case-add-a-student)
     * [Use case: Delete a student based on index](#use-case-delete-a-student-based-on-index)
-    * [Use case: Delete student(s) based on tags](#use-case-delete-students-based-on-tags)
+    * [Use case: Delete student(s) based on tags](#use-case-delete-student-s-based-on-tags)
     * [Use case: Edit a student](#use-case-edit-a-student)
     * [Use case: List all students](#use-case-list-all-students)
     * [Use case: Sort contacts](#use-case-sort-contacts)
