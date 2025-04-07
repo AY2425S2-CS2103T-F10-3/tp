@@ -394,7 +394,7 @@ From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and
 --- 
 
 ## Delete Contact(s)
-* Deletes the specified student(s) from the address book.
+* Deletes the specified student from the currently displayed list.
 * Format: `delete (INDEX | t/TAG [ ,t/TAGS])` , where `TAG` is `TAGNAME:PRIORITY`
 * For a comprehensive, complete description of the format, refer to the 5 acceptable formats below.
   - `delete INDEX ` : to delete a contact by index.
@@ -419,6 +419,16 @@ From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and
 - For any tags with priority, please delete them by **including the priority (if any)**.
 
 </div>
+
+
+<div markdown="1" class="alert alert-success">
+
+:bulb: **Note**
+
+This operates on whatever contacts are currently shown, which may be a filtered subset of all contacts if you've used commands like `find` beforehand.
+
+</div>
+
 
 
 ### Examples:
