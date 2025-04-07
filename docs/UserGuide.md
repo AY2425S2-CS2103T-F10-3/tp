@@ -16,31 +16,31 @@ faster than traditional GUI apps.
 
 This User Guide is structured to help you quickly set up and use **CollabSync** effectively:
 
-- **[Quick Start](#quick-start)**  
+- **[Quick Start](#quick-start)**  🚀  
   *Recommended for first-time users.*  
   Step-by-step instructions to get CollabSync running in minutes.
 
-- **[Table of Contents](#table-of-contents)**  
+- **[Table of Contents](#table-of-contents)**  📖
   *Quickly navigate to any section.*  
   Jump directly to features, commands, or FAQs.
 
-- **[Features](#features)**  
+- **[Features](#features)**  💡 
   *Explore commands in detail.*  
   Learn how to use each command with syntax, examples, and best practices.
 
-- **[FAQ](#faq)**  
+- **[FAQ](#faq)**  ❓
   *Have a question? Start here.*  
   Answers to common usage and installation queries.
 
-- **[Known Issues](#known-issues)**  
+- **[Known Issues](#known-issues)**   ⚠️
   *Troubleshooting help.*  
   Lists current bugs and suggested workarounds.
 
-- **[Command Summary](#command-summary)**  
+- **[Command Summary](#command-summary)**  📝
   *Perfect for quick reference.*  
   A brief overview of all commands syntax and formats.
 
-- **[Miscellaneous Information](#miscellaneous-information)**  
+- **[Miscellaneous Information](#miscellaneous-information)**  📌  
   *Setup notes & definitions.*  
   Additional setup tips and glossary of important terms.
 
@@ -86,7 +86,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 ---
 
-## Table of Contents
+## 📖 Table of Contents
 1. [Quick Start](#quick-start)
 2. [Features](#features)
     - [View Help Window](#view-help-window)
@@ -110,7 +110,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 1. Ensure `Java 17` or above is installed on your computer.
     - If you're unsure whether Java is installed or need installation instructions, click [here](#faq).
@@ -136,7 +136,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
 
 ---
 
-# Features
+# 💡 Features
 
 <div markdown="1" class="alert alert-info">
 
@@ -425,7 +425,8 @@ From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and
 
 :bulb: **Note**
 
-This operates on whatever contacts are currently shown, which may be a filtered subset of all contacts if you've used commands like `find` beforehand.
+- This operates on whatever contacts are currently shown, which may be a filtered subset of all contacts if you've used commands like `find` beforehand.
+- We use a dedicated confirmation feature to ensure users deliberately approve deletion, reducing the risk of accidental data loss. While typing is convenient and favored by many students, it can also lead to unintentional actions. This extra step acts as an essential safeguard against mistakes.
 
 </div>
 
@@ -467,7 +468,7 @@ This operates on whatever contacts are currently shown, which may be a filtered 
 
 - If your changes to the data file make its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
 
-![Example of warning prompt](images/corruptedDataWarning.png)
+<img alt="corrupted Data Warning" src="images/corruptedDataWarning.png" width="400"/>
 
 - Your existing data file will be automatically backed up at `/data/addressbook_old.json`.
 
@@ -489,7 +490,7 @@ This operates on whatever contacts are currently shown, which may be a filtered 
 
 ---
 
-## FAQ
+## ❓ FAQ
 
 **Q**: How do I check my Java Version?<br>
 **A**: Follow these steps: <br>
@@ -514,7 +515,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 
 -----------------------------------------------------------------------------------------------------------------------
 
-## Known Issues
+## ⚠️ Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
@@ -523,7 +524,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 
 -----------------------------------------------------------------------------------------------------------------------
 
-## Command Summary
+## 📝 Command Summary
 
 | **Action** | **Format**                                                                       | **Examples**                                                                                             |
 |------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -541,7 +542,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
 
 ---
 
-# Miscellaneous information
+# 📌 Miscellaneous information
 
 ---
 
