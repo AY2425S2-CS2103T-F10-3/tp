@@ -1,0 +1,30 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":FindCommand" as FindCommand SETUP_COLOR
+[-> FindCommand : execute(Model)
+activate FindCommand
+
+participant ":Model" as Model MODEL_COLOR
+FindCommand -> Model : updateFilteredPersonList(Predicate<Person>)
+activate Model
+Model --> FindCommand
+deactivate Model
+
+participant ":Model" as Model MODEL_COLOR
+FindCommand -> Model : getFilteredPersonList()
+activate Model
+Model --> FindCommand : filteredPersons
+deactivate Model
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+FindCommand -> CommandResult
+activate CommandResult
+CommandResult --> FindCommand
+deactivate CommandResult
+
+[<-- FindCommand
+deactivate FindCommand
+@enduml
