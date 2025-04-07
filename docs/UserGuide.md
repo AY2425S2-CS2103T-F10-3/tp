@@ -116,7 +116,7 @@ Indicates critical warnings or irreversible actions. Always read these carefully
     - If you're unsure whether Java is installed or need installation instructions, click [here](#faq).
     - **For Mac users:** Install the exact JDK version specified [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases/tag/v1.3).
+2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-F10-3/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your CollabSync. Click [here](#additional-guides-for-setup) if you wish to see a pictorial illustration.
 
