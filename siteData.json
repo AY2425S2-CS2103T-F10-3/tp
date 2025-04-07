@@ -74,7 +74,13 @@
         "sorting-students": "Sorting students",
         "editing-a-student": "Editing a Student",
         "deleting-a-student": "Deleting a student",
-        "saving-data": "Saving data"
+        "saving-data": "Saving data",
+        "appendix-effort": "Appendix: Effort",
+        "difficulty-level-for-the-project": "Difficulty Level for the Project",
+        "challenges-faced-for-the-project": "Challenges Faced for the Project",
+        "effort-required-for-the-project": "Effort Required for the Project",
+        "achievements-of-the-project": "Achievements of the Project",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
     },
