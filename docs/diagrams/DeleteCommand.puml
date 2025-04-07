@@ -1,0 +1,73 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":DeleteCommand" as DeleteCommand SETUP_COLOR
+[-> DeleteCommand : execute(Model)
+activate DeleteCommand
+
+participant ":Model" as Model MODEL_COLOR
+participant ":Person" as Person PERSON_COLOR
+
+DeleteCommand -> Model : getFilteredPersonList()
+activate Model
+
+Model --> DeleteCommand : filteredPersons
+deactivate Model
+
+alt valid paramter && user prompt confirm && delete with index
+
+DeleteCommand -> DeleteCommand : deleteWithIndex()
+activate DeleteCommand
+DeleteCommand -> Person : get(index)
+activate Person
+DeleteCommand <-- Person : personToDelete
+deactivate Person
+DeleteCommand -> Model : deletePerson(personToDelete)
+activate Model
+DeleteCommand <-- Model
+deactivate Model
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+DeleteCommand -> CommandResult
+activate CommandResult
+CommandResult --> DeleteCommand
+deactivate CommandResult
+[<-- DeleteCommand
+deactivate DeleteCommand
+
+else valid paramter && user prompt confirm && delete with tags
+
+DeleteCommand -> DeleteCommand : deleteWithTag()
+activate DeleteCommand
+
+loop for each person
+DeleteCommand -> Person : hasTags(tags)
+activate Person
+Person --> DeleteCommand
+deactivate Person
+end
+
+loop for each person with matched tags
+DeleteCommand -> Model : deletePerson(personToDelete)
+activate Model
+DeleteCommand <-- Model
+deactivate Model
+end
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+DeleteCommand -> CommandResult
+activate CommandResult
+CommandResult --> DeleteCommand
+deactivate CommandResult
+[<-- DeleteCommand
+
+deactivate DeleteCommand
+
+end
+
+[<-- DeleteCommand
+deactivate DeleteCommand
+@enduml
