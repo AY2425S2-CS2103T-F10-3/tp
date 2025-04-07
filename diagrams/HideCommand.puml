@@ -14,10 +14,12 @@ Model --> HideCommand : filteredPersons
 deactivate Model
 
 participant ":Person" as Person PERSON_COLOR
+loop for each Person in filteredPersons
 HideCommand -> Person : hideDetails()
 activate Person
 Person --> HideCommand
 deactivate Person
+end
 
 participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
 create CommandResult
