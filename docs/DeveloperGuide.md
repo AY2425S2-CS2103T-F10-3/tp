@@ -5,9 +5,9 @@
 
 # AB-3 Developer Guide
 
-* [Acknowledgements](#acknowledgements)
-* [Setting up, getting started](#setting-up-getting-started)
-* [Design](#design)
+* [**Acknowledgements**](#acknowledgements)
+* [**Setting up, getting started**](#setting-up-getting-started)
+* [**Design**](#design)
   * [Architecture](#architecture)
   * [UI component](#ui-component)
   * [Logic component](#logic-component)
@@ -15,28 +15,38 @@
   * [Storage component](#storage-component)
   * [Setup component](#setup-component)
   * [Common classes](#common-classes)
-* [Implementation](#implementation)
-  * [Backup on corrupt feature](#backup-on-corrupt-feature)
+* [**Implementation**](#implementation)
+  * [Backup on corrupt workflow](#backup-on-corrupt-workflow)
+  * [DeleteCommand workflow](#deletecommand-workflow)
   * [HideCommand workflow](#hidecommand-workflow)
-* [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
-* [Appendix: Requirements](#appendix-requirements)
+* [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+* [**Appendix: Requirements**](#appendix-requirements)
   * [Product scope](#product-scope)
   * [User stories](#user-stories)
   * [Use cases](#use-cases)
-    - [Use case: Add a person](#use-case-add-a-person)
-    - [Use case: Delete a person based on index](#use-case-delete-a-person-based-on-index)
-    - [Use case: Delete person(s) based on tags](#use-case-delete-persons-based-on-tags)
-    - [Use case: Edit a person](#use-case-edit-a-person)
-    - [Use case: List all students](#use-case-list-all-students)
-    - [Use case: Sort contacts](#use-case-sort-contacts)
-    - [Use case: Hide Information](#use-case-hide-information)
-    - [Use case: Unhide Information](#use-case-unhide-information)
-    - [Use case: Find a person](#use-case-find-a-person)
-    - [Use case: Save Data](#use-case-save-data)
-    - [Use case: Clear All Contacts](#use-case-clear-all-contacts)
+    * [Use case: Add a person](#use-case-add-a-person)
+    * [Use case: Delete a person based on index](#use-case-delete-a-person-based-on-index)
+    * [Use case: Delete person(s) based on tags](#use-case-delete-persons-based-on-tags)
+    * [Use case: Edit a person](#use-case-edit-a-person)
+    * [Use case: List all students](#use-case-list-all-students)
+    * [Use case: Sort contacts](#use-case-sort-contacts)
+    * [Use case: Hide Information](#use-case-hide-information)
+    * [Use case: Unhide Information](#use-case-unhide-information)
+    * [Use case: Find a person](#use-case-find-a-person)
+    * [Use case: Save Data](#use-case-save-data)
+    * [Use case: Clear All Contacts](#use-case-clear-all-contacts)
   * [Non-Functional Requirements](#non-functional-requirements)
   * [Glossary](#glossary)
-* [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
+* [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
+  * [Launch and shutdown](#launch-and-shutdown)
+  * [Displaying help window](#displaying-help-window)
+  * [Adding a student](#adding-a-student)
+  * [Listing all students](#listing-all-students)
+  * [Hiding and Unhiding information](#hiding-and-unhiding-information)
+  * [Sorting students](#sorting-students)
+  * [Editing a Student](#editing-a-student)
+  * [Deleting a student](#deleting-a-student)
+  * [Saving data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -196,7 +206,7 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Backup on corrupt feature
+### Backup on corrupt workflow
 
 #### Implementation
 
@@ -219,6 +229,22 @@ Here's the workflow:
 **Note:** The prompt and the backup process are invoked concurrently.
 
 </box>
+
+### DeleteCommand workflow
+
+#### Implementation
+
+The `DeleteCommand` is part of the `AddressBookParser` layer in the application and handles the action of deleting the contact(s). <br>
+
+<puml src="diagrams/DeleteCommand.puml" alt="Delete Command Sequence Diagram" />
+
+Here's the workflow:
+1. The `DeleteCommand` is invoked when the user types the command `delete`. This is handled in the `execute(Model model)` method of the `DeleteCommand` class. The `Model` object, which represents the application's data layer, is passed into the method.
+2. The `DeleteCommand` requests the `Model` to retrieve the filtered list of `Person` objects via the method call `model.getFilteredPersonList()`. This call is made to fetch all the persons that the user has in the current view (filtered according to certain criteria).
+3. Before `DeleteCommand` continues it's execution, `DeleteCommand` will first check the format of the parameters to determine user wants to delete with tags or index.
+4. Next, `DeleteCommand` will prompt user for confirmation before proceed with deletion.
+5. If the command format matches `delete INDEX`, the system invokes `deleteWithIndex()`. This method retrieves the target `Person` object based on the provided index, then calls `deletePerson()` from the `Model` object to remove the person.
+6. If the command format matches `delete t/TAG [ ,t/TAGS]`, the system invokes `deleteWithTag()`. This method filters the `List<Person>` to find entries matching any of the specified tags (using `hasTags()`). Deletes all matched persons by calling `deletePerson()` from the Model object.
 
 ### HideCommand workflow
 
