@@ -27,7 +27,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX =
-        "Index is not blank and it is also not a non-zero unsigned integer (integer must be more than 0"
+        "Index is not blank and it is also a non-zero unsigned integer (integer must be more than 0"
                 + " but less than 2147483648).";
 
     /**
