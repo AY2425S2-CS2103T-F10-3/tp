@@ -945,17 +945,25 @@ Given below are instructions to test the app manually.
 ### Difficulty Level for the Project
 CollabSync was significantly more difficult than the AB3 application. We incorporated new commands and functionalities to suit better our target audience, which were university students. Incorporating newer, but more relevant features such as the refinement of tags with their various levels of priorities, as well as including a new field: "Major" made our project much harder as we had to modify all the other relevant classes, as well as test classes to support these critical features.
 
+
+
 ### Challenges Faced for the Project
-Challenge 1 : Revamping the UI to make our application look more appealing to users through various coloured words and tags.
-Challenge 2 : Addition of the newer features such as the introduction of corrupt data handling for corrupted files.
-Challenge 3 : Intense workload due to a 4-person team.
+- Challenge 1 : Revamping the UI to make our application look more appealing to users through various coloured words and tags.
+- Challenge 2 : Addition of the newer features such as the introduction of corrupt data handling for corrupted files.
+- Challenge 3 : Intense workload due to a 4-person team.
+
+
 
 ### Effort Required for the Project
 - Various, new commands are added while existing commands are refined to better cater to university students more closely for CollabSync.
 - Refactoring of code to ensure our code follows certain principles taught in the CS2103T module: No deep nesting, KISS, SLAP and so on.
 
+
+
 ### Achievements of the Project
 The AB3 application is now refined through the addition of new features, as well as refinement of existing features. University students are more able to effectively and efficiently manage their contacts using CollabSync.
+
+
 
 
 ## **Appendix: Planned Enhancements**
