@@ -468,7 +468,7 @@ From the image, to find **Alex Yeoh**, whose tag has its tagname : `HSA1000` and
 
 - If your changes to the data file make its format invalid, CollabSync will start with an empty data file at the next run. A warning prompt will also appear on your next CollabSync startup.
 
-![Example of warning prompt](images/corruptedDataWarning.png)
+<img alt="corrupted Data Warning" src="images/corruptedDataWarning.png" width="400"/>
 
 - Your existing data file will be automatically backed up at `/data/addressbook_old.json`.
 
