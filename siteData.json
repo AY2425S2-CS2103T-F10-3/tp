@@ -54,6 +54,8 @@
         "backup-on-corrupt-workflow": "Backup on corrupt workflow",
         "deletecommand-workflow": "DeleteCommand workflow",
         "hidecommand-workflow": "HideCommand workflow",
+        "findcommand-workflow": "FindCommand workflow",
+        "sortcommand-workflow": "SortCommand Workflow",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
