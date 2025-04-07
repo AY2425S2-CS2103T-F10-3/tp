@@ -239,9 +239,44 @@ Here's the workflow:
 
 <box type="info" seamless>
 
-**Note:** `UnhideCommand` also follows something similar, but instead of calling `hideDetails()`, the method invoked is `showDetails()`
+**Note:** `UnhideCommand` also follows a similar workflow, but instead of calling `hideDetails()`, the method invoked is `showDetails()`
 
 </box>
+
+#### UI Update Behavior
+
+Below is the frontend update process:
+
+1. **Model State Update:**  
+   After `hideDetails()` is called on each `Person`, the internal `areDetailsVisible` property is set to `false`.
+
+2. **Automatic UI Refresh via Data Binding:**  
+   In the `PersonCard` component, the UI elements (such as phone, email, address, and major) are bound to the person's `detailsVisibleProperty()`. For example:
+   ```java
+   phone.visibleProperty().bind(person.detailsVisibleProperty());
+   phone.managedProperty().bind(person.detailsVisibleProperty());
+
+   address.visibleProperty().bind(person.detailsVisibleProperty());
+   address.managedProperty().bind(person.detailsVisibleProperty());
+
+   email.visibleProperty().bind(person.detailsVisibleProperty());
+   email.managedProperty().bind(person.detailsVisibleProperty());
+
+   major.visibleProperty().bind(person.detailsVisibleProperty());
+   major.managedProperty().bind(person.detailsVisibleProperty());
+   ```
+   With these bindings in place, when `areDetailsVisible` is set to `false`, these labels automatically become invisible and are excluded from layout calculations.
+
+3. **UI Outcome:**
+   As a result, once the `HideCommand` is executed:
+
+    - The UI refreshes automatically.
+
+    - The student’s detailed information (phone, email, address, major) is hidden.
+
+    - Only the basic details (such as the name and tags) remain visible.
+
+    If the user issues an `unhide` command, the `showDetails()` method is invoked, setting `areDetailsVisible` back to `true` and causing the UI to re-render the full details. 
 
 --------------------------------------------------------------------------------------------------------------------
 
