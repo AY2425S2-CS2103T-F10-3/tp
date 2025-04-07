@@ -19,6 +19,8 @@
   * [Backup on corrupt workflow](#backup-on-corrupt-workflow)
   * [DeleteCommand workflow](#deletecommand-workflow)
   * [HideCommand workflow](#hidecommand-workflow)
+  * [FindCommand workflow](#findcommand-workflow)
+  * [SortCommand workflow](#sortcommand-workflow)
 * [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
 * [**Appendix: Requirements**](#appendix-requirements)
   * [Product scope](#product-scope)
@@ -303,6 +305,67 @@ Below is the frontend update process:
     - Only the basic details (such as the name and tags) remain visible.
 
     If the user issues an `unhide` command, the `showDetails()` method is invoked, setting `areDetailsVisible` back to `true` and causing the UI to re-render the full details. 
+
+### FindCommand workflow
+
+#### Implementation
+
+The `FindCommand` is part of the `AddressBookParser` layer and handles searching for persons based on keywords.  
+This operation is executed when the user triggers the `find` command in the system.
+
+<puml src="diagrams/FindCommand.puml" alt="Find Command Sequence Diagram" />
+
+Here's the workflow:
+1. The user types the command `find KEYWORD...`. This is handled in the `execute(Model model)` method of the `FindCommand` class.
+2. The `FindCommand` creates a `PersonContainsKeywordsPredicate` object with the specified keywords.
+3. The `FindCommand` calls `model.updateFilteredPersonList(Predicate<Person>)` to update the filtered list of `Person` objects. This filters out any persons whose names do not match the given keywords.
+4. The `FindCommand` calls `model.getFilteredPersonList()` to get the size of the list displayed.
+5. A `CommandResult` is returned, containing a success message that indicates how many persons were found (e.g., `"X persons listed!"`).
+6. The UI layer reads the `CommandResult` and refreshes the display to show only those persons who match the keywords.
+
+<box type="info" seamless>
+
+**Note:** 
+1. The search is case-insensitive, meaning a keyword "alice" will match both "Alice" and "alice" in the person's name.
+2. `ListCommand` works similar to the above, but the `Predicate<Person>` is always set to `true`, which makes it display all the contacts by default.
+
+</box>
+
+### SortCommand Workflow
+
+#### Implementation
+
+The `SortCommand` is part of the `AddressBookParser` layer and handles searching for persons based on keywords.  
+This operation is executed when the user triggers the `sort` command in the system. <br>
+If identical names are in the contact, the contacts will be sorted using their phone numbers.
+
+<puml src="diagrams/SortCommand.puml" alt="Sort Command Sequence Diagram" />
+
+Here's the workflow:
+1. The user enters the command `sort asc` or `sort desc`.
+2. In the `execute(Model model)` method of `SortCommand`, the following steps occur:
+    - The model is checked to ensure it is not null.
+    - The filtered person list is retrieved via `model.getFilteredPersonList()`.
+    - **Empty List Check:**  
+      If the list is empty, the command immediately returns a `CommandResult` with the message `"No contacts to sort."`
+    - **Sorting Comparator:**  
+      A comparator is defined that first compares persons by name, and in cases where names are equal, by phone number:
+      ```java
+      Comparator<Person> comparator = Comparator.comparing(Person::getName)
+              .thenComparing(Person::getPhone);
+      ```
+    - **Order Adjustment:**  
+      If the command is to sort in descending order (`isAscending` is false), the comparator is reversed.
+    - **Sorting the List:**  
+      The comparator is then passed to the model via `model.sortFilteredPersonList(comparator)`, which reorders the filtered list.
+    - **Result Generation:**  
+      Finally, a new `CommandResult` is created with a message indicating the sort order, e.g., `"Contacts sorted in ascending order."` or `"Contacts sorted in descending order."`
+
+<box type="info" seamless>
+
+**Note:** The sort operation does not modify the underlying data permanently; it only reorders the displayed filtered list in the UI.
+
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
 

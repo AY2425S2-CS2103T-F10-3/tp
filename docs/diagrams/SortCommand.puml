@@ -1,0 +1,30 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":SortCommand" as SortCommand SETUP_COLOR
+[-> SortCommand : execute(Model)
+activate SortCommand
+
+participant ":Model" as Model MODEL_COLOR
+SortCommand -> Model : getFilteredPersonList()
+activate Model
+Model --> SortCommand : filteredPersons
+deactivate Model
+
+participant ":Model" as Model MODEL_COLOR
+SortCommand -> Model : sortFilteredPersonList(Comparator<Person>)
+activate Model
+Model --> SortCommand
+deactivate Model
+
+participant ":CommandResult" as CommandResult COMMAND_RESULT_COLOR
+create CommandResult
+SortCommand -> CommandResult
+activate CommandResult
+CommandResult --> SortCommand
+deactivate CommandResult
+
+[<-- SortCommand
+deactivate SortCommand
+@enduml
