@@ -51,6 +51,8 @@
   * [Editing a Student](#editing-a-student)
   * [Deleting a student](#deleting-a-student)
   * [Saving data](#saving-data)
+* [**Appendix: Effort**](#appendix-effort)
+* [**Appendix: Planned Enhancements**](#appendix-planned-enhancements)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -936,4 +938,30 @@ Given below are instructions to test the app manually.
 
    1. Re-launch the app <br>
    Expected: A pop-up appears showing a warning message. The corrupted `addressbook.json` is backed up to `addressbook_old.json`. The app will continue with an empty list after pressing the 'OK' button.
+
+
+## **Appendix: Effort**
+
+### Difficulty Level for the Project
+CollabSync was significantly more difficult than the AB3 application. We incorporated new commands and functionalities to suit better our target audience, which were university students. Incorporating newer, but more relevant features such as the refinement of tags with their various levels of priorities, as well as including a new field: "Major" made our project much harder as we had to modify all the other relevant classes, as well as test classes to support these critical features.
+
+### Challenges Faced for the Project
+Challenge 1 : Revamping the UI to make our application look more appealing to users through various coloured words and tags.
+Challenge 2 : Addition of the newer features such as the introduction of corrupt data handling for corrupted files.
+Challenge 3 : Intense workload due to a 4-person team.
+
+### Effort Required for the Project
+- Various, new commands are added while existing commands are refined to better cater to university students more closely for CollabSync.
+- Refactoring of code to ensure our code follows certain principles taught in the CS2103T module: No deep nesting, KISS, SLAP and so on.
+
+### Achievements of the Project
+The AB3 application is now refined through the addition of new features, as well as refinement of existing features. University students are more able to effectively and efficiently manage their contacts using CollabSync.
+
+
+## **Appendix: Planned Enhancements**
+- **Refine the warning message for edit** : For edit command, when one enters a large index value, such as `edit 100000000000000` , the warning message does not show `At least one field to edit must be provided.` due to buffer overflow errors. Instead, it shows
+`Invalid command format! [More error message ....]`. It would be good to fix this in future.
+- **Enhanced parameter validation** : Unnecessary parameters provided with commands, such as entering `help 12345`, will trigger a clear warning message that indicates the correct usage. This enhancement ensures that users receive immediate feedback, guiding them to use commands as intended and reducing potential confusion.
+- **Help Window refinement** : As a future enhancement, we plan to implement dedicated help commands for each command entered.
+    For example, `help add` allows users to seek help on the `add` command specifically. This refinement offers users a more detailed, feature-specific guidance on the respective commands. This will make it easier for users to understand and effectively utilize each command, thereby enhancing overall usability and user experience.
 
