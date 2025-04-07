@@ -53,6 +53,7 @@
         "implementation": "Implementation",
         "backup-on-corrupt-workflow": "Backup on corrupt workflow",
         "addcommand-workflow": "AddCommand workflow",
+        "editcommand-workflow": "EditCommand workflow",
         "deletecommand-workflow": "DeleteCommand workflow",
         "hidecommand-workflow": "HideCommand workflow",
         "findcommand-workflow": "FindCommand workflow",
