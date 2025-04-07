@@ -7,7 +7,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.prefixDescriptions;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -37,13 +39,19 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG,
                         PREFIX_MAJOR);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_MAJOR)
-                || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE)
-            );
-        }
+        List<Prefix> requiredPrefixes = List.of(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_MAJOR);
+        List<String> missingDescriptions = requiredPrefixes.stream()
+                .filter(prefix -> !argMultimap.getValue(prefix).isPresent())
+                .map(prefix -> String.format("%s (prefix: \"%s\")", prefixDescriptions.get(prefix), prefix.getPrefix()))
+                .toList();
 
+        if (!missingDescriptions.isEmpty() || !argMultimap.getPreamble().isEmpty()) {
+            String missingFields = String.join(", ", missingDescriptions);
+            String errorMsg = missingDescriptions.isEmpty()
+                    ? String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE)
+                    : "Missing required field(s): " + missingFields;
+            throw new ParseException(errorMsg);
+        }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_MAJOR);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
