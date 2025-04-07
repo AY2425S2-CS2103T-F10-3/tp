@@ -52,6 +52,7 @@
         "common-classes": "Common classes",
         "implementation": "Implementation",
         "backup-on-corrupt-workflow": "Backup on corrupt workflow",
+        "addcommand-workflow": "AddCommand workflow",
         "deletecommand-workflow": "DeleteCommand workflow",
         "hidecommand-workflow": "HideCommand workflow",
         "findcommand-workflow": "FindCommand workflow",
